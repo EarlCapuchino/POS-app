@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
 
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+//front end resources 
+import Homepage from './pages/Homepage';
+
+
+
+//prompts
+//import Error from './prompts/Error'
+//import Success from './prompts/Success';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          POS Final App <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      Nav Bars 
+      <BrowserRouter>
+      <Routes>
+      <Route exact ={true} path="/" element={<Homepage />}/> 
+      </Routes>
+      </BrowserRouter>
+      Footer ©
     </div>
   );
 }
