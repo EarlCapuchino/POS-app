@@ -24,3 +24,25 @@ exports.homepage =  (req, res) =>{ //hompage scree, will check iof there are exi
 
 
 }
+
+exports.login = async (req, res) => {
+//insert login commands
+}
+
+exports.setUpAccount = async (req, res) => {
+//insert set up account commands
+}
+
+exports.addUser = async (req, res) => {
+//insert set up account commands
+}
+
+exports.editUser = async (req, res) => {
+//insert edit user commands
+}
+
+exports.editUserDatabase = async (req, res) => {
+//insert edit user database commands
+}
+
+
