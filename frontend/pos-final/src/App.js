@@ -10,7 +10,7 @@ import SetUpAccount from './pages/accounts/SetUpAccount';
 import AddUser from './pages/accounts/AddUser';
 import EditUser from './pages/accounts/EditUser';
 import Footer from './Design/Footer';
-
+import './App.css'
 //prompts
 //import Error from './prompts/Error'
 //import Success from './prompts/Success';

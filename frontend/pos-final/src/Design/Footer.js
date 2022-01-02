@@ -3,34 +3,32 @@ import './Footer.css'
 
 function Footer() {
   return(
+    
     <div className='footer-container'>
+
       <section className='footer-subscription'>
         <p classname='footer-subscription-heading'>
           <b>
-            LET THERE BE LIGHT
+            POS APP
           </b>
         </p>
         <p classnName='footer-subscription-text'>
-          sadsad
+          All Rights Reserved
         </p>
-        <div className='input-areas'>
-          <form>
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="YourE Email"
-              className='footer-input'
-              />
-          </form>
-        </div>
       </section>
-      <p>
-        <font face='arial' color='red' size="32">LOLOLOL</font>
-        
-      </p>
-
     </div>
   )
 }
 
 export default Footer
+
+//<div className='input-areas'>
+//<form>
+//<input 
+  //type="email" 
+  //name="email" 
+  //placeholder="YourE Email"
+  //className='footer-input'
+  ///>
+//</form>
+//</div>
