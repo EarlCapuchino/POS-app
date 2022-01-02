@@ -17,7 +17,7 @@ import EditUser from './pages/accounts/EditUser';
 function App() {
   return (
     <div className="App">
-      Nav Bars 
+      Kung Ano Man (title)
       <BrowserRouter>
       <Routes>
       <Route exact ={true} path="/" element={<Homepage />}/> 

@@ -152,7 +152,7 @@ exports.addUser = async (req, res) => { //this function is for adding users
 
 }
 
-exports.editUser = async = (req, res) =>{ //catch the errors
+exports.editUser = async (req, res) =>{ //catch the errors
     console.log("Editing Users Page") //the password should not be displayed
     User.find((err, users) => {
         console.log(users)
@@ -161,7 +161,7 @@ exports.editUser = async = (req, res) =>{ //catch the errors
       })
 }
 
-exports.editUserDatabase = async =(req,res) =>{
+exports.editUserDatabase = async (req,res) =>{
 console.log("EDIT user in DATA BASE")
 
 const chosenName = req.body.chosenName //recording previous roles and assignment
