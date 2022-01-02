@@ -9,6 +9,7 @@ import Login from './pages/accounts/Login';
 import SetUpAccount from './pages/accounts/SetUpAccount';
 import AddUser from './pages/accounts/AddUser';
 import EditUser from './pages/accounts/EditUser';
+import Footer from './Design/Footer';
 
 //prompts
 //import Error from './prompts/Error'
@@ -27,7 +28,8 @@ function App() {
       <Route exact ={true} path="/edit-user" element={<EditUser/>}/>
       </Routes>
       </BrowserRouter>
-      Footer ©
+
+      <Footer />
     </div>
   );
 }
