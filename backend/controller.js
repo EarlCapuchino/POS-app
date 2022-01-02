@@ -119,16 +119,77 @@ exports.setUpAccount = async (req, res) =>{ //setup the account
     })
 }
 
-exports.addUser = async (req, res) => {
-//insert set up account commands
+exports.addUser = async (req, res) => { //this function is for adding users
+    console.log("Add user page") 
+    console.log(req.body) 
+    console.log(req.body.password)
+    const pwd = req.body.password
+    const password=(await (bcrypt.hash(pwd, 10)))
+    
+    const newUser = new User({
+        username: req.body.username,
+        email: req.body.email,
+        password: password,
+        role: req.body.role
+    })
+
+    if (req.body.password.length < 8) { //if passwords are less than 8 characters
+		return res.json({
+			status: 'error', error: 'Password should be at least 8 characters'
+		})
+	}
+
+    newUser.save((err) => {
+    if (!err) {
+       res.send({status: 'ok'})
+    }else if(err.code === 11000){
+        return res.json({ status: 'error', error: 'email already in use' })
+    }else{ //this is a prompt for duplicate key 
+        console.log("there is an error") 
+        throw err
+    }
+    })
+
 }
 
-exports.editUser = async (req, res) => {
-//insert edit user commands
+exports.editUser = async = (req, res) =>{ //catch the errors
+    console.log("Editing Users Page") //the password should not be displayed
+    User.find((err, users) => {
+        console.log(users)
+        if (!err) { res.send(users) }
+        else{return res.json( {status:"error",error: "no users to edit"} )} 
+      })
 }
 
-exports.editUserDatabase = async (req, res) => {
-//insert edit user database commands
+exports.editUserDatabase = async =(req,res) =>{
+console.log("EDIT user in DATA BASE")
+
+const chosenName = req.body.chosenName //recording previous roles and assignment
+const chosenRole = req.body.chosenRole //of new roles to be updated in the data base
+const previousRole = req.body.previousRole
+
+User.countDocuments({role: 'Admin'}, function(err, count) {
+//count will represent the number of admins
+
+    if ((count==1) && (previousRole == "Admin") && (chosenRole != "Admin")) {//checking if the sole admin will remove their admin status
+        console.log("there should be at least one admin!")
+        return res.json( {status: 'error', error: 'There should be atleast one admin!'})
+
+    } else{ //if there are no errors, proceed here
+        User.findOneAndUpdate(
+            {username: chosenName},  //find the username
+            { role: chosenRole,
+            },function(err, res) {
+                if (err){
+                    console.log("ERROR UPDATE")
+                }else{
+                console.log("Role successfully changed!");
+                }
+            })
+    }
+})
+
+
 }
 
 
