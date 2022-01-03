@@ -1,0 +1,20 @@
+#mmessage{
+  padding: 50px;
+  position: static;
+  bottom: 320px;
+  color:rgba(255, 255, 255, 1);
+}
+
+#maindiv1{
+  width:100%;
+  Height:500px;
+  margin-top: 110px;
+  background-color: rgba(224, 163, 112, 1);
+}
+
+#Divider{
+  width:10px;
+  height: 200px;
+  position: static;
+  background-color:rgb(2, 2, 2);
+}
