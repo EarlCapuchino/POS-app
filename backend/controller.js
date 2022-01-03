@@ -15,6 +15,8 @@ const fs = require('fs');
 var privateKey = fs.readFileSync('./keys/private.key','utf8'); //rsa keys 1024 bits
 var publicKey = fs.readFileSync('./keys/public.key','utf8');
 
+//prompts
+let MESSAGE ='DEFAULT'
 exports.homepage = async (req, res) => { //hompage scree, will check iof there are existing users or none
     console.log("HOMEPAGE")
     User.findOne((err, users) => { //check if a user exists, //if no user, go to setup account //if there are users 
@@ -429,4 +431,10 @@ exports.viewTransactions = (req, res, next) => {
         if (!err) { res.send(transactions) } 
       })
    
+}
+
+//prompts
+exports.prompt = (req, res)=>{
+    console.log("pumuntA")
+    return res.json({status: MESSAGE})
 }

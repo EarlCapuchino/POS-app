@@ -40,4 +40,7 @@ module.exports = (app) => {
     //transactions
     app.post('/add-transaction', controller.addTransaction)
     app.get('/view-transactions', controller.viewTransactions)
+
+    //prompts
+    app.get("/prompt", controller.prompt)
   }
