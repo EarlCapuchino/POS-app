@@ -41,17 +41,18 @@ class AddProduct extends React.Component {
         const {name, price, stock} = this.state
         return(
             <div>
-                <div class= "div2">
-                    <font text-size="100" color= "black" align = "center" face = "Caslon" text-align = "center">
-                    <div class = "div3">
-                        <h2>Add Items in Inventory</h2> <br></br>
+                <div>
+                    <div>
+                        <font size="1000" color= "black" align = "center" text-align = "center">
+                        Add Items in Inventory
+                        </font>
                     </div>
-                    </font>
+                    
                 </div>
                 <br></br>
                 <form onSubmit={this.submitHandler}>
                     <div class = "div">
-                        <font text-size="30" color= "black" align = "center" face = "Caslon" text-align = "center">
+                        <font color= "white" align = "center" text-align = "center">
                         Product Name<br></br>
                         </font>
                         <input type="text" 
@@ -60,7 +61,7 @@ class AddProduct extends React.Component {
                         onChange={this.changeHandler}></input>
                     </div>
                     <div class = "div">
-                        <font text-size="30" color= "black" align = "center" face = "Caslon" text-align = "center">
+                        <font color= "white" align = "center" text-align = "center">
                         Price<br></br>
                         </font>
                         <input type="number" 
@@ -69,7 +70,7 @@ class AddProduct extends React.Component {
                         onChange={this.changeHandler}></input>
                     </div>
                     <div class = "div">
-                        <font text-size="30" color= "black" align = "center" face = "Caslon" text-align = "center">
+                        <font color= "white" align = "center" text-align = "center">
                         Stock<br></br>
                         </font>
                         <input 
