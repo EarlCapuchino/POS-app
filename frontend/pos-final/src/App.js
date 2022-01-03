@@ -11,6 +11,7 @@ import Login from './pages/accounts/Login';
 import SetUpAccount from './pages/accounts/SetUpAccount';
 import AddUser from './pages/accounts/AddUser';
 import EditUser from './pages/accounts/EditUser';
+import Dashboard from './pages/Dashboard';
 
 ///product
 import AddProduct from './pages/product/AddProduct'
@@ -25,8 +26,8 @@ import Footer from './Design/Footer';
 import './App.css'
 
 //prompts
-//import Error from './prompts/Error'
-//import Success from './prompts/Success';
+import Error from './prompts/Error';
+import Success from './prompts/Success';
 
 function App() {
   return (
@@ -46,6 +47,11 @@ function App() {
 
       <Route exact ={true} path="/add-transaction" element={<AddTransaction/>}/>
       <Route exact ={true} path="/view-transactions" element={<ViewTransaction/>}/>
+
+      <Route exact ={true} path="/success" element={<Success/>}/>
+      <Route exact ={true} path="/error" element={<Error/>}/>
+
+      <Route exact ={true} path="/dashboard" element={<Dashboard/>}/>
       </Routes>
       </BrowserRouter>
 
