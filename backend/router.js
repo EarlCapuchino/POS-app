@@ -1,7 +1,8 @@
 const controller = require('./controller');
 const cookieParser = require('cookie-parser');
-
+var cors = require('cors');
 module.exports = (app) => {
+  app.use(cors())
     // Allow Cross Origin Resource Sharing
     //This will ensure that the database is shared among
     //all the parts of the backend
@@ -29,4 +30,17 @@ module.exports = (app) => {
     app.post('/add-user', controller.addUser)
     app.get("/edit-user", controller.editUser)
     app.post("/edit-user", controller.editUserDatabase)
+
+    //products
+    app.post('/add-product', controller.addItemInventory)
+    app.get('/view-inventory', controller.viewInventory)
+    app.post('/edit-product', controller.editItemInventory)
+    app.post('/delete-product', controller.deleteProduct)
+
+    //transactions
+    app.post('/add-transaction', controller.addTransaction)
+    app.get('/view-transactions', controller.viewTransactions)
+
+    //prompts
+    app.get("/prompt", controller.prompt)
   }
