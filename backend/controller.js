@@ -356,3 +356,77 @@ exports.deleteProduct = (req,res) =>{
 
 
 }
+
+/////////////////////////// TRANSACTIONS /////////////////////////////////////
+exports.addTransaction =(req,res,next) => {
+    //does not need any filter as 
+    //any role can make transactions
+    let token = req.body.cookies;
+    let decoded = jwt.decode(token, {complete: true}); //decodes the token first
+    console.log(decoded.payload.username)
+    if (!decoded.payload){
+        MESSAGE="Login credentials failed"
+        return res.json({status: 'error'})
+    }else{
+        let vendor = decoded.payload.username
+    
+
+    let product =[]
+    console.log(req.body.purchased.length)
+    for (var i = 0; i< req.body.purchased.length;i++){
+    //     //find ID
+    //     //check if the stock is MORE THAN the quanitty demand
+    //     //this will be modified in the front end
+    //     //make sure that the max number of q in 
+    //     //the respectic=ve html forms are limited
+    //     //-> dont include
+
+         var item={
+             productID: req.body.purchased[i]._id,
+             productName: req.body.purchased[i].name,
+             productPrice: req.body.purchased[i].price,
+             productQuantity: req.body.purchased[i].quantity,
+         }
+         
+        Product.findOneAndUpdate( //find the ID and subtract the quantity in inventory
+         {_id: item.productID},
+         { $inc:{stock:-(item.productQuantity)}},
+        {returnNewDocument: true}
+       ).then(updatedDocument => {
+        if(updatedDocument) {
+         console.log("success")
+        } else {
+          console.log("No document matches the provided query.")
+        }
+        })
+        .catch(err => console.error(`Failed to find and update document: ${err}`))
+        product=[...product,item]
+    }
+        const newTransaction = new Transaction({ //new transaction created
+            vendor: vendor,
+            products: product,
+            amountToBePaid: req.body.total,
+            status: "paid"
+        })
+        console.log(newTransaction)
+      
+        newTransaction.save((err) => { //saved in the data base
+          if (!err) { 
+            MESSAGE="Transaction has been recorded" 
+            return res.json({status: "ok"})
+         }else {
+         MESSAGE = err.toString()
+         return res.json({status: "invalid"}) }
+        })
+        console.log("save")
+    }
+    
+}
+
+exports.viewTransactions = (req, res, next) => {
+    console.log("on view transactions")
+    Transaction.find((err, transactions) => {
+        if (!err) { res.send(transactions) } 
+      })
+   
+}

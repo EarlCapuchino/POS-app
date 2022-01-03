@@ -17,6 +17,9 @@ import AddProduct from './pages/product/AddProduct'
 import EditProduct from './pages/product/EditProduct'
 import Inventories from './pages/product/Inventories'
 
+//transaction
+import AddTransaction from './pages/transactions/AddTransaction';
+import ViewTransaction from './pages/transactions/ViewTransaction';
 //props
 import Footer from './Design/Footer';
 import './App.css'
@@ -40,6 +43,9 @@ function App() {
       <Route exact ={true} path="/add-product" element={<AddProduct/>}/>
       <Route exact ={true} path="/edit-product" element={<EditProduct/>}/>
       <Route exact ={true} path="/inventory" element={<Inventories/>}/>
+
+      <Route exact ={true} path="/add-transaction" element={<AddTransaction/>}/>
+      <Route exact ={true} path="/view-transactions" element={<ViewTransaction/>}/>
       </Routes>
       </BrowserRouter>
 
