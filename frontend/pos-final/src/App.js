@@ -14,6 +14,7 @@ import EditUser from './pages/accounts/EditUser';
 
 ///product
 import AddProduct from './pages/product/AddProduct'
+import EditProduct from './pages/product/EditProduct'
 
 //props
 import Footer from './Design/Footer';
@@ -35,6 +36,7 @@ function App() {
       <Route exact ={true} path="/edit-user" element={<EditUser/>}/>
 
       <Route exact ={true} path="/add-product" element={<AddProduct/>}/>
+      <Route exact ={true} path="/edit-product" element={<EditProduct/>}/>
       </Routes>
       </BrowserRouter>
 

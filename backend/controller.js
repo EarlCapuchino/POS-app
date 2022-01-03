@@ -29,6 +29,8 @@ exports.homepage = async (req, res) => { //hompage scree, will check iof there a
     });
 }
 
+/////////////////////////// ACCOUNTS /////////////////////////////////////
+
 exports.login = async (req, res) => { //login for the app
     //CHANGE THE IMPLEMENTATION OF THIS
     console.log("LOGIN BACKEND")
@@ -196,7 +198,7 @@ User.countDocuments({role: 'Admin'}, function(err, count) {
 
 }
 
-
+/////////////////////////// PRODUCTS /////////////////////////////////////
 exports.addItemInventory = (req, res) => {
   
     console.log("add item inventory=========");
@@ -252,3 +254,105 @@ exports.addItemInventory = (req, res) => {
      
  }
 
+ exports.viewInventory = (req, res, next) => {
+
+    console.log('on view items')
+    Product.find((err, products) => {
+        if (!err) { res.send(products) } //sending the products on front-end
+      })
+   
+}
+
+exports.editItemInventory = (req, res, next) => {
+    console.log("on edit items")
+    console.log(req.body)
+    const token = req.body.cookies
+
+    editProduct = (req) => {
+
+    Product.findOneAndUpdate(
+        {_id: req.body.s_id}, 
+        { name: req.body.s_name,
+          price: req.body.s_price,
+          stock: req.body.s_stock
+        }, (err) =>{
+            if (err){
+                MESSAGE = "Error in editing"
+                res.json({status:'invalid'})
+            }else{
+            console.log("1 document updated");
+            MESSAGE = req.body.s_name + " sucessfully edited"
+            res.json({status: 'ok'})
+            }
+        })
+    }
+    
+
+       //VERIFY FIRST IF LOGGED IN AND TOKENS ARE NOT TAMPERED
+       if (token) {
+        var decoded = jwt.decode(token, {complete: true});
+        console.log("\n Docoded Token: " + JSON.stringify( decoded.payload.email));
+       
+        var verification = { //verification credentials
+            issuer :  "capuPOSapp",
+            subject:  decoded.payload.email, //checks the jwt's email property
+            audience:"http://localhost:3000",
+            maxAge: "24h",
+            algorithms: ["RS256"] //refer to login credentials
+        };
+        jwt.verify(token, publicKey, verification, async (err, decoded) => {
+          if (err) { //there might have been suspicious changes in the tokens
+            MESSAGE = "Verification error" 
+            return res.json({status:"invalid"})
+          } else {
+            console.log("\n Verified: " + JSON.stringify(decoded));
+            if (decoded.role == "Staff" ||decoded.role == "Admin" ){
+                editProduct(req) //verification is successful 
+            }
+            
+          }
+        });
+      } else { //there are no tokens provided, not logged in
+        MESSAGE = "Unauthorized access!" 
+        return res.json({status:"error"})
+      }
+      //END OF VERIFICATION PROCESS
+   
+}
+
+exports.deleteProduct = (req,res) =>{
+
+    console.log("=== Delete Product ====")
+    console.log(req.body.deleteID);
+    console.log(req.body.delName);
+
+    deleteItem = (req) =>{
+    Product.deleteOne({_id: req.body.deleteID},
+        function(err, del){
+            if (err){MESSAGE ="cannot delete "+ err.toString()
+            res.json({status: "invalid"})
+        }
+            else{ MESSAGE = req.body.delName+ " successfully deleted"
+            res.json({status:"ok"})}
+        })
+    }
+
+    Transaction.findOne({'products': {$elemMatch: {productName: req.body.delName}}}, function (err, productName) {
+
+        if (err){ //error in finding the product
+            MESSAGE= "cannot delete the product, try again"
+            return res.json({status: "invalid"});
+        }    
+
+        if (productName) { // the product cannot be deleted due to existing transactions
+        MESSAGE = "cannot delete "+ req.body.delName +" the product has existing transactions already " 
+        return res.json({status: "invalid"});
+        }else{ //can be deleted
+            MESSAGE = req.body.delName + " successfully deleted!"
+            deleteItem(req);
+        }
+
+    });
+
+
+}

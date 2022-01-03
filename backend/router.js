@@ -33,4 +33,7 @@ module.exports = (app) => {
 
     //products
     app.post('/add-product', controller.addItemInventory)
+    app.get('/view-inventory', controller.viewInventory)
+    app.post('/edit-product', controller.editItemInventory)
+    app.post('/delete-product', controller.deleteProduct)
   }
