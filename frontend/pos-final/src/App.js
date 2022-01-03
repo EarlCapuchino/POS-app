@@ -23,6 +23,7 @@ import AddTransaction from './pages/transactions/AddTransaction';
 import ViewTransaction from './pages/transactions/ViewTransaction';
 //props
 import Footer from './Design/Footer';
+import Header from './Design/Header';
 import './App.css'
 
 //prompts
@@ -32,7 +33,7 @@ import Success from './prompts/Success';
 function App() {
   return (
     <div className="App">
-      Kung Ano Man (title)
+      <Header/>
       <BrowserRouter>
       <Routes>
       <Route exact ={true} path="/" element={<Homepage />}/> 
@@ -54,7 +55,126 @@ function App() {
       <Route exact ={true} path="/dashboard" element={<Dashboard/>}/>
       </Routes>
       </BrowserRouter>
-
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
+      <p>sadasdadasd</p>
+      <div></div>
       <Footer />
     </div>
   );
