@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import './prod.css'
 
 class AddProduct extends React.Component {
     constructor(props){
@@ -40,26 +41,37 @@ class AddProduct extends React.Component {
         const {name, price, stock} = this.state
         return(
             <div>
-                <h1>
-                    Add Items in Inventory
-                </h1>
+                <div class= "div2">
+                    <font text-size="100" color= "black" align = "center" face = "Caslon" text-align = "center">
+                    <div class = "div3">
+                        <h2>Add Items in Inventory</h2> <br></br>
+                    </div>
+                    </font>
+                </div>
+                <br></br>
                 <form onSubmit={this.submitHandler}>
-                    <div>
-                        <label>Product Name</label>
+                    <div class = "div">
+                        <font text-size="30" color= "black" align = "center" face = "Caslon" text-align = "center">
+                        Product Name<br></br>
+                        </font>
                         <input type="text" 
                         name="name" 
                         value={name}
                         onChange={this.changeHandler}></input>
                     </div>
-                    <div>
-                        <label>Price</label>
+                    <div class = "div">
+                        <font text-size="30" color= "black" align = "center" face = "Caslon" text-align = "center">
+                        Price<br></br>
+                        </font>
                         <input type="number" 
                         name="price" 
                         value={price} 
                         onChange={this.changeHandler}></input>
                     </div>
-                    <div>
-                        <label>Stock</label>
+                    <div class = "div">
+                        <font text-size="30" color= "black" align = "center" face = "Caslon" text-align = "center">
+                        Stock<br></br>
+                        </font>
                         <input 
                         type="number" 
                         name="stock" 
