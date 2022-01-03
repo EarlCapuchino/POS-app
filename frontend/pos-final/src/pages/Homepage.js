@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './Homepage.css'
 
 class Homepage extends React.Component{
     pageSetUp(){
@@ -22,8 +22,12 @@ class Homepage extends React.Component{
     render(){
         return(
             <>
-                <h2>Welcome to Homepage</h2>
-                
+            <div id="maindiv1">
+            <div id="Divider"></div>
+            <div id="mmessage">
+                <h1><b>Welcome to Homepage</b></h1>
+                </div>
+                </div>
             </>
         )
     }
