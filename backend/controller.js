@@ -15,9 +15,8 @@ const fs = require('fs');
 var privateKey = fs.readFileSync('./keys/private.key','utf8'); //rsa keys 1024 bits
 var publicKey = fs.readFileSync('./keys/public.key','utf8');
 
-exports.homepage =  (req, res) =>{ //hompage scree, will check iof there are existing users or none
+exports.homepage = async (req, res) => { //hompage scree, will check iof there are existing users or none
     console.log("HOMEPAGE")
-
     User.findOne((err, users) => { //check if a user exists, //if no user, go to setup account //if there are users 
         if (users!=null){ 
             console.log("user exist")
@@ -28,8 +27,6 @@ exports.homepage =  (req, res) =>{ //hompage scree, will check iof there are exi
             return res.send({status: "empty"}) //no users, proceed to set up inital account withy the user being the admin
         }
     });
-
-
 }
 
 exports.login = async (req, res) => { //login for the app
