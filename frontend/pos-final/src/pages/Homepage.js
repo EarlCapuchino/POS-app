@@ -34,23 +34,30 @@ class Homepage extends React.Component{
             
 
             <div id="maindiv2">
-            <div id="Divider2"></div>
+            <div id="Divider3"></div>
             <b><div id="picturebox"><div id="picture1"><div id="title1">
-            <p>Capuchino, Earl:</p><p>Team Head</p>
+            <p>Ramos, Adryan:</p><p>Back End</p>
             </div></div></div>
-
             <div id="picturebox1"><div id="picture2"><div id="title2">
-            <p>Manalo, Ysrael:</p><p>Front End Developer</p>
+            <p>Manalo, Ysrael:</p><p>Front End</p>
             </div></div></div>
             <div id="picturebox2"><div id="picture3"><div id="title3">
-            <p>Fuertes, Julian:</p><p>Database Developer</p>
+            <p>Fuertes, Julian:</p><p>Database</p>
             </div></div></div>
             <div id="picturebox3"><div id="picture4"><div id="title4">
-            <p>Ramos, Adryan:</p><p>Back End Developer</p>
+            <p>Capuchino, Earl:</p><p>Team Head</p>
             </div></div></div></b>
             </div>
             
-                
+            <div id="maindiv3">
+            <div id="Divider4"></div>
+            <div id="mmessage1">
+                <b>About Us</b>
+                </div>
+            <div id="text1">
+                We are a team of students from CMSC 100: Web Programming. Currently, we are made of 4 members, 3 of which came from institute of statistics, and the last one came from the institute of computer science, either on sophomore or junior standing.
+            </div>
+            </div>
             </>
         )
     }
