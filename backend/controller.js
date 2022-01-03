@@ -8,6 +8,13 @@ const {User} = require('./models/user')
 const {Product} = require('./models/product')
 const {Transaction} = require('./models/transaction')
 
+//cookies and security
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+const fs = require('fs');
+var privateKey = fs.readFileSync('./keys/private.key','utf8'); //rsa keys 1024 bits
+var publicKey = fs.readFileSync('./keys/public.key','utf8');
+
 exports.homepage =  (req, res) =>{ //hompage scree, will check iof there are existing users or none
     console.log("HOMEPAGE")
 
