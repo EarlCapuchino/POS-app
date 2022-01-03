@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import {Button, Table, Badge} from "react-bootstrap";
 import Cookies from 'js-cookie'
+import './transaction.css'
 
 
 class AddTransaction extends React.Component{
@@ -17,11 +18,14 @@ class AddTransaction extends React.Component{
     
     display() {
         return(
-        <Table striped bordered hover>
+        <Table striped bordered hover bgcolor="#dadfeb">
         <thead>
             <tr>
-                <th>#</th><th>product</th><th>price</th><th>qty</th><th>amount</th>
-                <th></th>
+                <th>#</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Amount</th>
             </tr>
         </thead>
         <tbody>
@@ -145,12 +149,13 @@ class AddTransaction extends React.Component{
     render() {
         return (
             <div>
+                <br></br><br></br><br></br><br></br><br></br>
                 <h1>ADD TRANSACTION</h1>
             
                 <Button variant="dark">Product
                            {" "}<Badge pill bg="warning">stock</Badge>
                 </Button><br/>
-                <h2>select product to purchase</h2>
+                <h2>Select product to purchase:</h2>
                  {
                  this.state.products.map((product, i)=>{
                             return(
@@ -173,7 +178,7 @@ class AddTransaction extends React.Component{
                {this.display()}
             
 
-                <Table striped bordered hover>
+                <Table striped bordered hover bgcolor="#dadfeb">
                 <thead>
                     <tr>
                         <th>Total: ₱</th><th>{this.state.total}</th>

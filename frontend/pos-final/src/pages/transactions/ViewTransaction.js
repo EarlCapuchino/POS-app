@@ -1,4 +1,5 @@
 import React from 'react'
+import './transaction.css'
 
 
 class ViewTransaction extends React.Component{
@@ -37,8 +38,9 @@ class ViewTransaction extends React.Component{
     
     render(){
         return(
-            <>
-                <h2>Transactions Page</h2>
+            <div>
+                <br></br><br></br><br></br><br></br><br></br>
+                <h1>TRANSACTIONS PAGE</h1>
                
         
                 {
@@ -53,7 +55,7 @@ class ViewTransaction extends React.Component{
                             )
                         })
                     }
-            </>
+            </div>
         )
     }
 }
