@@ -1,3 +1,4 @@
+
 #mmessage{
 
   width:25%;
@@ -37,7 +38,7 @@
   align-content: center;
 }
 
-/*second divider*/
+/*second divider color change only*/
 #maindiv2{
   width:100%;
   Height:500px;
@@ -52,6 +53,17 @@
   bottom: -10%;
   left: 30%;
 }
+
+/*third Divider type*/
+#Divider3{
+  width:10px;
+  height: 400px;
+  position: relative;
+  background-color:rgb(255, 255, 255);
+  bottom: -10%;
+  left: 74%;
+}
+
 
 /*pictures*/
 #picturebox{
@@ -71,7 +83,7 @@
   width: 20%;
   position: relative;
   bottom: 150%;
-  left: 32.5%;
+  left: 30%;
 }
 #picturebox2{
   border-radius: 10%;
@@ -80,7 +92,7 @@
   width: 20%;
   position: relative;
   bottom: 230%;
-  left: 54.5%;
+  left: 52%;
 }
 #picturebox3{
   border-radius: 10%;
@@ -92,7 +104,7 @@
   left: 76.5%;
 }
 
-#picture1{
+#picture4{
   border-radius: 10%;
   background-image: url("https://cdn3.vectorstock.com/i/1000x1000/97/32/man-silhouette-profile-picture-vector-2139732.jpg");
   background-repeat: no-repeat;
@@ -165,7 +177,7 @@
   left: 5%;
   color:black;
 }
-#picture4{
+#picture1{
   border-radius: 10%;
   background-image: url("https://cdn.discordapp.com/attachments/759381457893982219/927569251391389756/31131621_1943760578968521_1460358008138629120_n.png");
 
@@ -194,4 +206,45 @@ p
 {
   margin:0;
   padding:0;
+}
+
+
+/*about us*/
+#mmessage1{
+
+  width:100%;
+  position: relative;
+  bottom: -5%;
+  left:0%;
+  text-align: center;
+  color:rgba(255, 255, 255, 1);
+  font-size: 55px ;
+  
+}
+
+#maindiv3{
+  width:100%;
+  Height:700px;
+  background-color: rgba(161, 107, 86, 0.9);
+}
+
+#Divider4{
+  width:40%;
+  height: 10px;
+  position: relative;
+  align-content: center;
+  background-color:rgb(2, 2, 2, 0.9);
+  bottom: -20%;
+  left: 30%;
+}
+
+#text1{
+  width:60%;
+  height: 50%;
+  position: relative;
+  bottom:-10%;
+  left: 20%;
+  text-align: left;
+  font-size: 30px ;
+  align-content: center;
 }
