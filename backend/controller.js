@@ -197,3 +197,58 @@ User.countDocuments({role: 'Admin'}, function(err, count) {
 }
 
 
+exports.addItemInventory = (req, res) => {
+  
+    console.log("add item inventory=========");
+    const token = req.body.cookies
+    console.log(token)
+ 
+    addProduct = (req, decoded) =>{
+     const newProduct = new Product({
+             name: req.body.name,
+             price: req.body.price,
+             stock: req.body.stock,
+             addedBy: decoded.username
+         })
+       
+         newProduct.save((err) => {
+           if (!err) { 
+               MESSAGE="Product successfully added on the list"
+               res.json({status: "ok"})
+             }
+           else {
+             MESSAGE= "Error in saving the product"
+             res.json({status: "invalid"}) }
+         })
+     }
+     
+     //VERIFY FIRST IF LOGGED IN AND TOKENS ARE NOT TAMPERED
+     if (token) {
+         var decoded = jwt.decode(token, {complete: true});
+         console.log("\n Docoded Token: " + JSON.stringify( decoded.payload.email));
+        
+         var verification = { //verification credentials
+             issuer :  "capuPOSapp",
+             subject:  decoded.payload.email, //checks the jwt's email property
+             audience:"http://localhost:3000",
+             maxAge: "24h",
+             algorithms: ["RS256"] //refer to login credentials
+         };
+         jwt.verify(token, publicKey, verification, async (err, decoded) => {
+           if (err) { //there might have been suspicious changes in the tokens
+             MESSAGE = "Verification error" 
+             return res.json({status:"invalid"})
+           } else {
+            
+             console.log("\n Verified: " + JSON.stringify(decoded));
+             addProduct(req, decoded) //verification is successful 
+           }
+         });
+       } else { //there are no tokens provided, not logged in
+         MESSAGE = "Unauthorized access!" 
+         return res.json({status:"error"})
+       }
+       //END OF VERIFICATION PROCESS
+     
+ }
+
