@@ -27,3 +27,10 @@
       font-style: Arial;
       font-display: Times;
   }
+  
+  #Divider{
+    width:10px;
+    height: 200px;
+    position: static;
+    background-color:rgb(2, 2, 2);
+  }

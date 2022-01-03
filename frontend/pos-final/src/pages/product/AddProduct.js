@@ -40,8 +40,10 @@ class AddProduct extends React.Component {
     render(){
         const {name, price, stock} = this.state
         return(
+
             <div>
                 <div>
+                <div id="Divider"></div>
                     <div>
                         <font size="1000" color= "black" align = "center" text-align = "center">
                         Add Items in Inventory
