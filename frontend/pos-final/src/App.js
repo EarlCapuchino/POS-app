@@ -15,10 +15,12 @@ import EditUser from './pages/accounts/EditUser';
 ///product
 import AddProduct from './pages/product/AddProduct'
 import EditProduct from './pages/product/EditProduct'
+import Inventories from './pages/product/Inventories'
 
 //props
 import Footer from './Design/Footer';
 import './App.css'
+
 //prompts
 //import Error from './prompts/Error'
 //import Success from './prompts/Success';
@@ -37,6 +39,7 @@ function App() {
 
       <Route exact ={true} path="/add-product" element={<AddProduct/>}/>
       <Route exact ={true} path="/edit-product" element={<EditProduct/>}/>
+      <Route exact ={true} path="/inventory" element={<Inventories/>}/>
       </Routes>
       </BrowserRouter>
 
