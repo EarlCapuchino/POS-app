@@ -151,8 +151,16 @@ class EditProduct extends React.Component{
         return(
             <>
 
-                <h2>Edit Item</h2>
+            <font color = "black">
+                <h1>Edit Item</h1>
+                <br>
+                </br>
+                <br>
+                </br>
+                <div class= "div2">
                 <h3>Click the ID</h3>
+                </div>
+                </font>
                 {this.state.delName}
 
                 {
@@ -178,30 +186,41 @@ class EditProduct extends React.Component{
                             )
                         })
                 }
+                <div class = "div2">
+                    <font color = "black">
                 <h2>Delete item</h2>
+                </font>
+                </div>
+                <br></br>
                 {this.state.delName}
                 <Button variant="outline-info"
                 onClick={this.delPost}>submit deletion</Button>
+                <br></br>
+                <br></br>
 
-                  <h2>Edit item</h2>
+                <div class = "div2">
+                    <font color = "black">
+                  <h2>Edit Item</h2>
+                  </font>
+                  </div>
                   <h4>{this.state.s_name}</h4>
                  <form onSubmit={this.submitHandler}>
-                    <div>
+                    <div class = "div">
                         <label>change product name</label>
                         <input type="text"
                         name="name"
                         value={this.state.s_name}
                         onChange={this.change_s_name}></input>
                     </div>
-                    <div>
-                        <label>change price: </label>
-                        ₱<input type="number"
+                    <div class= "div">
+                        <label>change price: (Php)</label>
+                        <input type="number"
                         name="name"
                         value={this.state.s_price}
                         onChange={this.change_s_price}
                         ></input>
                     </div>
-                    <div>
+                    <div class = "div">
                         <label>change stock</label>
                         <input
                         type="number"
