@@ -35,9 +35,11 @@ function App() {
     <div className="App">
       <video src="https://cdn.discordapp.com/attachments/759381457893982219/927813921358876682/Backeng.mp4" autoplay="autoplay" loop="loop" muted id="video">
       </video>
+      <div id = "fix">   </div>
       <Header/>
       <BrowserRouter>
       <Routes>
+
       <Route exact ={true} path="/" element={<Homepage />}/> 
       <Route exact ={true} path="/login" element={<Login />}/>
       <Route exact ={true} path="/set-up-account" element={<SetUpAccount />}/>
@@ -55,6 +57,7 @@ function App() {
       <Route exact ={true} path="/error" element={<Error/>}/>
 
       <Route exact ={true} path="/dashboard" element={<Dashboard/>}/>
+ 
       </Routes>
       </BrowserRouter>
       <Footer />
