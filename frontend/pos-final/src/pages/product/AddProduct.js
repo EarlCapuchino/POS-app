@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import jwt from 'jwt-decode' 
 import './prod.css'
 
 class AddProduct extends React.Component {
@@ -11,7 +12,8 @@ class AddProduct extends React.Component {
             name: '',
             price:'',
             stock:'',
-            cookies: Cookies.get('jwt')
+            cookies: Cookies.get('jwt'),
+            dec: jwt(Cookies.get('jwt'))
         }
       
 
@@ -83,6 +85,7 @@ class AddProduct extends React.Component {
                     </div>
                     <input type="submit" onClick={this.promptPage} ></input>
                 </form>
+
             </div>
         )
     }

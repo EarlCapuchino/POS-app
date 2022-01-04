@@ -1,22 +1,36 @@
 import React from 'react'
 import './Header.css'
+import Cookies from 'js-cookie'
+import jwt from 'jwt-decode'
+class Header extends React.Component {
+  display(){
+    if(Cookies.get('jwt')){
+      return(
+        <p>{jwt(Cookies.get('jwt')).username} || {jwt(Cookies.get('jwt')).role}</p>
+      )
+    }
+  }
+    render(){
+    return(
+      <div className='header-container'>
 
-function Header() {
-  return(
-    
-    <div className='header-container'>
-
-      <section className='header-subscription'>
-        <p classname='header-subscription-heading'>
-          <b><font size="32">
-            POS APP1
+        <section className='header-subscription'>
+          <p classname='header-subscription-heading'>
+            <b><font size="32">
+              POS APP1
             </font></b>
-        </p>
-        
-      </section>
-    </div>
+            {this.display()}
+            
+          </p>
 
-  )
+          
+
+        </section>
+      </div>
+    )
+    }
+    
+  
 }
 
 export default Header
