@@ -48,7 +48,7 @@ class Login extends React.Component {
     render(){
         const {username, email, password, role} = this.state
         return(
-            <div>
+            <>
                 
                 <h1> Login </h1>
                 <FloatingLabel
@@ -73,7 +73,7 @@ class Login extends React.Component {
                 <br/>
                 <input type="submit" onClick={this.submitHandler}></input>
 
-            </div>
+            </>
         )
     }
 }

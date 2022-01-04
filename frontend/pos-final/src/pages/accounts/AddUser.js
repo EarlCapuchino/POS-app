@@ -17,8 +17,11 @@ class AddUser extends React.Component {
         this.changeHandler1 = this. changeHandler1 .bind(this);
     }
     
-    promptPage(){
-        window.location.href = "http://localhost:3000/edit-inventories/add-item/success-prompt"
+    pageSuccess(){
+        window.location.href = "http://localhost:3000/success"
+    }
+    pageError(){
+        window.location.href = "http://localhost:3000/error"
     }
     changeHandler = (e)=>{
         this.setState({[e.target.name]: e.target.value})
@@ -32,7 +35,9 @@ class AddUser extends React.Component {
         console.log(this.state)
         axios.post('http://localhost:4000/add-user',this.state)
         .then(response=>{
-            console.log(response)
+            console.log(response.data.status)
+            if (response.data.status == "ok"){this.pageSuccess()}
+            else{this.pageError()}
         })
         .catch(error=>{
             console.log(error)

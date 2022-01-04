@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import jwt from 'jwt-decode' 
 import './prod.css'
 
 class AddProduct extends React.Component {
@@ -12,15 +11,17 @@ class AddProduct extends React.Component {
             name: '',
             price:'',
             stock:'',
-            cookies: Cookies.get('jwt'),
-            dec: jwt(Cookies.get('jwt'))
+            cookies: Cookies.get('jwt')
         }
       
 
     }
     
-    promptPage(){
-        window.location.href = "http://localhost:3000/edit-inventories/add-item/success-prompt"
+    pageSuccess(){
+        window.location.href = "http://localhost:3000/success"
+    }
+    pageError(){
+        window.location.href = "http://localhost:3000/error"
     }
     changeHandler = (e)=>{
         this.setState({[e.target.name]: e.target.value})
@@ -32,7 +33,9 @@ class AddProduct extends React.Component {
         
         axios.post('http://localhost:4000/add-product',this.state)
         .then(response=>{
-            console.log(response)
+            console.log(response.data.status)
+            if (response.data.status == "ok"){this.pageSuccess()}
+            else{this.pageError()}
         })
         .catch(error=>{
             console.log(error)
@@ -83,9 +86,8 @@ class AddProduct extends React.Component {
                         value={stock} 
                         onChange={this.changeHandler}></input>
                     </div>
-                    <input type="submit" onClick={this.promptPage} ></input>
+                    <input type="submit" ></input>
                 </form>
-
             </div>
         )
     }

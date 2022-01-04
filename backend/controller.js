@@ -119,7 +119,7 @@ exports.setUpAccount = async (req, res) =>{ //setup the account
         return res.json({ status: 'valid', token: token })
 
     }else if(err.code === 11000){ //check whether an email has been used
-        return res.json({ status: 'error', error: 'email already in use' })
+        return res.json({ status: 'error', error: 'email is already in use' })
     }else{ //this is a prompt for duplicate key 
         console.log("there is an error") 
         return res.json({status: 'error'})
@@ -142,19 +142,20 @@ exports.addUser = async (req, res) => { //this function is for adding users
     })
 
     if (req.body.password.length < 8) { //if passwords are less than 8 characters
-		return res.json({
-			status: 'error', error: 'Password should be at least 8 characters'
-		})
+        MESSAGE = "Password should be atleast 8 characters" 
+        res.send({status: 'invalid'})
 	}
 
     newUser.save((err) => {
     if (!err) {
+       MESSAGE = "User successfully added" 
        res.send({status: 'ok'})
     }else if(err.code === 11000){
-        return res.json({ status: 'error', error: 'email already in use' })
+        MESSAGE = "email already in use, please provide a new email"
+        return res.send({ status: 'invalid'})
     }else{ //this is a prompt for duplicate key 
-        console.log("there is an error") 
-        throw err
+        MESSAGE = "User not added, there has been an error"
+        return res.send({ status: 'invalid'})
     }
     })
 
