@@ -17,8 +17,11 @@ class AddProduct extends React.Component {
 
     }
     
-    promptPage(){
-        window.location.href = "http://localhost:3000/edit-inventories/add-item/success-prompt"
+    pageSuccess(){
+        window.location.href = "http://localhost:3000/success"
+    }
+    pageError(){
+        window.location.href = "http://localhost:3000/error"
     }
     changeHandler = (e)=>{
         this.setState({[e.target.name]: e.target.value})
@@ -30,7 +33,9 @@ class AddProduct extends React.Component {
         
         axios.post('http://localhost:4000/add-product',this.state)
         .then(response=>{
-            console.log(response)
+            console.log(response.data.status)
+            if (response.data.status == "ok"){this.pageSuccess()}
+            else{this.pageError()}
         })
         .catch(error=>{
             console.log(error)
@@ -81,7 +86,7 @@ class AddProduct extends React.Component {
                         value={stock} 
                         onChange={this.changeHandler}></input>
                     </div>
-                    <input type="submit" onClick={this.promptPage} ></input>
+                    <input type="submit" ></input>
                 </form>
             </div>
         )

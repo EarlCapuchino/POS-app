@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import {Form, Badge, FloatingLabel} from "react-bootstrap";
-
+import '../../App.css'
 class Login extends React.Component {
     
     constructor(props){
@@ -48,8 +48,8 @@ class Login extends React.Component {
     render(){
         const {username, email, password, role} = this.state
         return(
-            <div>
-                
+            <>
+                <div id="maindiv1">
                 <h1> Login </h1>
                 <FloatingLabel
                 controlId="floatingInput"
@@ -72,8 +72,8 @@ class Login extends React.Component {
                 </FloatingLabel>
                 <br/>
                 <input type="submit" onClick={this.submitHandler}></input>
-
-            </div>
+                </div>
+            </>
         )
     }
 }

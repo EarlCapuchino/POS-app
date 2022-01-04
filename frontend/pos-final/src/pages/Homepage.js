@@ -35,7 +35,7 @@ class Homepage extends React.Component{
 
             <div id="maindiv2">
             <div id="Divider3"></div>
-            <b><div id="picturebox"><div id="picture1"><div id="title1">
+            <div id="picturebox"><div id="picture1"><div id="title1">
             <p>Ramos, Adryan:</p><p>Back End</p>
             </div></div></div>
             <div id="picturebox1"><div id="picture2"><div id="title2">
@@ -46,7 +46,7 @@ class Homepage extends React.Component{
             </div></div></div>
             <div id="picturebox3"><div id="picture4"><div id="title4">
             <p>Capuchino, Earl:</p><p>Team Head</p>
-            </div></div></div></b>
+            </div></div></div>
             </div>
             
             <div id="maindiv3">
