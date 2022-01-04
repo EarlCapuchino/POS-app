@@ -26,6 +26,7 @@ class AddTransaction extends React.Component{
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Amount</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
