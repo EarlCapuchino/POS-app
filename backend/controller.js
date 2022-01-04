@@ -244,7 +244,7 @@ exports.addItemInventory = (req, res) => {
              return res.json({status:"invalid"})
            } else {
             
-             console.log("\n Verified: " + JSON.stringify(decoded));
+             console.log("\n Verified: " + JSON.stringify(decoded));// if decoded.role === "Admin"
              addProduct(req, decoded) //verification is successful 
            }
          });
