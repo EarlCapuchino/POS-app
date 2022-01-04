@@ -27,14 +27,6 @@
       font-style: Arial;
       font-display: Times;
   }
-  
-  #Dividerprod{
-    width:10px;
-    height: 200px;
-    position: static;
-    background-color:rgb(2, 2, 2);
-  }
-
   .view{
-    color: black;
+  color: black;
   }

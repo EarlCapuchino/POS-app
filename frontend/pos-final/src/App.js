@@ -33,11 +33,13 @@ import Success from './prompts/Success';
 function App() {
   return (
     <div className="App">
-      <video src="https://vod-progressive.akamaized.net/exp=1641225964~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F2842%2F16%2F414210332%2F1781828646.mp4~hmac=482240d59e47562ab2f5675424d61b13979bd906d48d593b943bb2f2a1a1e815/vimeo-prod-skyfire-std-us/01/2842/16/414210332/1781828646.mp4?filename=production+ID%3A4293550.mp4" autoplay="autoplay" loop="loop" muted id="video">
+      <video src="https://cdn.discordapp.com/attachments/759381457893982219/927813921358876682/Backeng.mp4" autoplay="autoplay" loop="loop" muted id="video">
       </video>
+      <div id = "fix">   </div>
       <Header/>
       <BrowserRouter>
       <Routes>
+
       <Route exact ={true} path="/" element={<Homepage />}/> 
       <Route exact ={true} path="/login" element={<Login />}/>
       <Route exact ={true} path="/set-up-account" element={<SetUpAccount />}/>
@@ -55,6 +57,7 @@ function App() {
       <Route exact ={true} path="/error" element={<Error/>}/>
 
       <Route exact ={true} path="/dashboard" element={<Dashboard/>}/>
+ 
       </Routes>
       </BrowserRouter>
       <Footer />

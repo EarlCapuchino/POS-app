@@ -24,9 +24,10 @@ class Inventories extends React.Component{
     render(){
        
         return(
-            <>
+            <> <element class = "view">
                 <h2>Inventories Page</h2>
                 <div>
+                   
                     {
                         this.state.products.map((product, i)=>{
                             return(
@@ -39,7 +40,9 @@ class Inventories extends React.Component{
                             )
                         })
                     }
+                   
                 </div>
+                </element>
             </>
         )
     }
