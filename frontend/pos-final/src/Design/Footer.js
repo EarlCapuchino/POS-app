@@ -13,7 +13,7 @@ function Footer() {
           </b>
         </p>
         <p className='footer-subscription-text'>
-          All Rights Reserved
+          All Rights Reserved 2022
         </p>
       </section>
     </div>
