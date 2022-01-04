@@ -9,7 +9,7 @@ function Header() {
       <section className='header-subscription'>
         <p classname='header-subscription-heading'>
           <b><font size="32">
-            POS APP
+            POS APP1
             </font></b>
         </p>
         
