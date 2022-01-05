@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Cookies from 'js-cookie'
 
 
 class EditUser extends React.Component {
@@ -8,6 +9,7 @@ class EditUser extends React.Component {
             
       
         this.state = {
+            cookies: Cookies.get('jwt'),
             chosenName:'',
             previousRole:'',
             chosenRole: '',
@@ -32,7 +34,13 @@ class EditUser extends React.Component {
         })
     }
 
-    
+    pageSuccess(){
+        window.location.href = "http://localhost:3000/success"
+    }
+    pageError(){
+        window.location.href = "http://localhost:3000/error"
+    }
+
     promptPage(){
         window.location.href = "http://localhost:3000/edit-inventories/add-item/success-prompt"
     }
@@ -51,7 +59,8 @@ class EditUser extends React.Component {
         console.log(this.state)
         axios.post('http://localhost:4000/edit-user',this.state)
         .then(response=>{
-            console.log(response)
+            if (response.data.status == "ok"){this.pageSuccess()}
+            else{this.pageError()}
         })
         .catch(error=>{
             console.log(error)
