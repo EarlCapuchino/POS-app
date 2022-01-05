@@ -1,27 +1,19 @@
 import React from 'react'
 import axios from 'axios'
-
-
+import Cookies from 'js-cookie'
+import jwt from 'jwt-decode'
 class AddUser extends React.Component {
-    constructor(props){
-        super(props)
-
-        this.state = {
-            username: '',
-            email:'',
-            pasword:'',
-            role: 'Cashier'
-            
-        }
-      
-        this.changeHandler1 = this. changeHandler1 .bind(this);
-    }
+ 
+    
     
     pageSuccess(){
         window.location.href = "http://localhost:3000/success"
     }
     pageError(){
         window.location.href = "http://localhost:3000/error"
+    }
+    pageHomepage(){
+        window.location.href = "http://localhost:3000/"
     }
     changeHandler = (e)=>{
         this.setState({[e.target.name]: e.target.value})
@@ -30,6 +22,27 @@ class AddUser extends React.Component {
         this.setState({role: event.target.value});
       }
 
+    
+    
+    constructor(props){
+        super(props)
+
+        this.state = {
+            cookies: Cookies.get('jwt'),
+            username: '',
+            email:'',
+            pasword:'',
+            role: 'Cashier'
+            
+        }
+        if(jwt(Cookies.get('jwt')).role == "Cashier"||jwt(Cookies.get('jwt')).role == "Staff"){this.pageError()}
+        this.changeHandler1 = this. changeHandler1 .bind(this);
+    }
+
+
+
+    
+  
     submitHandler = e =>{ //put back button going to homepage
         e.preventDefault()
         console.log(this.state)
@@ -86,7 +99,7 @@ class AddUser extends React.Component {
                     <option value="Admin">Admin</option>
                     </select>
                     </div>
-
+                    
                     <input type="submit"></input>
                 </form>
             </div>
