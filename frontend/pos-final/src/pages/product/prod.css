@@ -21,12 +21,6 @@
         font-size : 100;
         justify-content:center;
   }
-
-  .div3 {
-      font-size: large;
-      font-style: Arial;
-      font-display: Times;
-  }
   
   #Dividerprod{
     width:10px;
@@ -37,4 +31,19 @@
 
   .view{
     color: black;
+  }
+
+  .div3 {
+    border-radius: 10px;
+    background: #73AD21;
+    width: 1000px;
+    height: 110px;
+    border: 10px solid black;
+    align-content: normal;
+    background-color: black;
+    margin: auto; 
+  }
+
+  .div4 {
+    text-align : left;
   }

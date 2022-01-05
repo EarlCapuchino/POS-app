@@ -21,28 +21,35 @@ class Inventories extends React.Component{
       }
     
     
-    render(){
+      render(){
        
         return(
-            <> <element class = "view">
+            <>
+            <div class = "Divider"></div>
                 <h2>Inventories Page</h2>
+                <br></br><br></br><br></br><br></br>
                 <div>
-                   
                     {
                         this.state.products.map((product, i)=>{
                             return(
-                            <p>
-                            ID: {product._id}<br/>
-                            Name: {product.name}<br/>
-                            Price: ₱{product.price}<br/>
-                            Stock: {product.stock}<br/>
+                            <div class = "div3"><p>
+                                <div class = "div4">
+                                    <pre>
+                                ID: {product._id}                       Name: {product.name}<br/>
+                                Price: ₱{product.price} </pre>                   
+                                Stock: {product.stock}<br/>
+                                ---------------------------------------------------------------------------------------------------------------------------
+                            </div>
+                            <br></br>
                             </p>
-                            )
+                            <br></br>
+                            </div>
+                            
+                            ) 
                         })
                     }
-                   
                 </div>
-                </element>
+                <br></br><br></br>
             </>
         )
     }
