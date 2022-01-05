@@ -146,6 +146,7 @@ exports.setUpAccount = async (req, res) =>{ //setup the account
 exports.addUser = async (req, res) => { //this function is for adding users
 
     const token = req.body.cookies
+        console.log(token)
         if (token) {
         var decoded = jwt.decode(token, {complete: true});
 
@@ -199,15 +200,9 @@ exports.addUser = async (req, res) => { //this function is for adding users
 
 
 
+        
 
-
-
-
-
-
-
-
-
+    
 
 
 
@@ -217,7 +212,9 @@ exports.editUser = async (req, res) =>{ //catch the errors
     console.log("Editing Users Page") //the password should not be displayed
     User.find((err, users) => {
         console.log(users)
-        if (!err) { res.send(users) }
+        if (!err) { 
+            console.log("dis good")
+            res.send(users) }
         else{return res.json( {status:"error",error: "no users to edit"} )} 
       })
 }
@@ -228,26 +225,59 @@ console.log("EDIT user in DATA BASE")
 const chosenName = req.body.chosenName //recording previous roles and assignment
 const chosenRole = req.body.chosenRole //of new roles to be updated in the data base
 const previousRole = req.body.previousRole
+const token = req.body.cookies
+
 
 User.countDocuments({role: 'Admin'}, function(err, count) {
 //count will represent the number of admins
 
-    if ((count==1) && (previousRole == "Admin") && (chosenRole != "Admin")) {//checking if the sole admin will remove their admin status
-        console.log("there should be at least one admin!")
-        return res.json( {status: 'error', error: 'There should be atleast one admin!'})
+    
+    
+        console.log(token)
+        if (token) {
 
-    } else{ //if there are no errors, proceed here
-        User.findOneAndUpdate(
-            {username: chosenName},  //find the username
-            { role: chosenRole,
-            },function(err, res) {
-                if (err){
-                    console.log("ERROR UPDATE")
-                }else{
-                console.log("Role successfully changed!");
-                }
-            })
-    }
+            if ((count==1) && (previousRole == "Admin") && (chosenRole != "Admin")) {//checking if the sole admin will remove their admin status
+                console.log("there should be at least one admin!")
+                MESSAGE= "There should be at least one admin!"
+                return res.json( {status: 'error', error: 'There should be atleast one admin!'})
+        
+            } else{ //if there are no errors, proceed here
+                
+            var decoded = jwt.decode(token, {complete: true});
+            if (decoded.payload.role == "Admin" ){//Checks if you are admin, then proceed, else, error
+                
+            User.findOneAndUpdate(
+                {username: chosenName},  //find the username
+                { role: chosenRole,
+                },function(err, res) {
+                    if (err){
+                        console.log("ERROR UPDATE")
+                    }else{
+                    console.log("Role successfully changed!");
+                    
+                    }
+                })
+                MESSAGE= "User role changed successfully!"
+                return res.json( {status: 'ok', error: "User role changed successfully!"})    
+           
+            }else{
+                MESSAGE = "Unauthorized access! Admin only!" 
+            return res.json({status:"error"})
+            }
+                        
+            }
+
+        }else { //there are no tokens provided, not logged in
+            MESSAGE = "Unauthorized access! Login First" 
+            return res.json({status:"error"})
+        }
+        
+        
+    
+    
+    
+    
+    
 })
 
 
