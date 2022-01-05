@@ -33,6 +33,13 @@ exports.homepage = async (req, res) => { //hompage scree, will check iof there a
     });
 }
 
+
+
+exports.dashboard = async (req,res)=>{//failed attempt, proceed to prompt
+    MESSAGE ='Unauthorized Access!';
+
+}
+
 /////////////////////////// ACCOUNTS /////////////////////////////////////
 
 exports.login = async (req, res) => { //login for the app
@@ -129,55 +136,82 @@ exports.setUpAccount = async (req, res) =>{ //setup the account
     })
 }
 
+
+
+
+
+
+
+//TEMPLATE FOR FILTER
 exports.addUser = async (req, res) => { //this function is for adding users
 
     const token = req.body.cookies
-    console.log(token) 
-    if (token) {
-        if(token.role=="Admin"){//Checks if you are admin, then proceed, else, error
-            console.log("Add user page") 
-            console.log(req.body.password)
-            const pwd = req.body.password
-            const password=(await (bcrypt.hash(pwd, 10)))
+        if (token) {
+        var decoded = jwt.decode(token, {complete: true});
+
+        
+            if (decoded.payload.role == "Admin" ){//Checks if you are admin, then proceed, else, error
+                console.log("Add user page") 
+                console.log(req.body.password)
+                const pwd = req.body.password
+                const password=(await (bcrypt.hash(pwd, 10)))
+                const newUser = new User({
+                    username: req.body.username,
+                    email: req.body.email,
+                    password: password,
+                    role: req.body.role
+                })
+    
+                if (req.body.password.length < 8) { //if passwords are less than 8 characters
+                    MESSAGE = "Password should be atleast 8 characters" 
+                    res.send({status: 'invalid'})
+                }
+    
+                newUser.save((err) => {
+                if (!err) {
+                MESSAGE = "User successfully added" 
+                res.send({status: 'ok'})
+                }else if(err.code === 11000){
+                    MESSAGE = "email already in use, please provide a new email"
+                    return res.send({ status: 'invalid'})
+                }else{ //this is a prompt for duplicate key 
+                    MESSAGE = "User not added, there has been an error"
+                    return res.send({ status: 'invalid'})
+                }
+                })
+            }else{
+                MESSAGE = "Unauthorized access! Admin only!" 
+            return res.json({status:"error"})
+            }
             
-            const newUser = new User({
-                username: req.body.username,
-                email: req.body.email,
-                password: password,
-                role: req.body.role
-            })
-
-            if (req.body.password.length < 8) { //if passwords are less than 8 characters
-                MESSAGE = "Password should be atleast 8 characters" 
-                res.send({status: 'invalid'})
-            }
-
-            newUser.save((err) => {
-            if (!err) {
-            MESSAGE = "User successfully added" 
-            res.send({status: 'ok'})
-            }else if(err.code === 11000){
-                MESSAGE = "email already in use, please provide a new email"
-                return res.send({ status: 'invalid'})
-            }else{ //this is a prompt for duplicate key 
-                MESSAGE = "User not added, there has been an error"
-                return res.send({ status: 'invalid'})
-            }
-            })
-        }else{
-            MESSAGE = "Unauthorized access! Admin only!" 
-        return res.json({status:"error"})
-        }
+          
       } else { //there are no tokens provided, not logged in
-        console.log(token)
         MESSAGE = "Unauthorized access! Login First" 
         return res.json({status:"error"})
       }
       //END OF VERIFICATION PROCESS
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 exports.editUser = async (req, res) =>{ //catch the errors
     console.log("Editing Users Page") //the password should not be displayed
@@ -455,9 +489,5 @@ exports.viewTransactions = (req, res, next) => {
 //prompts
 exports.prompt = (req, res)=>{
     console.log("pumuntA")
-    const token = req.body.cookies
-    if(!token){
-        MESSAGE="Please Log In First!"
-    }
     return res.json({status: MESSAGE})
 }

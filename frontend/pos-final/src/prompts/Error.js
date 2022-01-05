@@ -7,8 +7,7 @@ class Error extends React.Component{
     constructor() {
         super();
         this.state = {
-           display: "",
-           cookies: Cookies.get('jwt'),
+           display: ""
         }
     }
 

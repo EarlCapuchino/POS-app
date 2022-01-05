@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import jwt from 'jwt-decode'
 class AddUser extends React.Component {
  
     
@@ -12,18 +11,13 @@ class AddUser extends React.Component {
     pageError(){
         window.location.href = "http://localhost:3000/error"
     }
-    pageHomepage(){
-        window.location.href = "http://localhost:3000/"
-    }
+
     changeHandler = (e)=>{
         this.setState({[e.target.name]: e.target.value})
     }
     changeHandler1(event) {
         this.setState({role: event.target.value});
       }
-
-    
-    
     constructor(props){
         super(props)
 
@@ -35,7 +29,6 @@ class AddUser extends React.Component {
             role: 'Cashier'
             
         }
-        if(jwt(Cookies.get('jwt')).role == "Cashier"||jwt(Cookies.get('jwt')).role == "Staff"){this.pageError()}
         this.changeHandler1 = this. changeHandler1 .bind(this);
     }
 

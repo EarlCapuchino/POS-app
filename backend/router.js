@@ -24,6 +24,10 @@ module.exports = (app) => {
     //middleware
     app.use(cookieParser())
 
+
+    //dashboard
+    app.post('/dashboard', controller.dashboard)
+
     //accounts pages
     app.get('/', controller.homepage)
     app.post('/login', controller.login)
