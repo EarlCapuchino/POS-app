@@ -1,4 +1,5 @@
 import React from 'react'
+import {Button, Table, Badge} from "react-bootstrap";
 import './transaction.css'
 
 
@@ -23,13 +24,15 @@ class ViewTransaction extends React.Component{
         let prod =[]
         for (let j=0;j<transaction.products.length;j++){
             prod.push(
-                <div key={j}>
-                {transaction.products[j].productName}
-                ...{transaction.products[j].productQuantity}
-                ......{transaction.products[j].productPrice}
-                </div> 
-           
-             )
+            
+                <tr key={j}>
+                    <td>{transaction.products[j].productName}</td>
+                    <td>{transaction.products[j].productQuantity}</td>
+                    <td>{transaction.products[j].productPrice}</td>
+                </tr>
+            
+            )
+        
         }
         return(prod)
     }
@@ -40,23 +43,40 @@ class ViewTransaction extends React.Component{
         return(
             <div>
                 <element class = "view">
-                <br></br><br></br><br></br><br></br><br></br>
                 <h1>TRANSACTIONS PAGE</h1>
-               
-        
                 {
                         this.state.transactions.map((transaction, i)=>{
                             return(
                             <p>
-                            ID: {transaction._id}<br/>
-                           
+                            <Table bordered bgcolor="#dadfeb">
+                            <thead>
+                                <tr>
+                                    <th>ID: {transaction._id}</th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                             {this.method(transaction)}
-                            Amount to be paid: ₱{transaction.amountToBePaid}<br/>
+                            </tbody>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Amount to be paid: </th>
+                                    <th>₱{transaction.amountToBePaid}</th>
+                                </tr>
+                            </thead>
+                            </Table>
                             </p>
                             )
                         })
                     }
-                    </element>
+                </element>
             </div>
         )
     }

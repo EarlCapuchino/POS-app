@@ -150,7 +150,6 @@ class AddTransaction extends React.Component{
     render() {
         return (
             <div>
-                <br></br><br></br><br></br><br></br><br></br>
                 <h1>ADD TRANSACTION</h1>
             
                 <Button variant="dark">Product
