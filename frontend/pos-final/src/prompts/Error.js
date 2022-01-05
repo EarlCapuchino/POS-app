@@ -1,11 +1,14 @@
 import React from 'react'
 import {Alert} from "react-bootstrap";
+import Cookies from 'js-cookie'
+import jwt from 'jwt-decode'
 
 class Error extends React.Component{
     constructor() {
         super();
         this.state = {
            display: "",
+           cookies: Cookies.get('jwt'),
         }
     }
 

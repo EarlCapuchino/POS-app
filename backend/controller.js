@@ -17,6 +17,8 @@ var publicKey = fs.readFileSync('./keys/public.key','utf8');
 
 //prompts
 let MESSAGE ='DEFAULT'
+
+
 exports.homepage = async (req, res) => { //hompage scree, will check iof there are existing users or none
     console.log("HOMEPAGE")
     User.findOne((err, users) => { //check if a user exists, //if no user, go to setup account //if there are users 
@@ -40,7 +42,7 @@ exports.login = async (req, res) => { //login for the app
 	const { email, password } = req.body
 	const user = await User.findOne({ email }).lean()
 
-    var loginCredentials = { //login credentials to be used by cookies jwt
+    var loginCredentials = { //login crenddentials to be used by cookies jwt
         issuer : "capuPOSapp", //the issuer is this software organization
         subject: email, //the subject is the user's email
         audience: "http://localhost:3000", //verify this 
@@ -128,36 +130,52 @@ exports.setUpAccount = async (req, res) =>{ //setup the account
 }
 
 exports.addUser = async (req, res) => { //this function is for adding users
-    console.log("Add user page") 
-    console.log(req.body) 
-    console.log(req.body.password)
-    const pwd = req.body.password
-    const password=(await (bcrypt.hash(pwd, 10)))
-    
-    const newUser = new User({
-        username: req.body.username,
-        email: req.body.email,
-        password: password,
-        role: req.body.role
-    })
 
-    if (req.body.password.length < 8) { //if passwords are less than 8 characters
-        MESSAGE = "Password should be atleast 8 characters" 
-        res.send({status: 'invalid'})
-	}
+    const token = req.body.cookies
+    console.log(token) 
+    if (token) {
+        if(token.role=="Admin"){//Checks if you are admin, then proceed, else, error
+            console.log("Add user page") 
+            console.log(req.body.password)
+            const pwd = req.body.password
+            const password=(await (bcrypt.hash(pwd, 10)))
+            
+            const newUser = new User({
+                username: req.body.username,
+                email: req.body.email,
+                password: password,
+                role: req.body.role
+            })
 
-    newUser.save((err) => {
-    if (!err) {
-       MESSAGE = "User successfully added" 
-       res.send({status: 'ok'})
-    }else if(err.code === 11000){
-        MESSAGE = "email already in use, please provide a new email"
-        return res.send({ status: 'invalid'})
-    }else{ //this is a prompt for duplicate key 
-        MESSAGE = "User not added, there has been an error"
-        return res.send({ status: 'invalid'})
-    }
-    })
+            if (req.body.password.length < 8) { //if passwords are less than 8 characters
+                MESSAGE = "Password should be atleast 8 characters" 
+                res.send({status: 'invalid'})
+            }
+
+            newUser.save((err) => {
+            if (!err) {
+            MESSAGE = "User successfully added" 
+            res.send({status: 'ok'})
+            }else if(err.code === 11000){
+                MESSAGE = "email already in use, please provide a new email"
+                return res.send({ status: 'invalid'})
+            }else{ //this is a prompt for duplicate key 
+                MESSAGE = "User not added, there has been an error"
+                return res.send({ status: 'invalid'})
+            }
+            })
+        }else{
+            MESSAGE = "Unauthorized access! Admin only!" 
+        return res.json({status:"error"})
+        }
+      } else { //there are no tokens provided, not logged in
+        console.log(token)
+        MESSAGE = "Unauthorized access! Login First" 
+        return res.json({status:"error"})
+      }
+      //END OF VERIFICATION PROCESS
+
+
 
 }
 
@@ -437,5 +455,9 @@ exports.viewTransactions = (req, res, next) => {
 //prompts
 exports.prompt = (req, res)=>{
     console.log("pumuntA")
+    const token = req.body.cookies
+    if(!token){
+        MESSAGE="Please Log In First!"
+    }
     return res.json({status: MESSAGE})
 }
