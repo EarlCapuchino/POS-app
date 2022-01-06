@@ -1,32 +1,46 @@
 .div {
-    border-radius: 25px;
-    background: #73AD21;
-    width: 300px;
-    height: 100px;
-    border: 10px solid black;
-    align-content: center;
-    background-color: black;
-    margin: auto;
-  }
-  
-  .div2 {
-    border-radius: 25px;
-      margin: auto;
-        width: 200px;
-        height: 50px;
-        border: 1px solid;
-        padding: 10px;
-        background-color: rgba(255, 255, 255, 0.9);
-        text-align: middle;
-        font-size : 100;
-        justify-content:center;
-  }
+  border-radius: 25px;
+  background: #73AD21;
+  width: 300px;
+  height: 100px;
+  border: 10px solid black;
+  align-content: center;
+  background-color: black;
+  margin: auto;
+}
 
-  .div3 {
-      font-size: large;
-      font-style: Arial;
-      font-display: Times;
-  }
-  .view{
-  color: black;
-  }
+.div2 {
+  border-radius: 25px;
+    margin: auto;
+      width: 200px;
+      height: 50px;
+      border: 1px solid;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.9);
+      text-align: middle;
+      font-size : 100;
+      justify-content:center;
+}
+
+.div3 {
+    font-size: large;
+    font-style: Arial;
+    font-display: Times;
+}
+.view{
+color: black;
+}
+
+#VTbackground{
+  background-color: rgba(56,128,135,0.9);
+  min-height: 66vh;
+
+}
+
+#VTtitle{
+  position:relative;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 60px;
+  color:white;
+}

@@ -25,7 +25,7 @@ class Inventories extends React.Component{
        
         return(
             <>
-            <div class = "Divider"></div>
+
                 <h2>Inventories Page</h2>
                 <br></br><br></br><br></br><br></br>
                 <div>
