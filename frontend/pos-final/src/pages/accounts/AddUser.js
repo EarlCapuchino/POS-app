@@ -7,10 +7,10 @@ class AddUser extends React.Component {
     
     
     pageSuccess(){
-        window.location.href = "http://localhost:3000/success"
+        window.location.href = "/success"
     }
     pageError(){
-        window.location.href = "http://localhost:3000/error"
+        window.location.href = "/error"
     }
 
     changeHandler = (e)=>{
@@ -51,10 +51,25 @@ class AddUser extends React.Component {
         })
 
     }
+
+    pageHome(){
+        console.log("login")
+        window.location.href = "/"
+    }
+
+    display(){
+        if(Cookies.get('jwt')){
+          return
+        }else{
+          return this.pageHome()
+
+        }
+      }
     render(){
         const {username, email, password, role} = this.state
         return(
             <div id="setfooterAU">
+                {this.display()}
                 <div id="title">
                     NEW USER 
                 </div>

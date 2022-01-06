@@ -128,10 +128,10 @@ class AddTransaction extends React.Component{
     
     }
     pageSuccess(){
-        window.location.href = "http://localhost:3000/success"
+        window.location.href = "/success"
     }
     pageError(){
-        window.location.href = "http://localhost:3000/error"
+        window.location.href = "/error"
     }
     submitHandler = (e) =>{
         e.preventDefault()
@@ -149,7 +149,7 @@ class AddTransaction extends React.Component{
 
     pageLogin(){
         console.log("login")
-        window.location.href = "http://localhost:3000/login"
+        window.location.href = "/login"
     }
 
     display(){

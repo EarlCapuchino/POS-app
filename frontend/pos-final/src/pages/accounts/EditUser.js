@@ -35,14 +35,14 @@ class EditUser extends React.Component {
     }
 
     pageSuccess(){
-        window.location.href = "http://localhost:3000/success"
+        window.location.href = "/success"
     }
     pageError(){
-        window.location.href = "http://localhost:3000/error"
+        window.location.href = "/error"
     }
 
     promptPage(){
-        window.location.href = "http://localhost:3000/edit-inventories/add-item/success-prompt"
+        window.location.href = "/edit-inventories/add-item/success-prompt"
     }
     changeHandler1(event) {
         this.setState({chosenRole: event.target.value});
@@ -78,8 +78,6 @@ class EditUser extends React.Component {
 
 
         )
-       
-        
         return (
           <select onChange={onSelect}>
             {
@@ -93,10 +91,25 @@ class EditUser extends React.Component {
         )
       }
 
+
+      pageHome(){
+        console.log("login")
+        window.location.href = "/"
+    }
+
+    display(){
+        if(Cookies.get('jwt')){
+          return
+        }else{
+          return this.pageHome()
+
+        }
+      }
+
     render(){
         return(
             <div id="setfooterEU">
-               
+               {this.display()}
                 <div id="title">
                     EDIT USER
                 </div>
