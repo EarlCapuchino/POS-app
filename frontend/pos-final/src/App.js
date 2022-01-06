@@ -29,6 +29,7 @@ import './App.css'
 //prompts
 import Error from './prompts/Error';
 import Success from './prompts/Success';
+import NotFound from './prompts/NotFound'
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
       </video>
       <div id = "fix">   </div>
       <Header/>
+ 
       <BrowserRouter>
       <Routes>
 
@@ -57,9 +59,11 @@ function App() {
       <Route exact ={true} path="/error" element={<Error/>}/>
 
       <Route exact ={true} path="/dashboard" element={<Dashboard/>}/>
- 
+      <Route path="*" element={<NotFound/>} />
       </Routes>
+   
       </BrowserRouter>
+  
       <Footer />
     </div>
   );
