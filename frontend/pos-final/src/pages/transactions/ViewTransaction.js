@@ -1,4 +1,5 @@
 import React from 'react'
+import Cookies from 'js-cookie'
 import {Button, Table, Badge} from "react-bootstrap";
 import './transaction.css'
 
@@ -37,11 +38,27 @@ class ViewTransaction extends React.Component{
         return(prod)
     }
     
-    
+    pageLogin(){
+        console.log("login")
+        window.location.href = "http://localhost:3000/login"
+    }
+
+    display(){
+        if(Cookies.get('jwt')){
+            return
+        }else{
+            return this.pageLogin()
+
+        }
+    }  
     
     render(){
         return(
+            <div>
+                {this.display()}
+
             <div id="VTbackground">
+
                 <element class = "view">
 
                 <div id="VTtitle">TRANSACTIONS PAGE</div>

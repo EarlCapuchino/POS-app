@@ -19,17 +19,29 @@ class Inventories extends React.Component{
             this.setState({products: body})
         })
       }
-    
-    
-      render(){
-       
+
+    pageLogin(){
+        console.log("login")
+        window.location.href = "http://localhost:3000/login"
+    }
+
+    display(){
+        if(Cookies.get('jwt')){
+            return
+        }else{
+            return this.pageLogin()
+
+        }
+    }
+
+    render(){
         return(
             <>
 
                 <h2>Inventories Page</h2>
                 <br></br><br></br><br></br><br></br>
                 <div>
-                    {
+                    {this.display()}{
                         this.state.products.map((product, i)=>{
                             return(
                             <div class = "div3"><p>

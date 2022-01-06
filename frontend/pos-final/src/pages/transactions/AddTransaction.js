@@ -147,9 +147,24 @@ class AddTransaction extends React.Component{
         })
     }
 
+    pageLogin(){
+        console.log("login")
+        window.location.href = "http://localhost:3000/login"
+    }
+
+    display(){
+        if(Cookies.get('jwt')){
+            return
+        }else{
+            return this.pageLogin()
+
+        }
+    }
+
     render() {
         return (
             <div>
+                {this.display()}
                 <h1>ADD TRANSACTION</h1>
             
                 <Button variant="dark">Product
