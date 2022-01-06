@@ -35,9 +35,9 @@ exports.homepage = async (req, res) => { //hompage scree, will check iof there a
 
 
 
-exports.dashboard = async (req,res)=>{//failed attempt, proceed to prompt
-    MESSAGE ='Unauthorized Access!';
-
+exports.dashboard = async (req,res)=>{
+    
+      //END OF VERIFICATION PROCESS
 }
 
 /////////////////////////// ACCOUNTS /////////////////////////////////////

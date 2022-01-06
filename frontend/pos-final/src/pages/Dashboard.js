@@ -1,51 +1,70 @@
 import React from 'react'
 import './Homepage.css'
-
+import Cookies from 'js-cookie'
 class Homepage extends React.Component{
 
+    pageLogin(){
+        console.log("login")
+        window.location.href = "http://localhost:3000/login"
+    }
 
+    display(){
+        if(Cookies.get('jwt')){
+          return
+        }else{
+          return this.pageLogin()
+
+        }
+      }
 
     render(){
         return(
             <>
-            <div id="maindivtop">
-                <div id="toptitle">Users
+            {this.display()}
+                <div id="maindivtop">
+                
+                <div id="toptitle1">Users
                 <div id="topdivider"></div>
-                <form action="/register" id="regsiterButton">
-                    <input type="submit" value="Register User" />
-                </form>
 
-                <form action="/edit-user" id="editUserButton">
-                    <input type="submit" value="Edit User" />
+                <form action="/register" >
+                    <input type="submit" value="Add User" id="registerButton"/>
+                </form>
+        
+
+                <form action="/edit-user">  
+                    <input type="submit" value="Edit User" id="editUserButton" />
                 </form>
                 </div>
-                <div id="toptitle">Products
+
+                <div id="toptitle2">Products
                 <div id="topdivider"></div>
-                
-                <form action="/add-product" id="addProductButton">
-                    <input type="submit" value="Add Product" />
+
+                <form action="/add-product" >
+                    <input type="submit" value="Add Product" id="addProductButton"/>
                 </form>
 
-                <form action="/edit-product" id="editProductButton">
-                    <input type="submit" value="Edit Product" />
+                <form action="/edit-product" >
+                    <input type="submit" value="Edit Product" id="editProductButton"/>
                 </form>
 
-                <form action="/inventory" id="viewInventoryButton">
-                    <input type="submit" value="View Inventory" />
+                <form action="/inventory" >
+                    <input type="submit" value="View Inventory" id="viewInventoryButton" />
                 </form></div>
 
                 
-                <div id="toptitle">Transactions
-                <div id="topdivider">
-                <form action="/add-transaction" id="addTransButton">
-                    <input type="submit" value="Add Transaction" />
+                <div id="toptitle3">Transactions
+                <div id="topdivider"></div>
+
+
+                <form action="/add-transaction" >
+                    <input type="submit" value="Add Transaction" id="addTransButton"/>
                 </form>
 
-                <form action="/view-transactions" id="viewTransButton">
-                    <input type="submit" value="View Transaction" />
+                <form action="/view-transactions" >
+                    <input type="submit" value="View Transaction" id="viewTransButton"/>
                 </form>
     
-                </div></div>
+                </div>
                 
                 
 
