@@ -7,10 +7,10 @@ class AddUser extends React.Component {
     
     
     pageSuccess(){
-        window.location.href = "http://localhost:3000/success"
+        window.location.href = "/success"
     }
     pageError(){
-        window.location.href = "http://localhost:3000/error"
+        window.location.href = "/error"
     }
 
     changeHandler = (e)=>{
@@ -54,7 +54,7 @@ class AddUser extends React.Component {
 
     pageHome(){
         console.log("login")
-        window.location.href = "http://localhost:3000/"
+        window.location.href = "/"
     }
 
     display(){

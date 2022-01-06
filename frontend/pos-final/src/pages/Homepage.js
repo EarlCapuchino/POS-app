@@ -3,11 +3,11 @@ import './Homepage.css'
 
 class Homepage extends React.Component{
     pageSetUp(){
-        window.location.href = "http://localhost:3000/set-up-account"
+        window.location.href = "/set-up-account"
     }
     pageLogin(){
         console.log("login")
-        window.location.href = "http://localhost:3000/login"
+        window.location.href = "/login"
     }
     componentDidMount() {
         fetch('http://localhost:4000/') //this will call find all

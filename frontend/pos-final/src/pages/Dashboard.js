@@ -5,7 +5,7 @@ class Dashboard extends React.Component{
 
     pageHome(){
         console.log("login")
-        window.location.href = "http://localhost:3000/"
+        window.location.href = "/"
     }
 
     display(){
