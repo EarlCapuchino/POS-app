@@ -147,7 +147,6 @@ exports.addUser = async (req, res) => { //this function is for adding users
 
     const token = req.body.cookies
         console.log(token)
-        if (token) {
         var decoded = jwt.decode(token, {complete: true});
 
         
@@ -184,12 +183,6 @@ exports.addUser = async (req, res) => { //this function is for adding users
                 MESSAGE = "Unauthorized access! Admin only!" 
             return res.json({status:"error"})
             }
-            
-          
-      } else { //there are no tokens provided, not logged in
-        MESSAGE = "Unauthorized access! Login First" 
-        return res.json({status:"error"})
-      }
       //END OF VERIFICATION PROCESS
 }
 
@@ -234,7 +227,6 @@ User.countDocuments({role: 'Admin'}, function(err, count) {
     
     
         console.log(token)
-        if (token) {
 
             if ((count==1) && (previousRole == "Admin") && (chosenRole != "Admin")) {//checking if the sole admin will remove their admin status
                 console.log("there should be at least one admin!")
@@ -266,18 +258,6 @@ User.countDocuments({role: 'Admin'}, function(err, count) {
             }
                         
             }
-
-        }else { //there are no tokens provided, not logged in
-            MESSAGE = "Unauthorized access! Login First" 
-            return res.json({status:"error"})
-        }
-        
-        
-    
-    
-    
-    
-    
 })
 
 
