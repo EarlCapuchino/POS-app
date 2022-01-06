@@ -56,8 +56,12 @@ class ViewTransaction extends React.Component{
         return(
             <div>
                 {this.display()}
+
+            <div id="VTbackground">
+
                 <element class = "view">
-                <h1>TRANSACTIONS PAGE</h1>
+
+                <div id="VTtitle">TRANSACTIONS PAGE</div>
                 {
                         this.state.transactions.map((transaction, i)=>{
                             return(
@@ -90,6 +94,7 @@ class ViewTransaction extends React.Component{
                             )
                         })
                     }
+                   
                 </element>
             </div>
         )

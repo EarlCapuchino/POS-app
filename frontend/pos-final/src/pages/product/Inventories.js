@@ -37,6 +37,7 @@ class Inventories extends React.Component{
     render(){
         return(
             <>
+
                 <h2>Inventories Page</h2>
                 <br></br><br></br><br></br><br></br>
                 <div>

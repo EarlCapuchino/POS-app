@@ -150,7 +150,6 @@ class EditProduct extends React.Component{
         // const {name, price, stock} = this.state
         return(
             <>
-            <div id="Divider"></div>
 
             <font color = "white">
                 <div class = "div3">

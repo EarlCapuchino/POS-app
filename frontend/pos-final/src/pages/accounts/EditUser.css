@@ -1,0 +1,35 @@
+/*sets the main page background*/
+#setfooterEU{
+  min-height: 66vh;
+  background-color: rgba(186,223,231,0.9);
+}
+
+/*sets main page title */
+#title{
+  position:relative;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 60px;
+  text-shadow: 0px 0px 10px #000, 0px 0px 10px #000, 0px 0px 10px #000, 0px 0px 10px #000;
+}
+
+/*Sections user*/
+#usersSection{
+  background-color:#388087;
+  position: relative;
+  margin-top: 10px;
+  color: white;
+  width:40%;
+  left:30%;
+}
+label{
+  color:black;
+  font-size: 18px;
+}
+
+pre{
+  font-size: 17px;
+}
+b{
+  font-size:20px;
+}

@@ -48,7 +48,6 @@ class AddProduct extends React.Component {
 
             <div>
                 <div>
-                <div id="Dividerprod"></div>
                     <div>
                         <font size="1000" color= "black" align = "center" text-align = "center">
                         Add Items in Inventory
