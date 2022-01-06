@@ -1,4 +1,54 @@
+/*middle divider*/
 
+
+#maindivtop{
+  width:100%;
+  Height:300px;
+  background-color: rgba(0,0,0);
+}
+
+#registerButton{
+  position: relative;
+  left: 5%;
+}
+
+#editUserButton{
+  position: relative;
+  left: 60%;
+}
+
+#addProductButton{
+  
+}
+
+#editProductButton{
+  
+}
+
+#viewInventoryButton{
+  
+}
+
+#addTransButton{
+  
+}
+
+#viewTransButton{
+  
+}
+
+#toptitle{
+  color: #ffffff;
+}
+
+
+#topdivider{
+
+}
+
+
+
+/*second div box*/
 #mmessage{
 
   width:25%;
@@ -11,12 +61,12 @@
   
 }
 
-#maindiv1{
+#maindivtop2{
   width:100%;
   Height:500px;
-  margin-top: 110px;
   background-color: rgba(224, 163, 112, 0.9);
 }
+
 
 #Divider{
   width:10px;
@@ -38,13 +88,14 @@
   align-content: center;
 }
 
-/*second divider color change only*/
+/*Third div box*/
 #maindiv2{
   width:100%;
   Height:500px;
   background-color: rgba(0,0,0);
-}
 
+}
+/* save mid color changed just a line*/
 #Divider2{
   width:10px;
   height: 400px;
@@ -248,3 +299,4 @@ p
   font-size: 30px ;
   align-content: center;
 }
+
