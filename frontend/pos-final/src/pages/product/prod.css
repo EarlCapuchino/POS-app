@@ -47,3 +47,14 @@
   .div4 {
     text-align : left;
   }
+  
+  .div5 {
+    border-radius: 10px;
+    background: white;
+    width: 200px;
+    height: 110px;
+    border: 10px solid black;
+    align-content: normal;
+    background-color: black;
+    margin: auto; 
+  }
