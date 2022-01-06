@@ -51,10 +51,25 @@ class AddUser extends React.Component {
         })
 
     }
+
+    pageHome(){
+        console.log("login")
+        window.location.href = "http://localhost:3000/"
+    }
+
+    display(){
+        if(Cookies.get('jwt')){
+          return
+        }else{
+          return this.pageHome()
+
+        }
+      }
     render(){
         const {username, email, password, role} = this.state
         return(
             <div id="setfooterAU">
+                {this.display()}
                 <div id="title">
                     NEW USER 
                 </div>

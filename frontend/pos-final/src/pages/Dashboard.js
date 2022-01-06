@@ -1,18 +1,18 @@
 import React from 'react'
 import './Homepage.css'
 import Cookies from 'js-cookie'
-class Homepage extends React.Component{
+class Dashboard extends React.Component{
 
-    pageLogin(){
+    pageHome(){
         console.log("login")
-        window.location.href = "http://localhost:3000/login"
+        window.location.href = "http://localhost:3000/"
     }
 
     display(){
         if(Cookies.get('jwt')){
           return
         }else{
-          return this.pageLogin()
+          return this.pageHome()
 
         }
       }
@@ -119,4 +119,4 @@ class Homepage extends React.Component{
     }
 }
 
-export default Homepage
+export default Dashboard

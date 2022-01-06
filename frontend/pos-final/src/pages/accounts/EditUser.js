@@ -78,8 +78,6 @@ class EditUser extends React.Component {
 
 
         )
-       
-        
         return (
           <select onChange={onSelect}>
             {
@@ -93,10 +91,25 @@ class EditUser extends React.Component {
         )
       }
 
+
+      pageHome(){
+        console.log("login")
+        window.location.href = "http://localhost:3000/"
+    }
+
+    display(){
+        if(Cookies.get('jwt')){
+          return
+        }else{
+          return this.pageHome()
+
+        }
+      }
+
     render(){
         return(
             <div id="setfooterEU">
-               
+               {this.display()}
                 <div id="title">
                     EDIT USER
                 </div>

@@ -4,6 +4,12 @@
 
   /* background-image: url("https://images.unsplash.com/photo-1587293852726-70cdb56c2866?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d2FyZWhvdXNlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"); */
 }
+#titleL{
+  position:relative;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 40px;
+}
 
 
 #video{
@@ -18,8 +24,9 @@
 #maindiv1{
   width:100%;
   Height:500px;
+  min-height: 78vh;
   margin-top: 110px;
-  background-color: rgba(224, 163, 112, 0.9);
+  background-color: rgba(111,179,184, 0.9);
 }
 
 #fix{

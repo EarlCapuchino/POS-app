@@ -50,7 +50,9 @@ class Login extends React.Component {
         return(
             <>
                 <div id="maindiv1">
-                <h1> Login </h1>
+                <div id="titleL">
+                    LOGIN
+                </div>
                 <FloatingLabel
                 controlId="floatingInput"
                 label="Email address"
