@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import "./AddUser.css"
 class AddUser extends React.Component {
  
     
@@ -53,14 +54,16 @@ class AddUser extends React.Component {
     render(){
         const {username, email, password, role} = this.state
         return(
-            <div>
-                <h1>
-                    Sign Up 
-                </h1>
+            <div id="setfooterAU">
+                <div id="title">
+                    NEW USER 
+                </div>
+                <div id="AUdivider"></div>
+                <div id="signup">
                 <form onSubmit={this.submitHandler}>
 
                     <div>
-                        <label>Username</label>
+                        <label id="AddU">Username: </label>
                         <input type="text" 
                         name="username" 
                         value={username}
@@ -68,7 +71,7 @@ class AddUser extends React.Component {
                     </div>
 
                     <div>
-                        <label>email</label>
+                        <label id="AddU">E-mail: </label>
                         <input type="email" 
                         name="email" 
                         value={email} 
@@ -76,7 +79,7 @@ class AddUser extends React.Component {
                     </div>
 
                     <div>
-                        <label>Password</label>
+                        <label id="AddU">Password: </label>
                         <input 
                         type="password" 
                         name="password" 
@@ -85,7 +88,7 @@ class AddUser extends React.Component {
                     </div>
 
                     <div>
-                    <label>Role</label>
+                    <label id="AddU">Role: </label>
                     <select value={this.state.role} onChange={this.changeHandler1}>
                     <option value="Cashier">Cashier</option>
                     <option value="Staff">Staff</option>
@@ -93,8 +96,9 @@ class AddUser extends React.Component {
                     </select>
                     </div>
                     
-                    <input type="submit"></input>
+                    <input type="submit" id="newuser"></input>
                 </form>
+                </div>
             </div>
         )
     }

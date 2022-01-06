@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
-
+import './EditUser.css'
 
 class EditUser extends React.Component {
     constructor(props){
@@ -95,27 +95,32 @@ class EditUser extends React.Component {
 
     render(){
         return(
-            <div>
-                <h1>
-                    Edit User
-                </h1>
+            <div id="setfooterEU">
                
+                <div id="title">
+                    EDIT USER
+                </div>
+                
                 {
                         this.state.users.map((user, i)=>{
                             return(
-                            <p>
-                            <b>{user.username}</b><br/> 
-                            {user.email} <br/> 
-                            {user.role}
-                            </p>
+                            <div id="usersSection">
+                            <pre>
+                            <b>Username: {user.username}</b><br/> 
+                            Email: {user.email} <br/> 
+                            Role: {user.role}
+                            </pre>
+                            </div>
                             )
                         })
                 }
-               
+                
+                
+
                 <form onSubmit={this.submitHandler}>
                 <label>Choose user to change</label>
                 {this.DisplayOptions()}<br/>
-                Current Role: {this.state.previousRole}
+                <label>Current Role: {this.state.previousRole}</label>
                 
                 <div>
                     <label>Change role to:</label>
