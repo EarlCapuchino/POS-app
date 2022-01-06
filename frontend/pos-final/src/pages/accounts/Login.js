@@ -17,10 +17,10 @@ class Login extends React.Component {
     }
     
     promptPageSuccess(){
-        window.location.href = "http://localhost:3000/success"
+        window.location.href = "/success"
     }
     promptPageError(){
-        window.location.href = "http://localhost:3000/error"
+        window.location.href = "/error"
     }
     changeHandler = (e)=>{
         this.setState({[e.target.name]: e.target.value})

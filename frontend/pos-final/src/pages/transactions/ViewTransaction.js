@@ -40,7 +40,7 @@ class ViewTransaction extends React.Component{
     
     pageLogin(){
         console.log("login")
-        window.location.href = "http://localhost:3000/login"
+        window.location.href = "/login"
     }
 
     display(){
@@ -96,6 +96,7 @@ class ViewTransaction extends React.Component{
                     }
                    
                 </element>
+            </div>
             </div>
         )
     }

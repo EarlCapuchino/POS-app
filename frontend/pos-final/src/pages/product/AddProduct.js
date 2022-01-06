@@ -18,10 +18,10 @@ class AddProduct extends React.Component {
     }
     
     pageSuccess(){
-        window.location.href = "http://localhost:3000/success"
+        window.location.href = "/success"
     }
     pageError(){
-        window.location.href = "http://localhost:3000/error"
+        window.location.href = "/error"
     }
     changeHandler = (e)=>{
         this.setState({[e.target.name]: e.target.value})
