@@ -1,49 +1,120 @@
-/*middle divider*/
+
+
+/*FIrst top divider*/
 
 
 #maindivtop{
   width:100%;
-  Height:300px;
+  Height:400px;
   background-color: rgba(0,0,0);
 }
 
 #registerButton{
   position: relative;
-  left: 5%;
+  padding: 15px 100px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin-top: 5%;
+
 }
 
 #editUserButton{
   position: relative;
-  left: 60%;
-}
-
-#addProductButton{
+  padding: 15px 101px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin-top: 5%;
   
 }
 
+#addProductButton{
+  position: relative;
+  padding: 15px 87px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin-top: 5%;
+
+}
+
 #editProductButton{
+  position: relative;
+  padding: 15px 89px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin-top: 5%;
   
 }
 
 #viewInventoryButton{
-  
+  position: relative;
+  padding: 15px 75px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin-top: 5%;
 }
 
 #addTransButton{
+  position: relative;
+  padding: 15px 66px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin-top: 5%;
+
   
 }
 
 #viewTransButton{
-  
+  position: relative;
+  padding: 15px 64px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin-top: 5%;
 }
 
-#toptitle{
+#toptitle1{
   color: #ffffff;
+  font-size: 25px;
+  font-weight:500;
+  width: 30%;
+  height:300px;
+  position: relative;
+  padding-top: 15px;
+  align-content: center;
 }
+#toptitle2{
+  color: #ffffff;
+  font-size: 25px;
+  font-weight:500;
+  width: 30%;
+  height:300px;
+  position: relative;
+  padding-top: 15px;
+  align-content: center;
+  left:35%;
+  bottom: 75%;
+}
+
+#toptitle3{
+  color: #ffffff;
+  font-size: 25px;
+  font-weight:500;
+  width: 30%;
+  height:300px;
+  position: relative;
+  padding-top: 15px;
+  align-content: center;
+  left:70%;
+  bottom: 150%;
+}
+
 
 
 #topdivider{
-
+width:80%;
+height:5px;
+background-color: #ffffff;
+position:relative;
+left:10%;
 }
 
 
@@ -95,15 +166,7 @@
   background-color: rgba(0,0,0);
 
 }
-/* save mid color changed just a line*/
-#Divider2{
-  width:10px;
-  height: 400px;
-  position: relative;
-  background-color:rgb(255, 255, 255);
-  bottom: -10%;
-  left: 30%;
-}
+
 
 /*third Divider type*/
 #Divider3{
