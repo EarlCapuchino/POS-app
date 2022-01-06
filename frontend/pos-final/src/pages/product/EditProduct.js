@@ -152,15 +152,11 @@ class EditProduct extends React.Component{
             <>
             <div id="Divider"></div>
 
-            <font color = "black">
-                <h1>Edit Item</h1>
-                <br>
-                </br>
-                <br>
-                </br>
-                <div class= "div2">
-                <h3>Click the ID</h3>
+            <font color = "white">
+                <div class = "div3">
+                <h1>Edit/Delete Item</h1>
                 </div>
+                <br/>
                 </font>
                 {this.state.delName}
 
@@ -168,11 +164,13 @@ class EditProduct extends React.Component{
                         this.state.products.map((product, i)=>{
                             return(
                             <p key={i}>
+                                <pre>
+                                    <div class = "div5">
 
                             <Badge pill bg="warning" text="dark">
                             {product.name}
                             </Badge><br/>
-                            <Button variant="outline-success"
+                            <Button variant="outline-success" bg = "blue"
                             value={product._id}
                             onClick={this.selectID}>
                             edit
@@ -183,21 +181,22 @@ class EditProduct extends React.Component{
                             //onChange = {this.delProduct}
                            >delete</Button>
                            <br/>
+                           </div>
+                           </pre>
                             </p>
                             )
                         })
                 }
-                <div class = "div2">
-                    <font color = "black">
-                <h2>Delete item</h2>
+                <div class = "div3">
+                    <font color = "white">
+                <h5>Delete item</h5>
                 </font>
-                </div>
-                <br></br>
-                {this.state.delName}
+                <Badge pill bg="warning" text="dark">{this.state.delName}</Badge>
+                <br/>     
                 <Button variant="outline-info"
                 onClick={this.delPost}>submit deletion</Button>
-                <br></br>
-                <br></br>
+                </div>
+                <br/>
 
                 <div class = "div2">
                     <font color = "black">
