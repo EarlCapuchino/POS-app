@@ -11,7 +11,7 @@ class Homepage extends React.Component{
         window.location.href = "/login"
     }
     componentDidMount() {
-        fetch(host) //this will call find all
+        fetch('http://localhost:4000/') //this will call find all
         .then(response=>response.json()) //app.get('/find-all', controller.findAll) 
         .then(body=>{
             console.log(body.status)
