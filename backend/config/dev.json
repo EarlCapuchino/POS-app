@@ -1,6 +1,8 @@
 {
     "mongodb": {
-      "host": "example.cccsg.mongodb.net",
-      "database": "cmsc100example"
+      "username": "pos-app-admin",
+      "password": "cmsc100ef1l",
+      "host": "clusterpos.v5vmf.mongodb.net",
+      "database": "pos-app-collection"
     }
 }
