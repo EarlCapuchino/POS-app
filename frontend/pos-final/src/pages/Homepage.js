@@ -1,5 +1,6 @@
 import React from 'react'
 import './Homepage.css'
+import { host } from '../utils/get-host';
 
 class Homepage extends React.Component{
     pageSetUp(){
@@ -10,7 +11,7 @@ class Homepage extends React.Component{
         window.location.href = "/login"
     }
     componentDidMount() {
-        fetch('http://localhost:4000/') //this will call find all
+        fetch(host) //this will call find all
         .then(response=>response.json()) //app.get('/find-all', controller.findAll) 
         .then(body=>{
             console.log(body.status)
