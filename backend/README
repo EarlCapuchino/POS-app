@@ -1,5 +1,6 @@
 Start:
 {BACKEND}
+- download the config file containing backend credentials
 - cd backend
 - node index (make public and open the browser)
 - copy url
