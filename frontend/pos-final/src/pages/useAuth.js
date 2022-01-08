@@ -35,10 +35,50 @@ import jwt from 'jwt-decode'
 
 export default function useAuth() {
 
+  //     accounts     //
+  // only admin can access this
   function addUser(){
     if ((Cookies.get('jwt')) !== undefined){
       if  ( (jwt(Cookies.get('jwt')).role) ==="Admin"){
-        return(<AddUser/>)
+        return(<AddUser/>) //if cookies exist and is an authorized role
+      }else{
+        return( <Unauthorized/>) //cookies exists but unauthorized role
+      }
+    }else{
+      return(<Login/>) //no cookies present, not logged-in
+    }
+  }
+
+  function editUser(){
+    if ((Cookies.get('jwt')) !== undefined){
+      if  ( (jwt(Cookies.get('jwt')).role) ==="Admin"){
+        return(<EditUser/>)
+      }else{
+        return( <Unauthorized/>)
+      }
+    }else{
+      return(<Login/>)
+    }
+  }
+
+  //     products     //
+  // only admin and staff can access this
+  function addProduct(){
+    if ((Cookies.get('jwt')) !== undefined){
+      if  ( ((jwt(Cookies.get('jwt')).role) ==="Admin") || ((jwt(Cookies.get('jwt')).role) ==="Staff") ){
+        return(<AddProduct/>)
+      }else{
+        return( <Unauthorized/>)
+      }
+    }else{
+      return(<Login/>)
+    }
+  }
+
+  function editProduct(){
+    if ((Cookies.get('jwt')) !== undefined){
+      if  ( ((jwt(Cookies.get('jwt')).role) ==="Admin") || ((jwt(Cookies.get('jwt')).role) ==="Staff") ){
+        return(<EditProduct/>)
       }else{
         return( <Unauthorized/>)
       }
@@ -47,5 +87,5 @@ export default function useAuth() {
     }
   }
  
-  return [addUser];
+  return [addUser, editUser, addProduct, editProduct];
 }
