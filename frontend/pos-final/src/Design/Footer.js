@@ -9,11 +9,11 @@ function Footer() {
       <section className='footer-subscription'>
         <p className='footer-subscription-heading'>
           <b>
-            POS APP
+            Trygo POS App
           </b>
         </p>
         <p className='footer-subscription-text'>
-          All Rights Reserved 2022
+        © 2022 Trygo Web Solutions, Ltd.
         </p>
       </section>
     </div>

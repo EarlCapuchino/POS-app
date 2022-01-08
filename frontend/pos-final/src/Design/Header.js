@@ -17,7 +17,7 @@ class Header extends React.Component {
         <section className='header-subscription'>
           <p classname='header-subscription-heading'>
             <b><font size="32">
-              POS APP1
+              Trygo POS App
             </font></b>
             {this.display()}
             
