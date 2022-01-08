@@ -96,7 +96,14 @@ class ViewTransaction extends React.Component{
                     }
                    
                 </element>
+
+
+                <form action="/" >
+                    <input type="submit" value="Return" id="returndash"/>
+                </form>
             </div>
+
+
             </div>
         )
     }

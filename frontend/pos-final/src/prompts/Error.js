@@ -2,7 +2,7 @@ import React from 'react'
 import {Alert} from "react-bootstrap";
 import Cookies from 'js-cookie'
 import jwt from 'jwt-decode'
-
+import './prompts.css'
 class Error extends React.Component{
     constructor() {
         super();
@@ -23,15 +23,16 @@ class Error extends React.Component{
     render(){
         return(
             <>
-               
+                <div id="footerpush">
                 <Alert variant="danger">
                 <Alert.Heading>You got an error!</Alert.Heading>
                 <p>
                 <h4>{this.state.display}</h4>
                 <p>Unsuccessful query</p>
-                <a href="/dashboard">Return</a><br/>
+                <a href="/">Return</a><br/>
                 </p>
                 </Alert>
+                </div>
             </>
         )
     }

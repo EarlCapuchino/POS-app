@@ -20,13 +20,15 @@ class Success extends React.Component{
     render(){
         return(
             <>
+             <div id="footerpush">
             <Alert variant="success">
                 <Alert.Heading>Successfully saved!</Alert.Heading>
                 <p>
                 <h4>{this.state.display}</h4>
-                <a href="/dashboard">Return</a><br/>
+                <a href="/">Return</a><br/>
                 </p>
             </Alert>
+            </div>
             </>
         )
     }

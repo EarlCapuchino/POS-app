@@ -12,6 +12,7 @@ import SetUpAccount from './pages/accounts/SetUpAccount';
 import AddUser from './pages/accounts/AddUser';
 import EditUser from './pages/accounts/EditUser';
 import Dashboard from './pages/Dashboard';
+import Dashboard2 from './pages/Dashboard2';
 
 ///product
 import AddProduct from './pages/product/AddProduct'
@@ -67,6 +68,7 @@ const [addUser, editUser, addProduct, editProduct, viewInventory, addTransaction
       <Route exact ={true} path="/error" element={<Error/>}/>
 
       <Route exact ={true} path="/dashboard" element={<Dashboard/>}/>
+      <Route exact ={true} path="/dashboard2" element={<Dashboard2/>}/>
       <Route path="*" element={<NotFound/>} />
     
        

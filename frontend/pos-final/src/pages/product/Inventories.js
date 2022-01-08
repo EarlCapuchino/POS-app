@@ -60,6 +60,9 @@ class Inventories extends React.Component{
                             ) 
                         })
                     }
+                    <form action="/" >
+                    <input type="submit" value="Return" id="returndash"/>
+                </form>
                 </div>
                 <br></br><br></br>
             </>
