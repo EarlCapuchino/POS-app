@@ -86,6 +86,34 @@ export default function useAuth() {
       return(<Login/>)
     }
   }
+
+  //    view inventory     //
+  //accessible for all users as long as logged in
+
+  function viewInventory(){
+    if ((Cookies.get('jwt')) !== undefined){
+      return(<Inventories/>)
+    }else{
+      return(<Login/>)
+    }
+  }
+
+  //     transactions     //
+  //accessible for all users as long as logged in
+  function addTransaction(){
+    if ((Cookies.get('jwt')) !== undefined){
+      return(<AddTransaction/>)
+    }else{
+      return(<Login/>)
+    }
+  }
+  function viewTransaction(){
+    if ((Cookies.get('jwt')) !== undefined){
+      return(<ViewTransaction/>)
+    }else{
+      return(<Login/>)
+    }
+  }
  
-  return [addUser, editUser, addProduct, editProduct];
+  return [addUser, editUser, addProduct, editProduct, viewInventory, addTransaction, viewTransaction];
 }

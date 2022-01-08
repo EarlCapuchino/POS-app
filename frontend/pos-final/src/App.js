@@ -40,7 +40,7 @@ import jwt from 'jwt-decode'
 
 
 function App() {
-const [addUser, editUser, addProduct, editProduct] = useAuth()
+const [addUser, editUser, addProduct, editProduct, viewInventory, addTransaction, viewTransaction] = useAuth()
   return (
     <div className="App">
       <video src="https://cdn.discordapp.com/attachments/759381457893982219/927813921358876682/Backeng.mp4" autoplay="autoplay" loop="loop" muted id="video">
@@ -58,10 +58,10 @@ const [addUser, editUser, addProduct, editProduct] = useAuth()
 
       <Route exact ={true} path="/add-product" element={addProduct()}/>
       <Route exact ={true} path="/edit-product" element={editProduct()}/>
-      <Route exact ={true} path="/inventory" element={<Inventories/>}/>
+      <Route exact ={true} path="/inventory" element={viewInventory()}/>
 
-      <Route exact ={true} path="/add-transaction" element={<AddTransaction/>}/>
-      <Route exact ={true} path="/view-transactions" element={<ViewTransaction/>}/>
+      <Route exact ={true} path="/add-transaction" element={addTransaction()}/>
+      <Route exact ={true} path="/view-transactions" element={viewTransaction()}/>
 
       <Route exact ={true} path="/success" element={<Success/>}/>
       <Route exact ={true} path="/error" element={<Error/>}/>

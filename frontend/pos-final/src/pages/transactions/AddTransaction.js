@@ -16,7 +16,7 @@ class AddTransaction extends React.Component{
         }
     }
     
-    display() {
+    displayPurchase() {
         return(
         <Table striped bordered hover bgcolor="#dadfeb">
         <thead>
@@ -190,7 +190,7 @@ class AddTransaction extends React.Component{
                  }
                       
             
-               {this.display()}
+               {this.displayPurchase()}
             
 
                 <Table striped bordered hover bgcolor="#dadfeb">
