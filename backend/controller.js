@@ -1,22 +1,22 @@
-import mongoose from 'mongoose';
-import { readFileSync } from 'fs';
-import { createBlogModel } from './models/blog.js';
-import { createUserModel } from './models/user.js';
-import { createDiscardedTokenModel } from './models/discarded-token.js';
+//import mongoose from 'mongoose';
+//import { readFileSync } from 'fs';
+//import { createBlogModel } from './models/blog.js';
+//import { createUserModel } from './models/user.js';
+//import { createDiscardedTokenModel } from './models/discarded-token.js';
 
-const userPass = fs.readFileSync('config/dev.json','utf8')
-const { mongodb: { username, password } } = JSON.parse(userPass);
+//const userPass = fs.readFileSync('config/dev.json','utf8')
+//const { mongodb: { username, password } } = JSON.parse(userPass);
 
-  const config = readFileSync('src/config.json', 'utf8');
-  const { mongodb: { host, database } } = JSON.parse(config);
+ // const config = readFileSync('src/config.json', 'utf8');
+  //const { mongodb: { host, database } } = JSON.parse(config);
 
-  mongoose.connect(`mongodb+srv://${username}:${password}@${host}/${database}?retryWrites=true&w=majority`);
+  //mongoose.connect(`mongodb+srv://${username}:${password}@${host}/${database}?retryWrites=true&w=majority`);
 
 
 
 const mongoose = require('mongoose');
 //connection to database
-await mongoose.connect('mongodb+srv://pos-app-admin:cmsc100ef1l@clusterpos.v5vmf.mongodb.net/pos-app-collection?retryWrites=true&w=majority',  { useNewUrlParser: true }, {useUnifiedTopology: true})
+mongoose.connect('mongodb+srv://pos-app-admin:cmsc100ef1l@clusterpos.v5vmf.mongodb.net/pos-app-collection?retryWrites=true&w=majority',  { useNewUrlParser: true }, {useUnifiedTopology: true})
 
 //database models and schema
 const {User} = require('./models/user')
