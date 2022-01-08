@@ -1,0 +1,6 @@
+{
+    "mongodb": {
+      "host": "example.cccsg.mongodb.net",
+      "database": "cmsc100example"
+    }
+}
