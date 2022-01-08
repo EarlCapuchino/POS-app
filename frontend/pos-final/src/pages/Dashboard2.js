@@ -1,8 +1,7 @@
 import React from 'react'
-import './Homepage.css'
+import './Dashboard2.css'
 import Cookies from 'js-cookie'
-import jwt from 'jwt-decode'
-class Dashboard extends React.Component{
+class Dashboard2 extends React.Component{
 
     pageHome(){
         console.log("login")
@@ -23,37 +22,9 @@ class Dashboard extends React.Component{
             <>
             {this.display()}
                 <div id="maindivtop">
+               
                 
-                <div id="toptitle1">Users
-                <div id="topdivider"></div>
-
-                <form action="/register" >
-                    <input type="submit" value="Add User" id="registerButton"/>
-                </form>
-        
-
-                <form action="/edit-user">  
-                    <input type="submit" value="Edit User" id="editUserButton" />
-                </form>
-                </div>
-
-                <div id="toptitle2">Products
-                <div id="topdivider"></div>
-
-                <form action="/add-product" >
-                    <input type="submit" value="Add Product" id="addProductButton"/>
-                </form>
-
-                <form action="/edit-product" >
-                    <input type="submit" value="Edit Product" id="editProductButton"/>
-                </form>
-
-                <form action="/inventory" >
-                    <input type="submit" value="View Inventory" id="viewInventoryButton" />
-                </form></div>
-
-                
-                <div id="toptitle3">Transactions
+                <div id="toptitleds2">Transactions
                 <div id="topdivider"></div>
 
 
@@ -120,4 +91,4 @@ class Dashboard extends React.Component{
     }
 }
 
-export default Dashboard
+export default Dashboard2

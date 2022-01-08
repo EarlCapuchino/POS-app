@@ -119,7 +119,7 @@ class EditUser extends React.Component {
                             return(
                             <div id="usersSection">
                             <pre>
-                            <b>Username: {user.username}</b><br/> 
+                            <b id="size">Username: {user.username}</b><br/> 
                             Email: {user.email} <br/> 
                             Role: {user.role}
                             </pre>

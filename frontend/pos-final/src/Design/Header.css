@@ -15,3 +15,14 @@
   z-index: 2;
 }
 
+#logoutbut{
+  position: fixed;
+  width:15%;
+  left: 80%;
+  bottom: 93%;
+}
+
+#logoutsize{
+  width: 100%;
+  height: 50px;
+}

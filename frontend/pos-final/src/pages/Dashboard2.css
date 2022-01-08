@@ -1,0 +1,298 @@
+
+
+/*FIrst top divider*/
+
+
+#maindivtop{
+  width:100%;
+  Height:400px;
+  background-color: rgba(0,0,0);
+}
+
+#addTransButton{
+  position: relative;
+  padding: 15px 66px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin-top: 5%;
+
+  
+}
+
+#viewTransButton{
+  position: relative;
+  padding: 15px 64px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin-top: 5%;
+}
+
+#toptitleds2{
+  color: #ffffff;
+  font-size: 25px;
+  font-weight:500;
+  width: 30%;
+  height:300px;
+  position: relative;
+  padding-top: 15px;
+  align-content: center;
+  left: 35%;
+}
+
+
+
+
+#topdivider{
+width:80%;
+height:5px;
+background-color: #ffffff;
+position:relative;
+left:10%;
+}
+
+
+
+/*second div box*/
+#mmessage{
+
+  width:25%;
+  position: relative;
+  bottom: 50%;
+  left:3%;
+  text-align: right;
+  color:rgba(255, 255, 255, 1);
+  font-size: 55px ;
+  
+}
+
+#maindivtop2{
+  width:100%;
+  Height:500px;
+  background-color: rgba(111,179,184, 0.9);
+}
+
+
+#Divider{
+  width:10px;
+  height: 400px;
+  position: relative;
+  background-color:rgb(2, 2, 2, 0.9);
+  bottom: -10%;
+  left: 30%;
+}
+
+#text{
+  width:60%;
+  height: 45%;
+  position: relative;
+  bottom:80%;
+  left: 33%;
+  text-align: left;
+  font-size: 30px ;
+  align-content: center;
+}
+
+/*Third div box*/
+#maindiv2{
+  width:100%;
+  Height:500px;
+  background-color: rgba(0,0,0);
+
+}
+
+
+/*third Divider type*/
+#Divider3{
+  width:10px;
+  height: 400px;
+  position: relative;
+  background-color:rgb(255, 255, 255);
+  bottom: -10%;
+  left: 74%;
+}
+
+
+/*pictures*/
+#picturebox{
+  border-radius: 10%;
+  background-color:rgb(255, 255, 255);
+  height:400px;
+  width: 20%;
+  position: relative;
+  bottom: 70%;
+  left: 8%;
+}
+
+#picturebox1{
+  border-radius: 10%;
+  background-color:rgb(255, 255, 255);
+  height:400px;
+  width: 20%;
+  position: relative;
+  bottom: 150%;
+  left: 30%;
+}
+#picturebox2{
+  border-radius: 10%;
+  background-color:rgb(255, 255, 255);
+  height:400px;
+  width: 20%;
+  position: relative;
+  bottom: 230%;
+  left: 52%;
+}
+#picturebox3{
+  border-radius: 10%;
+  background-color:rgb(255, 255, 255);
+  height:400px;
+  width: 20%;
+  position: relative;
+  bottom: 310%;
+  left: 76.5%;
+}
+
+#picture4{
+  border-radius: 10%;
+  background-image: url("https://cdn3.vectorstock.com/i/1000x1000/97/32/man-silhouette-profile-picture-vector-2139732.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:70%;
+  width: 80%;
+  position: relative;
+  bottom:-5%;
+  left:10%;
+}
+#title1{
+  width:90%;
+  height:15%;
+  position: relative;
+  text-align: center;
+  font-size: 1.50rem ;
+  align-content: center;
+  bottom: -100%;
+  left: 5%;
+  color:black;
+}
+
+
+#picture2{
+  border-radius: 10%;
+  background-image: url("https://scontent.fmnl8-2.fna.fbcdn.net/v/t1.6435-9/78077156_1032887280380746_4901940385032437760_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=cdbe9c&_nc_eui2=AeGO5Fle4XJcstOHTw6LRK0l11J_tgvcoajXUn-2C9yhqFy_wJCaHBHXjy_CWVMMNPN3tdxzfZMDBjVc-Q0mxlxa&_nc_ohc=cGW4NgUWIrAAX87V_6H&_nc_ht=scontent.fmnl8-2.fna&oh=00_AT8omimQWYhdWUfuupe3sAT2ySnFBDXdCtKPHOkITyZcaA&oe=61F9A1BC");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:70%;
+  width: 80%;
+  position: relative;
+  bottom:-5%;
+  left:10%;
+}
+
+#title2{
+  width:90%;
+  height:15%;
+  position: relative;
+  text-align: center;
+  font-size: 1.50rem ;
+  align-content: center;
+  bottom: -100%;
+  left: 5%;
+  color:black;
+}
+
+#picture3{
+  border-radius: 10%;
+  background-image: url("https://cdn.discordapp.com/attachments/915599235297210368/927564928993362010/Julian.jpg");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:70%;
+  width: 80%;
+  position: relative;
+  bottom:-5%;
+  left:10%;
+}
+
+#title3{
+  width:90%;
+  height:15%;
+  position: relative;
+  text-align: center;
+  font-size: 1.50rem ;
+  align-content: center;
+  bottom: -100%;
+  left: 5%;
+  color:black;
+}
+#picture1{
+  border-radius: 10%;
+  background-image: url("https://cdn.discordapp.com/attachments/759381457893982219/927569251391389756/31131621_1943760578968521_1460358008138629120_n.png");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:70%;
+  width: 80%;
+  position: relative;
+  bottom:-5%;
+  left:10%;
+}
+
+#title4{
+  width:90%;
+  height:15%;
+  position: relative;
+  text-align: center;
+  font-size: 1.50rem ;
+  align-content: center;
+  bottom: -100%;
+  left: 5%;
+  color:black;
+}
+/*remove paragraph spacing*/
+p
+{
+  margin:0;
+  padding:0;
+}
+
+
+/*about us*/
+#mmessage1{
+
+  width:100%;
+  position: relative;
+  bottom: -5%;
+  left:0%;
+  text-align: center;
+  color:rgba(255, 255, 255, 1);
+  font-size: 55px ;
+  
+}
+
+#maindiv3{
+  width:100%;
+  Height:700px;
+  background-color: rgba(56,128,135, 0.9);
+}
+
+#Divider4{
+  width:40%;
+  height: 10px;
+  position: relative;
+  align-content: center;
+  background-color:rgb(2, 2, 2, 0.9);
+  bottom: -20%;
+  left: 30%;
+}
+
+#text1{
+  width:60%;
+  height: 50%;
+  position: relative;
+  bottom:-10%;
+  left: 20%;
+  text-align: left;
+  font-size: 30px ;
+  align-content: center;
+}
+

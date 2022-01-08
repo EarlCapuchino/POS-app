@@ -1,8 +1,31 @@
 import React from 'react'
 import './Homepage.css'
 import { host } from '../utils/get-host';
+import Cookies from 'js-cookie'
+import jwt from 'jwt-decode'
 
 class Homepage extends React.Component{
+
+    pagedash(){
+        console.log("dashboard")
+        window.location.href = "/dashboard"
+    }
+    DB2(){
+        console.log("login")
+        window.location.href = "/dashboard2"
+    }
+    display(){
+        if(Cookies.get('jwt')){
+            if (jwt(Cookies.get('jwt')).role=="Cashier"){
+                return this.DB2()
+            }else{
+                return this.pagedash()
+            }  
+         
+        }
+      }
+
+
     pageSetUp(){
         window.location.href = "/set-up-account"
     }
@@ -11,7 +34,8 @@ class Homepage extends React.Component{
         window.location.href = "/login"
     }
     componentDidMount() {
-        fetch('http://localhost:4000/') //this will call find all
+        this.display()
+        fetch(host) //this will call find all
         .then(response=>response.json()) //app.get('/find-all', controller.findAll) 
         .then(body=>{
             console.log(body.status)
