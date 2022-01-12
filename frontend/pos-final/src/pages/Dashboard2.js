@@ -1,7 +1,13 @@
 import React from 'react'
 import './Dashboard2.css'
 import Cookies from 'js-cookie'
+import jwt from 'jwt-decode'
 class Dashboard2 extends React.Component{
+
+    pagedash(){
+        console.log("dashboard")
+        window.location.href = "/dashboard"
+    }
 
     pageHome(){
         console.log("login")
@@ -10,10 +16,11 @@ class Dashboard2 extends React.Component{
 
     display(){
         if(Cookies.get('jwt')){
-          return
+            if (jwt(Cookies.get('jwt')).role!="Cashier"){
+                return this.pagedash()
+            }
         }else{
           return this.pageHome()
-
         }
       }
 

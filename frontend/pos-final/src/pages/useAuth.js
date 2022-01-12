@@ -92,7 +92,11 @@ export default function useAuth() {
 
   function viewInventory(){
     if ((Cookies.get('jwt')) !== undefined){
-      return(<Inventories/>)
+      if  ( ((jwt(Cookies.get('jwt')).role) ==="Admin") || ((jwt(Cookies.get('jwt')).role) ==="Staff") ){
+        return(<viewInventory/>)
+      }else{
+        return( <Unauthorized/>)
+      }
     }else{
       return(<Login/>)
     }
