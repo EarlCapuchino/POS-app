@@ -4,6 +4,8 @@ import axios from 'axios'
 import Cookies from 'js-cookie'
 import {Form, Badge, FloatingLabel} from "react-bootstrap";
 import '../../App.css'
+import jwt from 'jwt-decode'
+
 class Login extends React.Component {
     
     constructor(props){
@@ -47,11 +49,32 @@ class Login extends React.Component {
         })
 
     }
+
+    pagedash(){
+        console.log("dashboard")
+        window.location.href = "/dashboard"
+    }
+    DB2(){
+        console.log("login")
+        window.location.href = "/dashboard2"
+    }
+
+    display(){
+        if(Cookies.get('jwt')){
+            if (jwt(Cookies.get('jwt')).role=="Cashier"){
+                return this.DB2()
+            }else{
+                return this.pagedash()
+            }  
+        }
+    }
+
     render(){
         const {username, email, password, role} = this.state
         return(
             <>
                 <div id="maindiv1">
+                    {this.display()} 
                 <div id="titleL">
                     LOGIN
                 </div>
