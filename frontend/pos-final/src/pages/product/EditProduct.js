@@ -3,6 +3,7 @@ import axios from 'axios'
 import Cookies from 'js-cookie'
 import {Badge, Button} from "react-bootstrap";
 import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
+import {host} from "../../utils/get-host"
 
 class EditProduct extends React.Component{
     constructor(props){
@@ -46,7 +47,7 @@ class EditProduct extends React.Component{
     }
 
     componentDidMount=()=>{
-        fetch('http://localhost:4000/view-inventory')
+        fetch(`${host}view-inventory`)
         .then(response=>response.json()) //app.get('/find-all', controller.findAll)
         .then(body=>{
             this.setState({products: body})
@@ -57,7 +58,7 @@ class EditProduct extends React.Component{
     submitHandler = (e) =>{
         e.preventDefault()
         console.log(this.state)
-        axios.post('http://localhost:4000/edit-product',this.state)
+        axios.post(`${host}edit-product`,this.state)
         .then(response=>{
             if (response.data.status == "ok"){
                 this.pageSuccess();
@@ -130,7 +131,7 @@ class EditProduct extends React.Component{
 
     }
     delPost = (e) =>{
-        axios.post('http://localhost:4000/delete-product',({deleteID: this.state.deleteID,
+        axios.post(`${host}delete-product`,({deleteID: this.state.deleteID,
         delName: this.state.delName}))
         .then(response=>{
             console.log(response)

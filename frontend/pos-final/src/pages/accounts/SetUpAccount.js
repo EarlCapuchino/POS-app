@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import {host} from "../../utils/get-host"
 
 class SetUpAccount extends React.Component {
     constructor(props){
@@ -33,7 +34,7 @@ class SetUpAccount extends React.Component {
     submitHandler = e =>{ //put back button going to homepage
         e.preventDefault()
         console.log(this.state)
-        axios.post('http://localhost:4000/set-up-account',this.state)
+        axios.post(`${host}set-up-account`,this.state)
         .then(response=>{
             console.log(response.data.status)
             if (response.data.status == "valid"){ //will redirect for success and errors

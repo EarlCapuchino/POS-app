@@ -3,6 +3,8 @@ import {Alert} from "react-bootstrap";
 import Cookies from 'js-cookie'
 import jwt from 'jwt-decode'
 import './prompts.css'
+import {host} from '../utils/get-host'
+
 class Error extends React.Component{
     constructor() {
         super();
@@ -12,7 +14,7 @@ class Error extends React.Component{
     }
 
     componentDidMount=()=>{
-        fetch('http://localhost:4000/prompt') //i-trigger mo yung find-all
+        fetch(`${host}prompt`) //i-trigger mo yung find-all
         .then(response=>response.json()) //app.get('/find-all', controller.findAll) 
         .then(body=>{
             this.setState({display: body.status})

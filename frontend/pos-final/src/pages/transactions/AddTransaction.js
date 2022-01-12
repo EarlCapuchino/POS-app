@@ -3,7 +3,7 @@ import axios from 'axios'
 import {Button, Table, Badge} from "react-bootstrap";
 import Cookies from 'js-cookie'
 import './transaction.css'
-
+import {host} from "../../utils/get-host"
 
 class AddTransaction extends React.Component{
     constructor() {
@@ -120,7 +120,7 @@ class AddTransaction extends React.Component{
     }
 
     componentDidMount=()=>{
-        fetch('http://localhost:4000/view-inventory') //i-trigger mo yung find-all
+        fetch(`${host}view-inventory`) //i-trigger mo yung find-all
         .then(response=>response.json()) //app.get('/find-all', controller.findAll) 
         .then(body=>{
             this.setState({products: body})
@@ -136,7 +136,7 @@ class AddTransaction extends React.Component{
     submitHandler = (e) =>{
         e.preventDefault()
         console.log(this.state)
-        axios.post('http://localhost:4000/add-transaction',this.state) //return ng add transaction
+        axios.post(`${host}add-transaction`,this.state) //return ng add transaction
         .then(response=>{
             console.log(response.data.status)
             if (response.data.status == "ok"){this.pageSuccess()}

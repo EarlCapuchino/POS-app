@@ -1,5 +1,6 @@
 import React from 'react'
 import Cookies from 'js-cookie'
+import {host} from "../../utils/get-host"
 
 class Inventories extends React.Component{
     constructor(props){
@@ -13,7 +14,7 @@ class Inventories extends React.Component{
     }
 
     componentDidMount() {
-        fetch('http://localhost:4000/view-inventory') //i-trigger mo yung find-all
+        fetch(`${host}view-inventory`) //i-trigger mo yung find-all
         .then(response=>response.json()) //app.get('/find-all', controller.findAll) 
         .then(body=>{
             this.setState({products: body})
@@ -50,7 +51,7 @@ class Inventories extends React.Component{
                                 ID: {product._id}                       Name: {product.name}<br/>
                                 Price: ₱{product.price} </pre>                   
                                 Stock: {product.stock}<br/>
-                                ---------------------------------------------------------------------------------------------------------------------------
+                                -------------------------------------------------------------------------------------------------------------------------
                             </div>
                             <br></br>
                             </p>
