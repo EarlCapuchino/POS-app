@@ -12,7 +12,9 @@ pageHome(){
   window.location.href = "/"
 }
 submitHandler = (e) =>{
-    this.pageHome()
+  Cookies.remove('jwt'); //remove the cookies when logging out
+   this.pageHome()
+   return false;
 }
   display(){
     if(Cookies.get('jwt')){
