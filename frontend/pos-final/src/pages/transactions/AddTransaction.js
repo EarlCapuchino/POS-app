@@ -134,7 +134,14 @@ class AddTransaction extends React.Component{
     pageError(){
         window.location.href = "/error"
     }
+    pageErrorTrans(){
+        window.location.href = "/error-transaction"
+    }
+
     submitHandler = (e) =>{
+        if (this.state.total=="0"){
+            return this.pageErrorTrans()
+        }
         e.preventDefault()
         console.log(this.state)
         axios.post(`${host}add-transaction`,this.state) //return ng add transaction
@@ -202,7 +209,7 @@ class AddTransaction extends React.Component{
                     </tr>
                 </thead>
                 </Table>
-                <Button variant="dark" onClick={this.submitHandler}>PAY</Button>{' '}
+                <Button variant="dark" id="paySize" onClick={this.submitHandler}>PAY</Button>{' '}
                 <div id="margin">
                  </div>
             </div>

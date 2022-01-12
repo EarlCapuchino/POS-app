@@ -29,6 +29,9 @@ class AddProduct extends React.Component {
     }
 
     submitHandler = e =>{
+        if (this.state.price=="" || this.state.name=="" || this.state.stock=="" || this.state.stock<0){
+            return this.pageError()
+        }
         e.preventDefault()
         console.log(this.state)
         
