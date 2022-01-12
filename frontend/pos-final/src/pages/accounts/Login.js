@@ -1,3 +1,4 @@
+import {host} from '../../utils/get-host'
 import React from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
@@ -29,8 +30,9 @@ class Login extends React.Component {
     submitHandler = e =>{ //put back button going to homepage
       
         e.preventDefault()
-        console.log(this.state)
-        axios.post('http://localhost:4000/login',this.state)
+        let a = `${host}`
+        console.log(a)
+        axios.post(`${host}login`,this.state)
         .then(response=>{
             if(response.data.status == "ok"){
                 console.log("from login"+ JSON.stringify(response.data.token))
