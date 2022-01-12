@@ -37,6 +37,7 @@ module.exports = (app) => {
     app.post('/add-user', controller.addUser)
     app.get("/edit-user", controller.editUser)
     app.post("/edit-user", controller.editUserDatabase)
+    app.post("/logout", controller.logout)
 
     //products
     app.post('/add-product', controller.addItemInventory)

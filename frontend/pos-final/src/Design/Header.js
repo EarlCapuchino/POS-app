@@ -1,25 +1,38 @@
 import React from 'react'
 import './Header.css'
+import axios from 'axios'
 import Cookies from 'js-cookie'
 import jwt from 'jwt-decode'
 import {Button, Table, Badge} from "react-bootstrap";
 
 class Header extends React.Component {
-  
+  constructor(props){
+    super(props)
+    this.state = {
+        cookies: Cookies.get('jwt'),  
+    }
+}
   
 pageHome(){
   console.log("login")
   window.location.href = "/"
 }
 submitHandler = (e) =>{
-  Cookies.remove('jwt'); //remove the cookies when logging out
-   this.pageHome()
-   return false;
+  e.preventDefault()
+  console.log(this.state)
+  axios.post('http://localhost:4000/logout',this.state)
+  .then(response=>{
+      if(response.data.status == "ok"){
+        Cookies.remove('jwt'); //remove the cookies when logging out
+        this.pageHome()
+        return false;
+      }
+  })
 }
   display(){
     if(Cookies.get('jwt')){
       return(
-        <p>{jwt(Cookies.get('jwt')).username} || {jwt(Cookies.get('jwt')).role}
+        <p>{jwt(Cookies.get('jwt')).username} || {jwt(Cookies.get('jwt')).role} || {jwt(Cookies.get('jwt')).login}
         <div id="logoutbut"><Button variant="dark" onClick={this.submitHandler} id="logoutsize">Logout</Button></div></p>
         
       )

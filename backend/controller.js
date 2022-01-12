@@ -5,12 +5,13 @@ const mongoose = require('mongoose');
 const fileSync = require('fs');
 const config =  fileSync.readFileSync('./config/dev.json','utf8');
 const {mongodb: {username, password, host, database} } = JSON.parse(config)
-mongoose.connect(`mongodb+srv://${username}:${password}@${host}/${database}?retryWrites=true&w=majority',  { useNewUrlParser: true }, {useUnifiedTopology: true}`)
+mongoose.connect(`mongodb+srv://${username}:${password}@${host}/${database}?retryWrites=true&w=majority`,  { useNewUrlParser: true }, {useUnifiedTopology: true})
 
 //database models and schema
 const {User} = require('./models/user')
 const {Product} = require('./models/product')
 const {Transaction} = require('./models/transaction')
+const {Session} = require('./models/session')
 
 //cookies and security
 const bcrypt = require('bcryptjs')
@@ -69,12 +70,21 @@ exports.login = async (req, res) => { //login for the app
 	if (await bcrypt.compare(password, user.password)) {
 	// the username, password combination is successful
 
+    let dateObj = new Date(); //get the dates credentials
+    let date = ("0" + dateObj.getDate()).slice(-2);
+    let month = ("0" + (dateObj.getMonth() + 1)).slice(-2);
+    let year = dateObj.getFullYear();
+    let hours = dateObj.getHours();
+    let minutes = ("0" + dateObj.getMinutes()).slice(-2);
+    let seconds = dateObj.getSeconds();
+    let login = `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`
 		const token = jwt.sign(
 			{ //payload
 				id: user._id,
 				username: user.username,
                 email: user.email,
-                role: user.role
+                role: user.role,
+                login: login
 			},
 			privateKey, //refer to private.key
             loginCredentials //this is how the client proves its identity
@@ -85,6 +95,38 @@ exports.login = async (req, res) => { //login for the app
 	}
     MESSAGE = "Invalid password"; //user exist but wrong password
 	res.json({ status: 'error', error: 'Invalid username/password' })
+}
+
+exports.logout = async (req,res) =>{
+    console.log("LOGGED OUT")
+    let token = req.body.cookies
+    let decoded = jwt.decode(token, {complete: true});
+    console.log(decoded.payload.login)
+    let dateObj = new Date(); //get the dates credentials
+    let date = ("0" + dateObj.getDate()).slice(-2);
+    let month = ("0" + (dateObj.getMonth() + 1)).slice(-2);
+    let year = dateObj.getFullYear();
+    let hours = dateObj.getHours();
+    let minutes = ("0" + dateObj.getMinutes()).slice(-2);
+    let seconds = dateObj.getSeconds();
+    let logout = `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`
+    const newSession = new Session({
+        username: decoded.payload.username,
+        email: decoded.payload.email,
+        login: decoded.payload.login,
+        logout: logout
+    })
+
+    newSession.save((err) => {
+        if (!err) { 
+            res.json({status: "ok"})
+          }
+        else {
+          MESSAGE= "Error in logging out"
+          console.log("ERROR")
+          console.log(err)
+          res.json({status: "invalid"}) }
+      })
 }
 
 exports.setUpAccount = async (req, res) =>{ //setup the account
@@ -289,6 +331,7 @@ exports.addItemInventory = (req, res) => {
              }
            else {
              MESSAGE= "Error in saving the product"
+             console.log(err)
              res.json({status: "invalid"}) }
          })
      }
