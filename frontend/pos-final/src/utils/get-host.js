@@ -1,2 +1,2 @@
-export const host = "http://localhost:4000/"; //always changing get the backend url
+export const host = "https://4000-indigo-quelea-ncs6q71h.ws-us25.gitpod.io/"; //always changing get the backend url
 
