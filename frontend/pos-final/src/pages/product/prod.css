@@ -1,3 +1,40 @@
+/*inventory background*/
+#setfooterprod{
+  min-height: 78vh;
+  background-color: rgba(246,246,242,0.9);
+}
+
+#titleprod{
+  position:relative;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 40px;
+  color: black;
+}
+
+#finaltexts{
+  font-weight: 300;
+  color:white;
+}
+
+/*return dashboard inventory button*/
+#returndashinv{
+  position: relative;
+  padding: 15px 66px;
+  border-radius: 10px;
+  background-color: black;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  font-weight: 400;
+  color: white;
+}
+/*inner button margin*/
+#margin2{
+  width:100%;
+  height:5px;
+}
+
+
 .div {
   border-radius: 25px;
   background: #73AD21;
@@ -31,7 +68,7 @@
 .div3 {
   border-radius: 10px;
   background: #73AD21;
-  width: 1000px;
+  width: 750px;
   height: 110px;
   border: 10px solid black;
   align-content: normal;
@@ -46,7 +83,7 @@
 .div5 {
   border-radius: 10px;
   background: white;
-  width: 200px;
+  width: 500px;
   height: 110px;
   border: 10px solid black;
   align-content: normal;

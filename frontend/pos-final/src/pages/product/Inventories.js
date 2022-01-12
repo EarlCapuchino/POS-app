@@ -1,6 +1,7 @@
 import React from 'react'
 import Cookies from 'js-cookie'
 import {host} from "../../utils/get-host"
+import './prod.css'
 
 class Inventories extends React.Component{
     constructor(props){
@@ -38,9 +39,11 @@ class Inventories extends React.Component{
     render(){
         return(
             <>
+                <div id="setfooterprod">
+                <div id="margin2"></div>
 
-                <h2>Inventories Page</h2>
-                <br></br><br></br><br></br><br></br>
+                <div id="titleprod">Inventories Page</div>
+                <br></br>
                 <div>
                     {this.display()}{
                         this.state.products.map((product, i)=>{
@@ -51,9 +54,9 @@ class Inventories extends React.Component{
                                 ID: {product._id}                       Name: {product.name}<br/>
                                 Price: ₱{product.price} </pre>                   
                                 Stock: {product.stock}<br/>
-                                -------------------------------------------------------------------------------------------------------------------------
+                                ---------------------------------------------------------------------------------------------------------------------------
                             </div>
-                            <br></br>
+                            <br></br>   
                             </p>
                             <br></br>
                             </div>
@@ -62,10 +65,11 @@ class Inventories extends React.Component{
                         })
                     }
                     <form action="/" >
-                    <input type="submit" value="Return" id="returndash"/>
+                    <input type="submit" value="Return" id="returndashinv"/>
                 </form>
                 </div>
                 <br></br><br></br>
+                </div>
             </>
         )
     }

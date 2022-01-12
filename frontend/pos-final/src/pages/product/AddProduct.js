@@ -47,12 +47,13 @@ class AddProduct extends React.Component {
         const {name, price, stock} = this.state
         return(
 
-            <div>
+            <div id="setfooterprod">
+                <div id="margin2"></div>
                 <div>
-                    <div>
-                        <font size="1000" color= "black" align = "center" text-align = "center">
+                    <div id="titleprod">
+
                         Add Items in Inventory
-                        </font>
+
                     </div>
                     
                 </div>
@@ -86,7 +87,7 @@ class AddProduct extends React.Component {
                         value={stock} 
                         onChange={this.changeHandler}></input>
                     </div>
-                    <input type="submit" ></input>
+                    <input type="submit" id="returndashinv"></input>
                 </form>
             </div>
         )
