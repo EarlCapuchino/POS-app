@@ -92,6 +92,9 @@ class AddProduct extends React.Component {
                     </div>
                     <input type="submit" id="returndashinv"></input>
                 </form>
+                <form action="/" >
+                    <input type="submit" value="Return" id="returndashinv"/>
+                </form>
             </div>
         )
     }

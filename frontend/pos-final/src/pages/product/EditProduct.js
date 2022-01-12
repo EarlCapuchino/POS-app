@@ -233,6 +233,9 @@ class EditProduct extends React.Component{
                     </div>
                        <input type="submit" id="returndashinv" onClick={this.promptPage} ></input>
                 </form>
+                <form action="/" >
+                    <input type="submit" value="Return" id="returndashinv"/>
+                </form>
                 </div>
             </>
         )

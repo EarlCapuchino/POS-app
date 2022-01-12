@@ -147,8 +147,9 @@ class EditUser extends React.Component {
                     
                     <input type="submit"></input>
                 </form>
-
-              
+                <form action="/" >
+                    <input type="submit" value="Return" id="returnuser"/>
+                </form>
 
              <br/>
              <br/>
