@@ -4,6 +4,7 @@ import {Button, Table, Badge} from "react-bootstrap";
 import Cookies from 'js-cookie'
 import './transaction.css'
 import {host} from "../../utils/get-host"
+import '../../App.css'
 
 class AddTransaction extends React.Component{
     constructor() {
@@ -163,35 +164,36 @@ class AddTransaction extends React.Component{
 
     render() {
         return (
-            <div>
+            <div id ="setfooterAT">
                 {this.display()}
-                <h1>ADD TRANSACTION</h1>
+                <div id="titleL">ADD TRANSACTION</div>
             
-                <Button variant="dark">Product
-                           {" "}<Badge pill bg="warning">stock</Badge>
+                <Button variant="dark" id="butSize">Product
+                           {" "}<Badge pill bg="warning"><font color="black">stock</font></Badge>
                 </Button><br/>
-                <h2>Select product to purchase:</h2>
+                <h2>Select product/s to purchase:</h2>
                  {
                  this.state.products.map((product, i)=>{
                             return(
                             <p>
                            {" "}
-                           <Button key = {i} variant="outline-dark" 
+                           <Button id="butSize" key = {i} variant="outline-dark" 
                            name={product.name}
                            data-index={product._id}
                            onClick={(e)=> this.purchase(e)} value={i}
                            >
                            {product.name}
-                           {" "}<Badge pill bg="warning">{product.stock}</Badge>
+                           {" "}<Badge pill bg="warning"><font color="black">{product.stock}</font></Badge>
                            </Button>
                            </p>
                             )
                         })
                  }
                       
-            
+                 <div id="margin">
+                 </div>
                {this.displayPurchase()}
-            
+                
 
                 <Table striped bordered hover bgcolor="#dadfeb">
                 <thead>
@@ -201,6 +203,8 @@ class AddTransaction extends React.Component{
                 </thead>
                 </Table>
                 <Button variant="dark" onClick={this.submitHandler}>PAY</Button>{' '}
+                <div id="margin">
+                 </div>
             </div>
         )
     }

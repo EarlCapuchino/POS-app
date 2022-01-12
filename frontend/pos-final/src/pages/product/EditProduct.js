@@ -4,6 +4,7 @@ import Cookies from 'js-cookie'
 import {Badge, Button} from "react-bootstrap";
 import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 import {host} from "../../utils/get-host"
+import './prod.css'
 
 class EditProduct extends React.Component{
     constructor(props){
@@ -151,13 +152,13 @@ class EditProduct extends React.Component{
         // const {name, price, stock} = this.state
         return(
             <>
+            <div id="setfooterprod">
+            <div id="margin2"></div>
 
-            <font color = "white">
-                <div class = "div3">
-                <h1>Edit/Delete Item</h1>
+                <div id = "titleprod">
+                Edit/Delete Item
                 </div>
                 <br/>
-                </font>
                 {this.state.delName}
 
                 {
@@ -165,11 +166,11 @@ class EditProduct extends React.Component{
                             return(
                             <p key={i}>
                                 <pre>
-                                    <div class = "div5">
-
+                                    <div class = "div3">
+                                
                             <Badge pill bg="warning" text="dark">
                             {product.name}
-                            </Badge><br/>
+                            </Badge><br/><div id="margin2"></div>
                             <Button variant="outline-success" bg = "blue"
                             value={product._id}
                             onClick={this.selectID}>
@@ -187,7 +188,7 @@ class EditProduct extends React.Component{
                             )
                         })
                 }
-                <div class = "div3">
+                <div class = "div5">
                     <font color = "white">
                 <h5>Delete item</h5>
                 </font>
@@ -200,20 +201,20 @@ class EditProduct extends React.Component{
 
                 <div class = "div2">
                     <font color = "black">
-                  <h2>Edit Item</h2>
+                  <h2><b>Edit Item</b></h2>
                   </font>
                   </div>
                   <h4>{this.state.s_name}</h4>
                  <form onSubmit={this.submitHandler}>
                     <div class = "div">
-                        <label>change product name</label>
+                        <label id="finaltexts">change product name</label>
                         <input type="text"
                         name="name"
                         value={this.state.s_name}
                         onChange={this.change_s_name}></input>
                     </div>
                     <div class= "div">
-                        <label>change price: (Php)</label>
+                        <label id="finaltexts">change price: (Php)</label>
                         <input type="number"
                         name="name"
                         value={this.state.s_price}
@@ -221,7 +222,7 @@ class EditProduct extends React.Component{
                         ></input>
                     </div>
                     <div class = "div">
-                        <label>change stock</label>
+                        <label id="finaltexts">change stock</label>
                         <input
                         type="number"
                         name="stock"
@@ -230,12 +231,13 @@ class EditProduct extends React.Component{
 
 
                     </div>
-                       <input type="submit" onClick={this.promptPage} ></input>
+                       <input type="submit" id="returndashinv" onClick={this.promptPage} ></input>
                 </form>
-
+                </div>
             </>
         )
     }
 }
+
 
 export default EditProduct
