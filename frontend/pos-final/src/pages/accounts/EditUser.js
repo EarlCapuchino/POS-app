@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import './EditUser.css'
+import {host} from "../../utils/get-host"
 
 class EditUser extends React.Component {
     constructor(props){
@@ -24,7 +25,7 @@ class EditUser extends React.Component {
     }
 
     componentDidMount(){
-        fetch('http://localhost:4000/edit-user') 
+        fetch(`${host}edit-user`) 
         .then(response=>response.json()) //app.get('/find-all', controller.findAll) 
         .then(body=>{
             this.setState({users: body})
@@ -57,7 +58,7 @@ class EditUser extends React.Component {
     submitHandler = e =>{ //put back button going to homepage
         e.preventDefault()
         console.log(this.state)
-        axios.post('http://localhost:4000/edit-user',this.state)
+        axios.post(`${host}edit-user`,this.state)
         .then(response=>{
             if (response.data.status == "ok"){this.pageSuccess()}
             else{this.pageError()}

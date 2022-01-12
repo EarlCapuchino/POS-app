@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import "./AddUser.css"
+import {host} from "../../utils/get-host"
+
 class AddUser extends React.Component {
  
     
@@ -40,7 +42,7 @@ class AddUser extends React.Component {
     submitHandler = e =>{ //put back button going to homepage
         e.preventDefault()
         console.log(this.state)
-        axios.post('http://localhost:4000/add-user',this.state)
+        axios.post(`${host}add-user`,this.state)
         .then(response=>{
             console.log(response.data.status)
             if (response.data.status == "ok"){this.pageSuccess()}

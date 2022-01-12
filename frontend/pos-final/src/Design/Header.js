@@ -3,7 +3,8 @@ import './Header.css'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import jwt from 'jwt-decode'
-import {Button, Table, Badge} from "react-bootstrap";
+import {Button, Table, Badge, utils} from "react-bootstrap";
+import {host} from "../utils/get-host"
 
 class Header extends React.Component {
   constructor(props){
@@ -20,7 +21,7 @@ pageHome(){
 submitHandler = (e) =>{
   e.preventDefault()
   console.log(this.state)
-  axios.post('http://localhost:4000/logout',this.state)
+  axios.post(`${host}logout`,this.state)
   .then(response=>{
       if(response.data.status == "ok"){
         Cookies.remove('jwt'); //remove the cookies when logging out

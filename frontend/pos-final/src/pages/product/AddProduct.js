@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import './prod.css'
+import {host} from "../../utils/get-host"
 
 class AddProduct extends React.Component {
     constructor(props){
@@ -31,7 +32,7 @@ class AddProduct extends React.Component {
         e.preventDefault()
         console.log(this.state)
         
-        axios.post('http://localhost:4000/add-product',this.state)
+        axios.post(`${host}add-product`,this.state)
         .then(response=>{
             console.log(response.data.status)
             if (response.data.status == "ok"){this.pageSuccess()}

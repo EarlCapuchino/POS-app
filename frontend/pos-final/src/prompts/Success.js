@@ -1,5 +1,6 @@
 import React from 'react'
 import {Alert} from "react-bootstrap";
+import {host} from '../utils/get-host'
 
 class Success extends React.Component{
     constructor() {
@@ -10,7 +11,7 @@ class Success extends React.Component{
     }
 
     componentDidMount=()=>{
-        fetch('http://localhost:4000/prompt') //i-trigger mo yung find-all
+        fetch(`${host}prompt`) //i-trigger mo yung find-all
         .then(response=>response.json()) //app.get('/find-all', controller.findAll) 
         .then(body=>{
             this.setState({display: body.status})

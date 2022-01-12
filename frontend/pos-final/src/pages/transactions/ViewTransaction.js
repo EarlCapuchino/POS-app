@@ -2,6 +2,7 @@ import React from 'react'
 import Cookies from 'js-cookie'
 import {Button, Table, Badge} from "react-bootstrap";
 import './transaction.css'
+import {host} from "../../utils/get-host"
 
 
 class ViewTransaction extends React.Component{
@@ -14,7 +15,7 @@ class ViewTransaction extends React.Component{
     }
 
     componentDidMount(){
-        fetch('http://localhost:4000/view-transactions') //i-trigger mo yung find-all
+        fetch(`${host}view-transactions`) //i-trigger mo yung find-all
         .then(response=>response.json()) //app.get('/find-all', controller.findAll) 
         .then(body=>{
             this.setState({transactions: body})
