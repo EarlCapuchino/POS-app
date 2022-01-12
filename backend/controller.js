@@ -24,7 +24,7 @@ var publicKey = fs.readFileSync('./keys/public.key','utf8');
 let MESSAGE ='DEFAULT'
 
 
-exports.homepage = async (req, res) => { //hompage scree, will check iof there are existing users or none
+exports.homepage = async (req, res) => { //hompage scree, will check if there are existing users or none
     console.log("HOMEPAGE")
     User.findOne((err, users) => { //check if a user exists, //if no user, go to setup account //if there are users 
         if (users!=null){ 
@@ -470,7 +470,7 @@ exports.deleteProduct = (req,res) =>{
 }
 
 /////////////////////////// TRANSACTIONS /////////////////////////////////////
-exports.addTransaction =(req,res,next) => {
+exports.addTransaction = async (req,res,next) => {
     //does not need any filter as 
     //any role can make transactions
     let token = req.body.cookies;

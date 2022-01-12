@@ -19,6 +19,7 @@ class Dashboard2 extends React.Component{
             if (jwt(Cookies.get('jwt')).role!="Cashier"){
                 return this.pagedash()
             }
+            return
         }else{
           return this.pageHome()
         }

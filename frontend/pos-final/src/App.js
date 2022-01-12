@@ -29,6 +29,7 @@ import './App.css'
 
 //prompts
 import Error from './prompts/Error';
+import ErrorTrans from './prompts/ErrorTrans';
 import Success from './prompts/Success';
 import NotFound from './prompts/NotFound'
 import Unauthorized from './prompts/Unauthorized'
@@ -66,6 +67,7 @@ const [addUser, editUser, addProduct, editProduct, viewInventory, addTransaction
 
       <Route exact ={true} path="/success" element={<Success/>}/>
       <Route exact ={true} path="/error" element={<Error/>}/>
+      <Route exact ={true} path="/error-transaction" element={<ErrorTrans/>}/>
 
       <Route exact ={true} path="/dashboard" element={<Dashboard/>}/>
       <Route exact ={true} path="/dashboard2" element={<Dashboard2/>}/>

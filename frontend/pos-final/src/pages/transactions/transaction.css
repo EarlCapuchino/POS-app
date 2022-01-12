@@ -13,6 +13,15 @@
   font-weight: 600;
 }
 
+#paySize{
+  width: 25%;
+  height: 60px;
+  margin-top: 8px;
+  color:#ffffff;
+  font-weight: 600;
+  background-color: black;
+}
+
 /*margin div*/
 #margin{
   margin-top: 30px;
