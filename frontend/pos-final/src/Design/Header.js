@@ -33,7 +33,7 @@ submitHandler = (e) =>{
   display(){
     if(Cookies.get('jwt')){
       return(
-        <p>{jwt(Cookies.get('jwt')).username} || {jwt(Cookies.get('jwt')).role} || {jwt(Cookies.get('jwt')).login}
+        <p>{jwt(Cookies.get('jwt')).username} || {jwt(Cookies.get('jwt')).role}
         <div id="logoutbut"><Button variant="dark" onClick={this.submitHandler} id="logoutsize">Logout</Button></div></p>
         
       )

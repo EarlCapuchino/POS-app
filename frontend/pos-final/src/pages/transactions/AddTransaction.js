@@ -13,7 +13,8 @@ class AddTransaction extends React.Component{
             cookies: Cookies.get('jwt'),
             products: [],
             purchased:[],
-            total: 0
+            total: 0,
+            disabled: false //for pay button to be pressed only once
         }
     }
     
@@ -139,11 +140,16 @@ class AddTransaction extends React.Component{
     }
 
     submitHandler = (e) =>{
+        e.preventDefault()
+        console.log(this.state)
         if (this.state.total=="0"){
             return this.pageErrorTrans()
         }
-        e.preventDefault()
-        console.log(this.state)
+        if(this.state.disabled){
+            return
+        }
+        this.setState({disabled:true})
+       
         axios.post(`${host}add-transaction`,this.state) //return ng add transaction
         .then(response=>{
             console.log(response.data.status)
@@ -212,7 +218,9 @@ class AddTransaction extends React.Component{
                     </tr>
                 </thead>
                 </Table>
-                <Button variant="dark" id="paySize" onClick={this.submitHandler}>PAY</Button>{' '}
+                <Button variant="dark" id="paySize" onClick={this.submitHandler} disabled={this.state.disabled}>
+                {this.state.disabled ? 'Please wait...' : 'Pay'}
+                </Button>{' '}
 
                  <form action="/" >
                     <input type="submit" value="Return" id="paySize"/>
