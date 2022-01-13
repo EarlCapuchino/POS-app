@@ -103,8 +103,11 @@ class AddUser extends React.Component {
                         value={password} 
                         onChange={this.changeHandler}></input>
                     </div>
+                    
 
                     <div>
+                    
+
                     <label id="AddU">Role: </label>
                     <select value={this.state.role} onChange={this.changeHandler1}>
                     <option value="Cashier">Cashier</option>
@@ -113,10 +116,10 @@ class AddUser extends React.Component {
                     </select>
                     </div>
                     
-                    <input type="submit" id="newuser"></input>
+                    <input type="submit" id="buttonsuser"></input>
                 </form>
                 <form action="/" >
-                    <input type="submit" value="Return" id="returnuser"/>
+                    <input type="submit" value="Return" id="buttonsuser"/>
                 </form>
                 </div>
             </div>

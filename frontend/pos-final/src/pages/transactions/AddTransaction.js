@@ -173,6 +173,7 @@ class AddTransaction extends React.Component{
         return (
             <div id ="setfooterAT">
                 {this.display()}
+                <div id="positioncomp">
                 <div id="titleL">ADD TRANSACTION</div>
             
                 <Button variant="dark" id="butSize">Product
@@ -196,9 +197,11 @@ class AddTransaction extends React.Component{
                             )
                         })
                  }
-                      
-                 <div id="margin">
-                 </div>
+                    </div>
+                
+
+
+                 <div id="actionsT">
                {this.displayPurchase()}
                 
 
@@ -210,8 +213,15 @@ class AddTransaction extends React.Component{
                 </thead>
                 </Table>
                 <Button variant="dark" id="paySize" onClick={this.submitHandler}>PAY</Button>{' '}
+
+                 <form action="/" >
+                    <input type="submit" value="Return" id="paySize"/>
+                </form>
+                </div>
+
                 <div id="margin">
                  </div>
+                 
             </div>
         )
     }

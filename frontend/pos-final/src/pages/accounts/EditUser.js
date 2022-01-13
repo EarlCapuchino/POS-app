@@ -111,6 +111,7 @@ class EditUser extends React.Component {
         return(
             <div id="setfooterEU">
                {this.display()}
+               <div id="positionusercomp">
                 <div id="title">
                     EDIT USER
                 </div>
@@ -128,29 +129,31 @@ class EditUser extends React.Component {
                             )
                         })
                 }
+                </div>
                 
-                
-
+                <div id="actionsau">
                 <form onSubmit={this.submitHandler}>
-                <label>Choose user to change</label>
-                {this.DisplayOptions()}<br/>
-                <label>Current Role: {this.state.previousRole}</label>
-                
-                <div>
-                    <label>Change role to:</label>
+                <div id="des">
+                Choose user to change
+                {this.DisplayOptions()}<br/></div>
+                <div id="des">Current Role: {this.state.previousRole}</div>
+                <div id="des">
+                Change role to:
                     <select value={this.state.chosenRole} onChange={this.changeHandler1}>
                     <option value="Cashier">Cashier</option>
                     <option value="Staff">Staff</option>
                     <option value="Admin">Admin</option>
                     </select>
-                </div><br/>
+
+                </div>
+                <br/>
                     
-                    <input type="submit"></input>
+                    <input type="submit" id="buttonsuser"></input>
                 </form>
                 <form action="/" >
-                    <input type="submit" value="Return" id="returnuser"/>
+                    <input type="submit" value="Return" id="buttonsuser"/>
                 </form>
-
+                </div>
              <br/>
              <br/>
              <br/>
