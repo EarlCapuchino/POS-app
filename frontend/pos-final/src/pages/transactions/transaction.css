@@ -113,3 +113,9 @@ color: black;
   left:70%;
   bottom: 70%;
 }
+
+.tablePurchase{
+margin-top: 200px;
+max-height: 290px;
+overflow-y: scroll;
+}

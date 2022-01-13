@@ -97,6 +97,11 @@ class AddTransaction extends React.Component{
             this.state.products[index].stock += 1; //increase the stock again as the item is returned
             this.state.total = +(this.state.total - price).toFixed(2)
             this.setState({products: this.state.products, purchased: this.state.purchased})
+        }if (this.state.purchased[e.target.value].quantity == 0){ //removes the product if it is 0
+            const toremove = this.state.purchased[e.target.value]
+            this.setState({purchased: this.state.purchased.filter(function(purchasedP) { 
+                return purchasedP !== toremove
+            })});
         }
     }
 
@@ -208,7 +213,8 @@ class AddTransaction extends React.Component{
 
 
                  <div id="actionsT">
-               {this.displayPurchase()}
+                     <div className = "tablePurchase">
+                     {this.displayPurchase()}
                 
 
                 <Table striped bordered hover bgcolor="#dadfeb">
@@ -218,6 +224,7 @@ class AddTransaction extends React.Component{
                     </tr>
                 </thead>
                 </Table>
+                      </div>
                 <Button variant="dark" id="paySize" onClick={this.submitHandler} disabled={this.state.disabled}>
                 {this.state.disabled ? 'Please wait...' : 'Pay'}
                 </Button>{' '}
