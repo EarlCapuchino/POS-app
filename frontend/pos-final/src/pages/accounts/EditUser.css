@@ -2,12 +2,15 @@
 #setfooterEU{
   min-height: 66vh;
   background-color: rgba(186,223,231,0.9);
+  display: flex;
+  align-content: center;
 }
 
 
 
 /*sets main page title */
 #title{
+
   position:relative;
   margin-top: 10px;
   font-weight: 700;
@@ -18,52 +21,56 @@
 /*Sections user*/
 #usersSection{
   background-color:#388087;
-  position: relative;
   margin-top: 10px;
   color: white;
-  width:40%;
-  left:30%;
-}
-label{
-  color:black;
-  font-size: 18px;
+  
 }
 
 pre{
   font-size: 17px;
+  
 }
 #size{
   font-size:20px;
+
 }
 
-#buttonsuser{
-  position: relative;
-    padding: 15px 66px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    margin-bottom: 10px;
-  }
+.buttonsuser{
+  padding: 15px 66px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin-bottom: 10px;
+}
 
-  #des{
-    font-size: 30px;
-    font-weight: 550;
-    color: black;
+/*position adduser components*/
+#positionusercomp{
+  flex: 5.5;
+  margin-left: 10px;  
+}
 
-  }
+#actionsau{
+  flex: 6.5;
 
+  color:black;
+  z-index: 300;
+    
+}
 
-   /*position adduser components*/
-   #positionusercomp{
-    position: relative;
-    right: 25%;
-  }
+.rightTab{
+ margin-top:100px;
+ position: fixed;
+ margin: auto;
+ 
+ z-index: 200;
+}
 
-  #actionsau{
-    width:50%;
-  
-    position: fixed;
-    left:45%;
-    bottom: 50%;
-    color:black;
-    z-index: 3;
-  }
+.rightCard{
+padding-top: 20px;
+position: fixed;
+left: 60%;
+}
+
+.desc{
+  font-size: 25px;
+  margin-bottom: 20px;
+}
