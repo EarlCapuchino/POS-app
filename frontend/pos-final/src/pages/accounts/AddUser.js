@@ -115,6 +115,9 @@ class AddUser extends React.Component {
                     
                     <input type="submit" id="newuser"></input>
                 </form>
+                <form action="/" >
+                    <input type="submit" value="Return" id="returnuser"/>
+                </form>
                 </div>
             </div>
         )
