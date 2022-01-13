@@ -57,6 +57,9 @@ class EditProduct extends React.Component{
 
 
     submitHandler = (e) =>{
+        if (this.state.s_price=="" || this.state.s_name=="" || this.state.s_stock==""){
+            return 
+        }
         e.preventDefault()
         console.log(this.state)
         axios.post(`${host}edit-product`,this.state)
@@ -155,7 +158,7 @@ class EditProduct extends React.Component{
             <div id="setfooterprod">
             <div id="margin2"></div>
 
-                <div id = "titleprod">
+                <div id = "titleditprod">
                 Edit/Delete Item
                 </div>
                 <br/>
@@ -166,7 +169,7 @@ class EditProduct extends React.Component{
                             return(
                             <p key={i}>
                                 <pre>
-                                    <div class = "div3">
+                                    <div id = "proddiv">
                                 
                             <Badge pill bg="warning" text="dark">
                             {product.name}
@@ -188,6 +191,8 @@ class EditProduct extends React.Component{
                             )
                         })
                 }
+                <div id="margin3"></div>
+                <div id="actions">
                 <div class = "div5">
                     <font color = "white">
                 <h5>Delete item</h5>
@@ -199,30 +204,29 @@ class EditProduct extends React.Component{
                 </div>
                 <br/>
 
-                <div class = "div2">
-                    <font color = "black">
-                  <h2><b>Edit Item</b></h2>
+                <div id="actionEI">
+                    Edit Item:</div>
+                <font color = "black">
+                  <h2><b>{this.state.s_name}</b></h2>
                   </font>
-                  </div>
-                  <h4>{this.state.s_name}</h4>
                  <form onSubmit={this.submitHandler}>
-                    <div class = "div">
-                        <label id="finaltexts">change product name</label>
+                    <div id = "div">
+                    <div><label id="finaltexts">change product name</label></div>
                         <input type="text"
                         name="name"
                         value={this.state.s_name}
                         onChange={this.change_s_name}></input>
                     </div>
-                    <div class= "div">
-                        <label id="finaltexts">change price: (Php)</label>
+                    <div id= "div">
+                        <div><label id="finaltexts">change price: (Php)</label></div>
                         <input type="number"
                         name="name"
                         value={this.state.s_price}
                         onChange={this.change_s_price}
                         ></input>
                     </div>
-                    <div class = "div">
-                        <label id="finaltexts">change stock</label>
+                    <div id = "div">
+                    <div><label id="finaltexts">change stock</label></div>
                         <input
                         type="number"
                         name="stock"
@@ -231,12 +235,14 @@ class EditProduct extends React.Component{
 
 
                     </div>
-                       <input type="submit" id="returndashinv" onClick={this.promptPage} ></input>
+                       <input type="submit" id="submitbutinv" onClick={this.promptPage} ></input>
                 </form>
                 <form action="/" >
                     <input type="submit" value="Return" id="returndashinv"/>
                 </form>
                 </div>
+                </div>
+                
             </>
         )
     }

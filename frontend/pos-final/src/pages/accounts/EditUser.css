@@ -4,6 +4,8 @@
   background-color: rgba(186,223,231,0.9);
 }
 
+
+
 /*sets main page title */
 #title{
   position:relative;
@@ -33,3 +35,35 @@ pre{
 #size{
   font-size:20px;
 }
+
+#buttonsuser{
+  position: relative;
+    padding: 15px 66px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+  }
+
+  #des{
+    font-size: 30px;
+    font-weight: 550;
+    color: black;
+
+  }
+
+
+   /*position adduser components*/
+   #positionusercomp{
+    position: relative;
+    right: 25%;
+  }
+
+  #actionsau{
+    width:50%;
+  
+    position: fixed;
+    left:45%;
+    bottom: 50%;
+    color:black;
+    z-index: 3;
+  }

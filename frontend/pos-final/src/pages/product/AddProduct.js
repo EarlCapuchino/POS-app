@@ -90,7 +90,7 @@ class AddProduct extends React.Component {
                         value={stock} 
                         onChange={this.changeHandler}></input>
                     </div>
-                    <input type="submit" id="returndashinv"></input>
+                    <input type="submit" id="submitbutinv"></input>
                 </form>
                 <form action="/" >
                     <input type="submit" value="Return" id="returndashinv"/>

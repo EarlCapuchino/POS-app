@@ -54,7 +54,7 @@ class Inventories extends React.Component{
                                 ID: {product._id}                       Name: {product.name}<br/>
                                 Price: ₱{product.price} </pre>                   
                                 Stock: {product.stock}<br/>
-                                ---------------------------------------------------------------------------------------------------------------------------
+                                <font color="black">---------------------------------------------------------------------------------------------------------------------------</font>
                             </div>
                             <br></br>   
                             </p>
@@ -64,6 +64,7 @@ class Inventories extends React.Component{
                             ) 
                         })
                     }
+                    <div id="margin2"></div><div id="margin2"></div><div id="margin2"></div>
                     <form action="/" >
                     <input type="submit" value="Return" id="returndashinv"/>
                 </form>
