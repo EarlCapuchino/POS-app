@@ -63,8 +63,11 @@ class Dashboard2 extends React.Component{
             <div id="mmessage">
                 <b>Welcome to Homepage</b>
                 </div>
-            <div id="text">
-                This is Pos-Final, an inventory app made in completion for the CMSC 100 course. This is made by the following students: Adryan Phyllip Ramos, Julian Fuertes, Redeemyrrh Ysrael Manalo, headed by Earl Sam Capuchino.
+                <div id="text">
+                This is Pos-Final, an inventory app made in completion for the 
+                CMSC 100 course. This is made by the following students: 
+                Adryan Phyllip Ramos, Julian Fuertes, Redeemyrrh Ysrael Manalo, 
+                headed by Earl Samuel Capuchino.
             </div>
             </div>
 
@@ -89,8 +92,10 @@ class Dashboard2 extends React.Component{
             <div id="mmessage1">
                 <b>About Us</b>
                 </div>
-            <div id="text1">
-                We are a team of students from CMSC 100: Web Programming. Currently, we are made of 4 members, 3 of which came from institute of statistics, and the last one came from the institute of computer science, either on sophomore or junior standing.
+                <div id="text1">
+                We are a team of students from CMSC 100: Web Programming. Currently, we are made of 4 members, 
+                3 of which came from Institute of Statistics, and the last one came from the Institute of Computer Science,
+                 either on sophomore or junior standing.
             </div>
             </div>
             </>
