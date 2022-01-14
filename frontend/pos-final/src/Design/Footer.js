@@ -21,14 +21,3 @@ function Footer() {
 }
 
 export default Footer
-
-//<div className='input-areas'>
-//<form>
-//<input 
-  //type="email" 
-  //name="email" 
-  //placeholder="YourE Email"
-  //className='footer-input'
-  ///>
-//</form>
-//</div>

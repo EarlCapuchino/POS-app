@@ -14,13 +14,12 @@ class Header extends React.Component {
     }
 }
   
-pageHome(){
-  console.log("login")
+pageHome(){ //homepage
   window.location.href = "/"
 }
-submitHandler = (e) =>{
+
+submitHandler = (e) =>{ //logout
   e.preventDefault()
-  console.log(this.state)
   axios.post(`${host}logout`,this.state)
   .then(response=>{
       if(response.data.status == "ok"){
@@ -30,7 +29,7 @@ submitHandler = (e) =>{
       }
   })
 }
-  display(){
+  display(){//logout button
     if(Cookies.get('jwt')){
       return(
         <p>{jwt(Cookies.get('jwt')).username} || {jwt(Cookies.get('jwt')).role}
@@ -65,14 +64,3 @@ submitHandler = (e) =>{
 }
 
 export default Header
-
-//<div className='input-areas'>
-//<form>
-//<input 
-  //type="email" 
-  //name="email" 
-  //placeholder="YourE Email"
-  //className='footer-input'
-  ///>
-//</form>
-//</div>
