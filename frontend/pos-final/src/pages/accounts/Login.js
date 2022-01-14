@@ -4,6 +4,7 @@ import axios from 'axios'
 import Cookies from 'js-cookie'
 import {Form, Badge, FloatingLabel} from "react-bootstrap";
 import '../../App.css'
+import './Login.css'
 import jwt from 'jwt-decode'
 
 class Login extends React.Component {
@@ -90,7 +91,7 @@ class Login extends React.Component {
                     onChange={this.changeHandler} />
                 </FloatingLabel>
 
-                <FloatingLabel controlId="floatingPassword" label="Password">
+                <FloatingLabel controlId="floatingPassword" label="Password" className="mb-3">
                     <Form.Control type="password" 
                     placeholder="Password"
                     name="password" 
