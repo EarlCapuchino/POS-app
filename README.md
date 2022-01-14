@@ -3,7 +3,7 @@
 TRYGO POS-APP is a point-of-sales application that handles transactions and inventory listings
 
 ## Installation
-{BACKEND}
+### {BACKEND}
 - under backend subfolder, create a folder named "config"
 - download the dev.json file from the developers 
 - paste the dev.json file on the config file
@@ -24,7 +24,7 @@ Please note that the url pasted shold have a "/" at the end. if there isn't one,
 Example:
 https://4000-blue-aphid-l57duoyx.ws-us27.gitpod.io/ (there is a "/")
 
-{FRONTEND}
+### {FRONTEND}
 Create another terminal/command prompt and type the following in the terminal/command prompt
 ```bash
 cd frontend/pos-final
