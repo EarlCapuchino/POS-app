@@ -25,14 +25,11 @@ let MESSAGE ='DEFAULT'
 
 
 exports.homepage = async (req, res) => { //hompage scree, will check if there are existing users or none
-    console.log("HOMEPAGE")
     User.findOne((err, users) => { //check if a user exists, //if no user, go to setup account //if there are users 
         if (users!=null){ 
-            console.log("user exist")
             return res.send({status: "existent"}) //with users, proceed to login
         }
         else{
-            console.log("no users")
             return res.send({status: "empty"}) //no users, proceed to set up inital account withy the user being the admin
         }
     });
@@ -49,8 +46,6 @@ exports.dashboard = async (req,res)=>{
 
 exports.login = async (req, res) => { //login for the app
     //CHANGE THE IMPLEMENTATION OF THIS
-    console.log("LOGIN BACKEND")
-    console.log("input:" +req.body)
 	const { email, password } = req.body
 	const user = await User.findOne({ email }).lean()
 
@@ -89,7 +84,7 @@ exports.login = async (req, res) => { //login for the app
 			privateKey, //refer to private.key
             loginCredentials //this is how the client proves its identity
 		)
-        console.log("TOKEN: "+ token)
+
         MESSAGE="logged in successfully"
 		return res.json({ status: 'ok', token: token }) //the response will be sending data: token to axios which will then save it in the local storage
 	}
@@ -98,10 +93,9 @@ exports.login = async (req, res) => { //login for the app
 }
 
 exports.logout = async (req,res) =>{
-    console.log("LOGGED OUT")
+
     let token = req.body.cookies
     let decoded = jwt.decode(token, {complete: true});
-    console.log(decoded.payload.login)
     let dateObj = new Date(); //get the dates credentials
     let date = ("0" + dateObj.getDate()).slice(-2);
     let month = ("0" + (dateObj.getMonth() + 1)).slice(-2);
@@ -123,16 +117,11 @@ exports.logout = async (req,res) =>{
           }
         else {
           MESSAGE= "Error in logging out"
-          console.log("ERROR")
-          console.log(err)
           res.json({status: "invalid"}) }
       })
 }
 
 exports.setUpAccount = async (req, res) =>{ //setup the account
-    console.log("SET UP INITIAL ACCOUNT")
-    console.log(req.body)
-    console.log(req.body.password)
     const pwd = req.body.password
     const password=(await (bcrypt.hash(pwd, 10)))
     
@@ -170,13 +159,11 @@ exports.setUpAccount = async (req, res) =>{ //setup the account
             privateKey, //refer to private.key
             loginCredentials //this is how the client proves its identity
         )
-        console.log("TOKEN: "+ token)
         return res.json({ status: 'valid', token: token })
 
     }else if(err.code === 11000){ //check whether an email has been used
         return res.json({ status: 'error', error: 'email is already in use' })
     }else{ //this is a prompt for duplicate key 
-        console.log("there is an error") 
         return res.json({status: 'error'})
     }
     })
@@ -188,13 +175,10 @@ exports.setUpAccount = async (req, res) =>{ //setup the account
 exports.addUser = async (req, res) => { //this function is for adding users
 
     const token = req.body.cookies
-        console.log(token)
         var decoded = jwt.decode(token, {complete: true});
 
         
             if (decoded.payload.role == "Admin" ){//Checks if you are admin, then proceed, else, error
-                console.log("Add user page") 
-                console.log(req.body.password)
                 const pwd = req.body.password
                 const password=(await (bcrypt.hash(pwd, 10)))
                 const newUser = new User({
@@ -230,18 +214,14 @@ exports.addUser = async (req, res) => { //this function is for adding users
 
 
 exports.editUser = async (req, res) =>{ //catch the errors
-    console.log("Editing Users Page") //the password should not be displayed
     User.find((err, users) => {
-        console.log(users)
         if (!err) { 
-            console.log("dis good")
             res.send(users) }
         else{return res.json( {status:"error",error: "no users to edit"} )} 
       })
 }
 
 exports.editUserDatabase = async (req,res) =>{
-console.log("EDIT user in DATA BASE")
 
 const chosenName = req.body.chosenName //recording previous roles and assignment
 const chosenRole = req.body.chosenRole //of new roles to be updated in the data base
@@ -254,10 +234,8 @@ User.countDocuments({role: 'Admin'}, function(err, count) {
 
     
     
-        console.log(token)
 
             if ((count==1) && (previousRole == "Admin") && (chosenRole != "Admin")) {//checking if the sole admin will remove their admin status
-                console.log("there should be at least one admin!")
                 MESSAGE= "There should be at least one admin!"
                 return res.json( {status: 'error', error: 'There should be atleast one admin!'})
         
@@ -293,15 +271,12 @@ User.countDocuments({role: 'Admin'}, function(err, count) {
 
 //Change Password
 exports.changePassword = async (req, res) => {
-    console.log("CHANGE PASSWORD BACK-END")
     const token = req.body.cookies
     const newPassword = req.body.newPassword
     const oldPassword = req.body.oldPassword
 
-    console.log(token)
 
     var decoded = jwt.decode(token, {complete: true});
-    console.log("\n Docoded Token: " + JSON.stringify( decoded.payload.email));
    
     var verification = { //verification credentials
         issuer :  "capuPOSapp",
@@ -329,7 +304,6 @@ exports.changePassword = async (req, res) => {
                 MESSAGE= "Password successfully changed"
                 res.json({status: 'ok'}) //successful update
             }catch(err){ 
-                console.log(err)
                 MESSAGE= "Session failed, please try again"
                 res.json({status:'error', error:'Invalid Session'}) //case where there is something wrong with client's JWT
             } 
@@ -345,9 +319,7 @@ exports.changePassword = async (req, res) => {
 /////////////////////////// PRODUCTS /////////////////////////////////////
 exports.addItemInventory = (req, res) => {
   
-    console.log("add item inventory=========");
     const token = req.body.cookies
-    console.log(token)
  
     addProduct = (req, decoded) =>{
      const newProduct = new Product({
@@ -364,7 +336,6 @@ exports.addItemInventory = (req, res) => {
              }
            else {
              MESSAGE= "Error in saving the product"
-             console.log(err)
              res.json({status: "invalid"}) }
          })
      }
@@ -372,7 +343,6 @@ exports.addItemInventory = (req, res) => {
      //VERIFY FIRST IF LOGGED IN AND TOKENS ARE NOT TAMPERED
      if (token) {
          var decoded = jwt.decode(token, {complete: true});
-         console.log("\n Docoded Token: " + JSON.stringify( decoded.payload.email));
         
          var verification = { //verification credentials
              issuer :  "capuPOSapp",
@@ -387,7 +357,6 @@ exports.addItemInventory = (req, res) => {
              return res.json({status:"invalid"})
            } else {
             
-             console.log("\n Verified: " + JSON.stringify(decoded));// if decoded.role === "Admin"
              addProduct(req, decoded) //verification is successful 
            }
          });
@@ -401,7 +370,6 @@ exports.addItemInventory = (req, res) => {
 
  exports.viewInventory = (req, res, next) => {
 
-    console.log('on view items')
     Product.find((err, products) => {
         if (!err) { res.send(products) } //sending the products on front-end
       })
@@ -409,8 +377,6 @@ exports.addItemInventory = (req, res) => {
 }
 
 exports.editItemInventory = (req, res, next) => {
-    console.log("on edit items")
-    console.log(req.body)
     const token = req.body.cookies
 
     editProduct = (req) => {
@@ -425,7 +391,6 @@ exports.editItemInventory = (req, res, next) => {
                 MESSAGE = "Error in editing"
                 res.json({status:'invalid'})
             }else{
-            console.log("1 document updated");
             MESSAGE = req.body.s_name + " sucessfully edited"
             res.json({status: 'ok'})
             }
@@ -436,7 +401,6 @@ exports.editItemInventory = (req, res, next) => {
        //VERIFY FIRST IF LOGGED IN AND TOKENS ARE NOT TAMPERED
        if (token) {
         var decoded = jwt.decode(token, {complete: true});
-        console.log("\n Docoded Token: " + JSON.stringify( decoded.payload.email));
        
         var verification = { //verification credentials
             issuer :  "capuPOSapp",
@@ -450,7 +414,6 @@ exports.editItemInventory = (req, res, next) => {
             MESSAGE = "Verification error" 
             return res.json({status:"invalid"})
           } else {
-            console.log("\n Verified: " + JSON.stringify(decoded));
             if (decoded.role == "Staff" ||decoded.role == "Admin" ){
                 editProduct(req) //verification is successful 
             }
@@ -466,10 +429,6 @@ exports.editItemInventory = (req, res, next) => {
 }
 
 exports.deleteProduct = (req,res) =>{
-
-    console.log("=== Delete Product ====")
-    console.log(req.body.deleteID);
-    console.log(req.body.delName);
 
     deleteItem = (req) =>{
     Product.deleteOne({_id: req.body.deleteID},
@@ -508,7 +467,6 @@ exports.addTransaction = async (req,res,next) => {
     //any role can make transactions
     let token = req.body.cookies;
     let decoded = jwt.decode(token, {complete: true}); //decodes the token first
-    console.log(decoded.payload.username)
     if (!decoded.payload){
         MESSAGE="Login credentials failed"
         return res.json({status: 'error'})
@@ -517,14 +475,12 @@ exports.addTransaction = async (req,res,next) => {
     
 
     let product =[]
-    console.log(req.body.purchased.length)
     for (var i = 0; i< req.body.purchased.length;i++){
-    //     //find ID
-    //     //check if the stock is MORE THAN the quanitty demand
-    //     //this will be modified in the front end
-    //     //make sure that the max number of q in 
-    //     //the respectic=ve html forms are limited
-    //     //-> dont include
+         //find ID
+         //check if the stock is MORE THAN the quanitty demand
+         //this will be modified in the front end
+         //make sure that the max number of q in 
+         //the respectic=ve html forms are limited
 
          var item={
              productID: req.body.purchased[i]._id,
@@ -553,7 +509,6 @@ exports.addTransaction = async (req,res,next) => {
             amountToBePaid: req.body.total,
             status: "paid"
         })
-        console.log(newTransaction)
       
         newTransaction.save((err) => { //saved in the data base
           if (!err) { 
@@ -563,13 +518,11 @@ exports.addTransaction = async (req,res,next) => {
          MESSAGE = err.toString()
          return res.json({status: "invalid"}) }
         })
-        console.log("save")
     }
     
 }
 
 exports.viewTransactions = (req, res, next) => {
-    console.log("on view transactions")
     Transaction.find((err, transactions) => {
         if (!err) { res.send(transactions) } 
       })
@@ -578,6 +531,5 @@ exports.viewTransactions = (req, res, next) => {
 
 //prompts
 exports.prompt = (req, res)=>{
-    console.log("pumuntA")
     return res.json({status: MESSAGE})
 }
