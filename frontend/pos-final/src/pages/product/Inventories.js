@@ -15,7 +15,7 @@ class Inventories extends React.Component{
     }
 
     componentDidMount() {
-        fetch(`${host}view-inventory`) //i-trigger mo yung find-all
+        fetch(`${host}view-inventory`) 
         .then(response=>response.json()) //app.get('/find-all', controller.findAll) 
         .then(body=>{
             this.setState({products: body})
@@ -23,7 +23,6 @@ class Inventories extends React.Component{
       }
 
     pageLogin(){
-        console.log("login")
         window.location.href = "/login"
     }
 

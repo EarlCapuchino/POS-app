@@ -27,8 +27,6 @@ class EditProduct extends React.Component{
             s_name:'',
             s_price:'',
             s_stock:''
-            // productPtice:'',
-            // productStock:''
 
         }
         this.delProduct = this.delProduct.bind(this);
@@ -40,7 +38,7 @@ class EditProduct extends React.Component{
         this.change_s_stock = this.change_s_stock.bind(this)
     }
 
-    pageSuccess(){
+    pageSuccess(){ //success and error prompts
         window.location.href = "/success"
     }
     pageError(){
@@ -56,12 +54,11 @@ class EditProduct extends React.Component{
     }
 
 
-    submitHandler = (e) =>{
+    submitHandler = (e) =>{ //shows if editing the product was a success or a failure
         if (this.state.s_price=="" || this.state.s_name=="" || this.state.s_stock==""){
             return 
         }
         e.preventDefault()
-        console.log(this.state)
         axios.post(`${host}edit-product`,this.state)
         .then(response=>{
             if (response.data.status == "ok"){
@@ -73,8 +70,7 @@ class EditProduct extends React.Component{
 
     }
 
-    findIndex(_target){
-        console.log("find index")
+    findIndex(_target){ //finds the index of the product
         var p = this.state.products
         var s = _target
         let _index=0;
@@ -82,20 +78,20 @@ class EditProduct extends React.Component{
             if(p[i]._id===s){
             _index=i
         }}
-        console.log(_index)
 
         return _index
     }
-    changeInitial_s_name(ind){
+
+    changeInitial_s_name(ind){ //change the name of the product
         this.setState({ s_name: this.state.products[ind].name})
     }
-    changeInitial_s_price(ind){
+    changeInitial_s_price(ind){ //change price
         this.setState({ s_price: this.state.products[ind].price})
     }
-    changeInitial_s_stock(ind){
+    changeInitial_s_stock(ind){ //change stock
         this.setState({ s_stock: this.state.products[ind].stock})
     }
-    change_s_name=(e)=>{
+    change_s_name=(e)=>{ 
         this.setState({ s_name: e.target.value})
     }
     change_s_price=(e)=>{
@@ -112,33 +108,26 @@ class EditProduct extends React.Component{
     selectID=(e)=>{
        this.setState({ s_id: e.target.value})
     
-       var ind = this.findIndex(e.target.value) //KASE HINDI AGAD NA-UUPDATE YUNG STATE
+       var ind = this.findIndex(e.target.value) 
        this.setState({ index: ind})
        this.changeInitial_s_name(ind)
        this.changeInitial_s_price(ind)
        this.changeInitial_s_stock(ind)
-    //    var n = this.state.products[this.state.index].name
-    //    this.setState({ s_name: n })
     }
-    delProduct = (e) =>{
-        //e.preventDefault()
+    delProduct = (e) =>{ //delete product
         
         var ind = this.findIndex(e.target.value)
-        console.log("index"+ind)
         this.setState({ index: ind})
         this.setState({delName:this.state.products[ind].name })
         this.setState({deleteID: e.target.value})
-       
-
-        console.log("DEL NAME "+ this.state.delName)
 
 
     }
+
     delPost = (e) =>{
         axios.post(`${host}delete-product`,({deleteID: this.state.deleteID,
         delName: this.state.delName}))
         .then(response=>{
-            console.log(response)
             if (response.data.status == "ok"){
                 this.pageSuccess();
             }else{
@@ -146,6 +135,7 @@ class EditProduct extends React.Component{
             }
         })
     }
+    
     promptPage(){
         window.location.href = "/success"
     }

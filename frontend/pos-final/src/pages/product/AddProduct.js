@@ -8,7 +8,7 @@ class AddProduct extends React.Component {
     constructor(props){
         super(props)
 
-        this.state = {
+        this.state = { //product structure
             name: '',
             price:'',
             stock:'',
@@ -18,26 +18,25 @@ class AddProduct extends React.Component {
 
     }
     
-    pageSuccess(){
+    pageSuccess(){ //success and error prompts
         window.location.href = "/success"
     }
     pageError(){
         window.location.href = "/error"
     }
+
     changeHandler = (e)=>{
         this.setState({[e.target.name]: e.target.value})
     }
 
-    submitHandler = e =>{
+    submitHandler = e =>{ //shows whether adding the product was a success or failure
         if (this.state.price=="" || this.state.name=="" || this.state.stock=="" || this.state.stock<0){
             return this.pageError()
         }
         e.preventDefault()
-        console.log(this.state)
         
         axios.post(`${host}add-product`,this.state)
         .then(response=>{
-            console.log(response.data.status)
             if (response.data.status == "ok"){this.pageSuccess()}
             else{this.pageError()}
         })
@@ -46,6 +45,7 @@ class AddProduct extends React.Component {
         })
 
     }
+
     render(){
         const {name, price, stock} = this.state
         return(
