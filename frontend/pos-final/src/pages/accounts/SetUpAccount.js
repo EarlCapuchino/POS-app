@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import {host} from "../../utils/get-host"
-
+import './SetUpAccount.css'
 class SetUpAccount extends React.Component {
     constructor(props){
         super(props)
@@ -53,48 +53,54 @@ class SetUpAccount extends React.Component {
         const {username, email, password, role} = this.state
         return(
             <div>
+                <div className="bg">
+                <div className="title">
+                <br/>
                 <h1>
                     Set up Account
                 </h1>
                 <h3>
-                    Welcome to Capu POS app! For setting up an initial account, register your company and be its initial Admin
+                    Welcome to Trygo POS app! 
                 </h3>
+                <h4>For setting up an initial account, register your company and be its initial Admin</h4>
+                </div>
                 <form onSubmit={this.submitHandler}>
 
                     <div>
-                        <label>Username</label>
+                        <label className="label-text">Username: </label>
                         <input type="text" 
                         name="username" 
                         value={username}
                         onChange={this.changeHandler}></input>
                     </div>
-
+                    <br/>
                     <div>
-                        <label>email</label>
+                        <label className="label-text">email: </label>
                         <input type="email" 
                         name="email" 
                         value={email} 
                         onChange={this.changeHandler}></input>
                     </div>
-
+                    <br/>
                     <div>
-                        <label>Password</label>
+                        <label className="label-text">Password: </label>
                         <input 
                         type="password" 
                         name="password" 
                         value={password} 
                         onChange={this.changeHandler}></input>
                     </div>
-
+                    <br/>
                     <div>
-                    <label>Role</label>
+                    <label className="label-text">Role</label>
                     <select value={this.state.role} onChange={this.changeHandler1}>
                     <option value="Admin">Admin</option>
                     </select>
                     </div>
-
+                    <br/>
                     <input type="submit"></input>
                 </form>
+                </div>
             </div>
         )
     }

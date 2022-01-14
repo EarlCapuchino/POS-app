@@ -1,0 +1,13 @@
+/*sets whole background of the page*/
+.bg{
+    min-height: 100vh;
+    background-color: rgba(112, 159, 157,0.9);
+}
+  
+.title{
+    color: black;
+}
+
+.label-text{
+    margin-right: 10px;
+}
