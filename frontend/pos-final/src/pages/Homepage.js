@@ -35,12 +35,12 @@ class Homepage extends React.Component{
     }
     componentDidMount() {
         this.display()
-        fetch(host) //this will call find all
+        fetch(host)
         .then(response=>response.json()) //app.get('/find-all', controller.findAll) 
         .then(body=>{
             console.log(body.status)
-            if (body.status == "existent"){this.pageLogin()}//{this.pageLogin()} //if accounts are present, proceed to login page
-            else{this.pageSetUp()}//{this.pageSetUp()} //else, proceed to set-up-account page
+            if (body.status == "existent"){this.pageLogin()}//if accounts are present, proceed to login page
+            else{this.pageSetUp()}//else, proceed to set-up-account page
         })
     }
     
