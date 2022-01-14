@@ -13,6 +13,7 @@ import AddUser from './pages/accounts/AddUser';
 import EditUser from './pages/accounts/EditUser';
 import Dashboard from './pages/Dashboard';
 import Dashboard2 from './pages/Dashboard2';
+import ChangePassword from './pages/accounts/ChangePassword';
 
 ///product
 import AddProduct from './pages/product/AddProduct'
@@ -41,8 +42,9 @@ import Cookies from 'js-cookie';
 import jwt from 'jwt-decode'
 
 
+
 function App() {
-const [addUser, editUser, addProduct, editProduct, viewInventory, addTransaction, viewTransaction] = useAuth()
+const [addUser, editUser, changePassword, addProduct, editProduct, viewInventory, addTransaction, viewTransaction] = useAuth()
   return (
     <div className="App">
       <video src="https://cdn.discordapp.com/attachments/759381457893982219/927813921358876682/Backeng.mp4" autoplay="autoplay" loop="loop" muted id="video">
@@ -57,6 +59,7 @@ const [addUser, editUser, addProduct, editProduct, viewInventory, addTransaction
       <Route exact ={true} path="/set-up-account" element={<SetUpAccount />}/>
       <Route exact ={true} path="/register" element={addUser()}/>
       <Route exact ={true} path="/edit-user" element={editUser()}/>
+      <Route exact ={true} path="/change-password" element={changePassword()}/>
 
       <Route exact ={true} path="/add-product" element={addProduct()}/>
       <Route exact ={true} path="/edit-product" element={editProduct()}/>

@@ -42,7 +42,13 @@ class Dashboard extends React.Component{
                 <form action="/edit-user">  
                     <input type="submit" value="Edit User" id="editUserButton" />
                 </form>
+
+                <form action="/change-password">  
+                    <input type="submit" value="Change Password" id="changePasswordButton" />
+                </form>
                 </div>
+
+                
 
                 <div id="toptitle2">Products
                 <div id="topdivider"></div>

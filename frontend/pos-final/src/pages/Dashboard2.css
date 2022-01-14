@@ -5,7 +5,7 @@
 
 #maindivtop{
   width:100%;
-  Height:400px;
+  Height:480px;
   background-color: rgba(0,0,0);
 }
 
@@ -37,10 +37,19 @@
   padding-top: 15px;
   align-content: center;
   left: 35%;
+ 
 }
 
-
-
+#toptitleU{
+  color: #ffffff;
+  font-size: 25px;
+  font-weight:500;
+  width: 30%;
+  height:100px;
+  position: relative;
+  align-content: center;
+  left: 35%;
+}
 
 #topdivider{
 width:80%;
@@ -49,7 +58,6 @@ background-color: #ffffff;
 position:relative;
 left:10%;
 }
-
 
 
 /*second div box*/

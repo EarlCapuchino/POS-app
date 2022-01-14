@@ -43,7 +43,18 @@ class Dashboard2 extends React.Component{
                 <form action="/view-transactions" >
                     <input type="submit" value="View Transaction" id="viewTransButton"/>
                 </form>
+
+
     
+                </div>
+
+                <div id="toptitleU">Users
+                <div id="topdivider"></div>
+
+                <form action="/change-password">  
+                    <input type="submit" value="Change Password" id="changePasswordButton" />
+                </form>
+
                 </div>
                 
                 

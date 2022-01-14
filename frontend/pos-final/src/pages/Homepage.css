@@ -27,6 +27,16 @@
   
 }
 
+#changePasswordButton{
+  position: relative;
+  padding: 15px 50px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin-top: 5%;
+  
+}
+
+
 #addProductButton{
   position: relative;
   padding: 15px 87px;

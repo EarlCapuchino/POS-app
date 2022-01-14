@@ -11,6 +11,7 @@ import SetUpAccount from './accounts/SetUpAccount';
 import AddUser from './accounts/AddUser';
 import EditUser from './accounts/EditUser';
 import Dashboard from './Dashboard';
+import ChangePassword from './accounts/ChangePassword';
 
 ///product
 import AddProduct from './product/AddProduct'
@@ -32,6 +33,7 @@ import Unauthorized from '../prompts/Unauthorized'
 
 import Cookies from 'js-cookie';
 import jwt from 'jwt-decode'
+
 
 export default function useAuth() {
 
@@ -58,6 +60,14 @@ export default function useAuth() {
       }
     }else{
       return(<Login/>)
+    }
+  }
+
+  function changePassword(){
+    if ((Cookies.get('jwt')) !== undefined){
+      return(<ChangePassword/>)
+    }else{
+      return(<Login/>) //no cookies present, not logged-in
     }
   }
 
@@ -119,5 +129,5 @@ export default function useAuth() {
     }
   }
  
-  return [addUser, editUser, addProduct, editProduct, viewInventory, addTransaction, viewTransaction];
+  return [addUser, editUser, changePassword, addProduct, editProduct, viewInventory, addTransaction, viewTransaction];
 }

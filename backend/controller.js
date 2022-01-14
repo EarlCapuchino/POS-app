@@ -184,10 +184,6 @@ exports.setUpAccount = async (req, res) =>{ //setup the account
 
 
 
-
-
-
-
 //TEMPLATE FOR FILTER
 exports.addUser = async (req, res) => { //this function is for adding users
 
@@ -231,20 +227,6 @@ exports.addUser = async (req, res) => { //this function is for adding users
             }
       //END OF VERIFICATION PROCESS
 }
-
-
-
-
-
-
-
-
-        
-
-    
-
-
-
 
 
 exports.editUser = async (req, res) =>{ //catch the errors
@@ -308,6 +290,57 @@ User.countDocuments({role: 'Admin'}, function(err, count) {
 
 
 }
+
+//Change Password
+exports.changePassword = async (req, res) => {
+    console.log("CHANGE PASSWORD BACK-END")
+    const token = req.body.cookies
+    const newPassword = req.body.newPassword
+    const oldPassword = req.body.oldPassword
+
+    console.log(token)
+
+    var decoded = jwt.decode(token, {complete: true});
+    console.log("\n Docoded Token: " + JSON.stringify( decoded.payload.email));
+   
+    var verification = { //verification credentials
+        issuer :  "capuPOSapp",
+        subject:  decoded.payload.email, //checks the jwt's email property
+        audience:"http://localhost:3000",
+        maxAge: "24h",
+        algorithms: ["RS256"] //refer to login credentials
+    };
+
+    var verified = jwt.verify(token, publicKey, verification);
+    email = verified.email
+	const user = await User.findOne({ email }).lean()
+    if (await bcrypt.compare(oldPassword, user.password)) {
+        if (newPassword.length < 8) { //if passwords are less than 8 characters
+            MESSAGE= "new password should be atleast 8 characters"
+            return res.json({
+                status: 'error', error: 'Password should be at least 8 characters'
+            })
+        }else{ //everything is valid
+            const pwd=(await (bcrypt.hash(newPassword, 10)))
+            try{
+                await User.updateOne(
+                    {email},{$set:{password: pwd}}
+                )
+                MESSAGE= "Password successfully changed"
+                res.json({status: 'ok'}) //successful update
+            }catch(err){ 
+                console.log(err)
+                MESSAGE= "Session failed, please try again"
+                res.json({status:'error', error:'Invalid Session'}) //case where there is something wrong with client's JWT
+            } 
+
+        }
+    }else{
+        MESSAGE= "Wrong old password input, try again"
+        return res.json({ status: 'wrong password'})
+    }
+}
+
 
 /////////////////////////// PRODUCTS /////////////////////////////////////
 exports.addItemInventory = (req, res) => {
