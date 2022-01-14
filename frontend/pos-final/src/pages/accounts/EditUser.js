@@ -15,8 +15,6 @@ class EditUser extends React.Component {
             previousRole:'',
             chosenRole: '',
             users:[]
-            
-            //role: '' //default role, to be changed by the admin
         }
       
         this.changeHandler1 = this. changeHandler1.bind(this);
@@ -35,7 +33,7 @@ class EditUser extends React.Component {
         })
     }
 
-    pageSuccess(){
+    pageSuccess(){ //success and error prompts
         window.location.href = "/success"
     }
     pageError(){
@@ -45,19 +43,17 @@ class EditUser extends React.Component {
     promptPage(){
         window.location.href = "/edit-inventories/add-item/success-prompt"
     }
-    changeHandler1(event) {
+
+    changeHandler1(event) { 
         this.setState({chosenRole: event.target.value});
     }
     changeHandler2(event) {
-        console.log("Name "+ event.target.value)
         this.setState({chosenName: event.target.value});
         
-        console.log("Previous Role "+ event.target.prevRole)
     }
 
     submitHandler = e =>{ //put back button going to homepage
         e.preventDefault()
-        console.log(this.state)
         axios.post(`${host}edit-user`,this.state)
         .then(response=>{
             if (response.data.status == "ok"){this.pageSuccess()}
@@ -72,8 +68,6 @@ class EditUser extends React.Component {
     DisplayOptions = () => {
         const onSelect  = ({target:{selectedOptions:[option]}}) => 
         (
-            console.log(option.value),
-            console.log(option.getAttribute('data-prevRole')),
             this.setState({chosenName: option.value}),
             this.setState({previousRole: option.getAttribute('data-prevRole')})
 
@@ -94,7 +88,6 @@ class EditUser extends React.Component {
 
 
       pageHome(){
-        console.log("login")
         window.location.href = "/"
     }
 

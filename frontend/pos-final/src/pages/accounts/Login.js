@@ -20,12 +20,13 @@ class Login extends React.Component {
 
     }
     
-    promptPageSuccess(){
+    promptPageSuccess(){ //success and error prompts
         window.location.href = "/success"
     }
     promptPageError(){
         window.location.href = "/error"
     }
+
     changeHandler = (e)=>{
         this.setState({[e.target.name]: e.target.value})
     }
@@ -34,11 +35,9 @@ class Login extends React.Component {
       
         e.preventDefault()
         let a = `${host}`
-        console.log(a)
         axios.post(`${host}login`,this.state)
         .then(response=>{
             if(response.data.status == "ok"){
-                console.log("from login"+ JSON.stringify(response.data.token))
                 Cookies.set('jwt', response.data.token) 
                 this.promptPageSuccess()
             }else{
@@ -52,11 +51,10 @@ class Login extends React.Component {
     }
 
     pagedash(){
-        console.log("dashboard")
         window.location.href = "/dashboard"
     }
+
     DB2(){
-        console.log("login")
         window.location.href = "/dashboard2"
     }
 
