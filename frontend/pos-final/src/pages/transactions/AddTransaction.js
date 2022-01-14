@@ -9,7 +9,7 @@ import '../../App.css'
 class AddTransaction extends React.Component{
     constructor() {
         super();
-        this.state = {
+        this.state = { //transactions structure
             cookies: Cookies.get('jwt'),
             products: [],
             purchased:[],
@@ -18,7 +18,7 @@ class AddTransaction extends React.Component{
         }
     }
     
-    displayPurchase() {
+    displayPurchase() { //viewing purchases
         return(
         <Table striped bordered hover bgcolor="#dadfeb">
         <thead>
@@ -63,7 +63,7 @@ class AddTransaction extends React.Component{
         )
     }
 
-    stockCheck(e){
+    stockCheck(e){ //checks stock
         const name = this.state.purchased[e.target.value].name
         const index = this.state.products.findIndex(element => element.name === name) //to find the stock
         if( this.state.products[index].stock > 0){ //if there are stocks left, proceed
@@ -75,7 +75,7 @@ class AddTransaction extends React.Component{
         }
     }
 
-    increase = (e) =>{
+    increase = (e) =>{ //increase button for transaction
         if(this.stockCheck(e)){ //demand should not exceed supply
             let price = this.state.purchased[e.target.value].price
             this.state.purchased[e.target.value].quantity += 1;
@@ -85,11 +85,10 @@ class AddTransaction extends React.Component{
             this.setState({purchased: this.state.purchased, total: this.state.total})
         }
     }
-    decrease = (e) =>{
+    decrease = (e) =>{ //decrease button for transactions
         const name = this.state.purchased[e.target.value].name
         const index = this.state.products.findIndex(element => element.name === name) //to find the stock
         if (this.state.purchased[e.target.value].quantity > 0){
-            console.log("true")
             let price = this.state.purchased[e.target.value].price
             this.state.purchased[e.target.value].quantity -= 1;
             this.state.purchased[e.target.value].amount = +(this.state.purchased[e.target.value].amount - price).toFixed(2)
@@ -105,7 +104,7 @@ class AddTransaction extends React.Component{
         }
     }
 
-    purchase = (e) =>{
+    purchase = (e) =>{ //purchasing list of transactions
         const index = e.target.value
         const id = e.target.dataset.index 
 
@@ -127,14 +126,15 @@ class AddTransaction extends React.Component{
     }
 
     componentDidMount=()=>{
-        fetch(`${host}view-inventory`) //i-trigger mo yung find-all
+        fetch(`${host}view-inventory`)
         .then(response=>response.json()) //app.get('/find-all', controller.findAll) 
         .then(body=>{
             this.setState({products: body})
         })
     
     }
-    pageSuccess(){
+
+    pageSuccess(){ //success and error prompts
         window.location.href = "/success"
     }
     pageError(){
@@ -146,7 +146,6 @@ class AddTransaction extends React.Component{
 
     submitHandler = (e) =>{
         e.preventDefault()
-        console.log(this.state)
         if (this.state.total=="0"){
             return this.pageErrorTrans()
         }
@@ -157,7 +156,6 @@ class AddTransaction extends React.Component{
        
         axios.post(`${host}add-transaction`,this.state) //return ng add transaction
         .then(response=>{
-            console.log(response.data.status)
             if (response.data.status == "ok"){this.pageSuccess()}
             else{this.pageError()}
         })
@@ -167,11 +165,10 @@ class AddTransaction extends React.Component{
     }
 
     pageLogin(){
-        console.log("login")
         window.location.href = "/login"
     }
 
-    display(){
+    display(){ //if not logged in, goes back to login page
         if(Cookies.get('jwt')){
             return
         }else{
