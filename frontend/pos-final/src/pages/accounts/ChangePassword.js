@@ -17,9 +17,11 @@ class ChangePassword extends React.Component {
       
 
     }
-    pageSuccess(){
+
+    pageSuccess(){ //success and error prompts
         window.location.href = "/success"
     }
+
     pageError(){
         window.location.href = "/error"
     }
@@ -32,10 +34,8 @@ class ChangePassword extends React.Component {
 
     submitHandler = e =>{ //put back button going to homepage
         e.preventDefault()
-        console.log(this.state)
         axios.post(`${host}change-password`,this.state)
         .then(response=>{
-            console.log(response.data.status)
             if (response.data.status == "ok"){this.pageSuccess()}
             else{this.pageError()}
         })

@@ -14,7 +14,6 @@ class SetUpAccount extends React.Component {
             email:'',
             pasword:'',
             role: 'Admin'
-            //role: '' //default role, to be changed by the admin
         }
       
         this.changeHandler1 = this. changeHandler1 .bind(this);
@@ -23,11 +22,9 @@ class SetUpAccount extends React.Component {
     
 
     pagedash(){
-        console.log("dashboard")
         window.location.href = "/dashboard"
     }
     DB2(){
-        console.log("login")
         window.location.href = "/dashboard2"
     }
     display(){
@@ -41,12 +38,13 @@ class SetUpAccount extends React.Component {
         }
       }
     
-    promptPageSuccess(){
+    promptPageSuccess(){ //success and error prompts
         window.location.href = "/success"
     }
     promptPageError(){
         window.location.href = "/error"
     }
+
     changeHandler = (e)=>{
         this.setState({[e.target.name]: e.target.value})
     }
@@ -56,7 +54,6 @@ class SetUpAccount extends React.Component {
 
     submitHandler = e =>{ //put back button going to homepage
         e.preventDefault()
-        console.log(this.state)
         axios.post(`${host}set-up-account`,this.state)
         .then(response=>{
             console.log(response.data.status)
@@ -86,7 +83,6 @@ class SetUpAccount extends React.Component {
         fetch(host)
         .then(response=>response.json()) //app.get('/find-all', controller.findAll) 
         .then(body=>{
-            console.log(body.status)
             if (body.status == "existent"){this.pageLogin()}//if accounts are present, proceed to login page
             else{this.pageSetUp()}//else, proceed to set-up-account page
         })

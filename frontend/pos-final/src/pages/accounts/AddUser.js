@@ -8,7 +8,7 @@ class AddUser extends React.Component {
  
     
     
-    pageSuccess(){
+    pageSuccess(){ //prompts for success and error
         window.location.href = "/success"
     }
     pageError(){
@@ -18,9 +18,11 @@ class AddUser extends React.Component {
     changeHandler = (e)=>{
         this.setState({[e.target.name]: e.target.value})
     }
-    changeHandler1(event) {
+
+    changeHandler1(event) { 
         this.setState({role: event.target.value});
       }
+
     constructor(props){
         super(props)
 
@@ -41,10 +43,8 @@ class AddUser extends React.Component {
   
     submitHandler = e =>{ //put back button going to homepage
         e.preventDefault()
-        console.log(this.state)
         axios.post(`${host}add-user`,this.state)
         .then(response=>{
-            console.log(response.data.status)
             if (response.data.status == "ok"){this.pageSuccess()}
             else{this.pageError()}
         })
@@ -55,7 +55,6 @@ class AddUser extends React.Component {
     }
 
     pageHome(){
-        console.log("login")
         window.location.href = "/"
     }
 
