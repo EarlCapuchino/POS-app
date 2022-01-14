@@ -2,14 +2,14 @@ const mongoose = require('mongoose');
 
 const Transaction = mongoose.model('Transaction',{
     vendor: String,
-     products: [
+     products: [ //structure of products
       {
            productName: String,
            productQuantity: Number,
            productPrice: Number
       }
      ],
-     amountToBePaid:{
+     amountToBePaid:{ //This and the ones below are used for transactions
        type: Number,
       required: true
       },
