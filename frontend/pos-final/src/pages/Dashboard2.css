@@ -9,7 +9,7 @@
   background-color: rgba(0,0,0);
 }
 
-#addTransButton2{
+#addTransButton{
   position: relative;
   padding: 15px 66px;
   border-radius: 10px;
@@ -19,7 +19,7 @@
   
 }
 
-#viewTransButton2{
+#viewTransButton{
   position: relative;
   padding: 15px 64px;
   border-radius: 10px;
@@ -161,7 +161,7 @@ left:10%;
 
 #picture4{
   border-radius: 10%;
-  background-image: url("https://cdn3.vectorstock.com/i/1000x1000/97/32/man-silhouette-profile-picture-vector-2139732.jpg");
+  background-image: url("../utils/sammy.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height:70%;
