@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User', {
-    username: {
+    username: { //user identifications
         type: String,
         required: true
     },
@@ -14,7 +14,7 @@ const User = mongoose.model('User', {
         required: true,
 
     },
-    role:{
+    role:{ //Admin, staff, cashier
         type: String,
         required: true
     } 
