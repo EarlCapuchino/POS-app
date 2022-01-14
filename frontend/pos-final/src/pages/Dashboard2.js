@@ -5,16 +5,14 @@ import jwt from 'jwt-decode'
 class Dashboard2 extends React.Component{
 
     pagedash(){
-        console.log("dashboard")
         window.location.href = "/dashboard"
     }
 
     pageHome(){
-        console.log("login")
         window.location.href = "/"
     }
 
-    display(){
+    display(){ //uses the second version of the dashboard for cashiers where they can only access view and add transactions
         if(Cookies.get('jwt')){
             if (jwt(Cookies.get('jwt')).role!="Cashier"){
                 return this.pagedash()

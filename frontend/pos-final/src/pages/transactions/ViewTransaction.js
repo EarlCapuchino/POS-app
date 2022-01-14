@@ -6,7 +6,7 @@ import {host} from "../../utils/get-host"
 
 
 class ViewTransaction extends React.Component{
-    constructor(props){
+    constructor(props){ //list of transactions
         super(props)
 
         this.state={
@@ -15,14 +15,14 @@ class ViewTransaction extends React.Component{
     }
 
     componentDidMount(){
-        fetch(`${host}view-transactions`) //i-trigger mo yung find-all
+        fetch(`${host}view-transactions`)
         .then(response=>response.json()) //app.get('/find-all', controller.findAll) 
         .then(body=>{
             this.setState({transactions: body})
         })
     }
 
-    method(transaction){
+    method(transaction){ //finds transactions
         let prod =[]
         for (let j=0;j<transaction.products.length;j++){
             prod.push(
@@ -40,11 +40,10 @@ class ViewTransaction extends React.Component{
     }
     
     pageLogin(){
-        console.log("login")
         window.location.href = "/login"
     }
 
-    display(){
+    display(){ //if not logged in, goes to login page
         if(Cookies.get('jwt')){
             return
         }else{
