@@ -1,6 +1,13 @@
 Start:
 {BACKEND}
-- download the config file containing backend credentials
+- under backend subfolder, create a folder named "config"
+- download the dev.json file from the developers 
+- paste the dev.json file on the config file
+- under backend subfolder, create a folder named "keys"
+- download private.key and public.key from the developers
+
+- launch the backend as follows:
+
 - cd backend
 - node index (make public and open the browser)
 - copy url
@@ -10,3 +17,17 @@ Start:
 - cd frontend/pos-final
 - npm i
 - npm start
+
+- change mo itong filename into README.md instead of README.txt
+- ilagay mo ito sa labas ng backend and frontend, dapat nasa main folder to kasama yung LICENSE
+- follow mo yung format ng README here:  https://www.makeareadme.com/
+
+- ilagay mo dito yung set-up-account page(yung lalabas kapag wala pang users sa database)
+- lagyan mo ng instructions pano mag set up account
+
+- ilagay dito kung sino lang makaka-access ng kung anong mga pages
+- ilagay mo yung mga test cases per pages, kapag gusto nila ma access tapos valid
+- kapag gusto nila ma-access pero restricted sila
+- lagyan mo ng instructions pano ma-access lahat ng page, at kung anong mga errors na lalabas
+- lagyan din ng mga dependencies na nakalagay sa package.json ng backend and front end
+- kapag tapos kana, chat moko for the final test run
