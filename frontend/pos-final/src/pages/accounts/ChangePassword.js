@@ -50,32 +50,34 @@ class ChangePassword extends React.Component {
             
             <div>
                 <div className = "bg-overlay">
-                <h1>Change Password</h1>
-                <h3>Account Details</h3>
-                <h5>username: {jwt(Cookies.get('jwt')).username}</h5>
-                <h5>email: {jwt(Cookies.get('jwt')).email} </h5>
+                <div id="titleCP">Change Password</div>
+                <div id="CPdivider"></div>
+                <div id="editP"> Account Details </div>
+                <div id="editP"> Username: {jwt(Cookies.get('jwt')).username} </div>
+                <div id="editP"> Email: {jwt(Cookies.get('jwt')).email} </div>
+                <div id="CPDiv"></div>
                 <form onSubmit={this.submitHandler}>
-                    <div>
-                        <label>Existing password: </label>
+                    <div id="CPtext">
+                        Existing Password:
                         <input 
                         type="password" 
                         name="oldPassword" 
                         value={oldPassword} 
                         onChange={this.changeHandlerOld}></input>
                     </div>
-                    <div>
-                        <label>New Password: </label>
+                    <div id="CPtext">
+                        New Password: 
                         <input 
                         type="password" 
                         name="newPassword" 
                         value={newPassword} 
                         onChange={this.changeHandlerNew}></input>
                     </div>
-                    <input type="submit"></input>
+                    <input type="submit"  id="buttonsuser"></input>
                 </form>
                 <form action="/" >
-                    <input type="submit" value="Return"/>
-                </form> 
+                    <input type="submit" value="Return" id="buttonsuser"/>
+                </form>
             </div>
             </div>
         )

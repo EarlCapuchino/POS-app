@@ -9,7 +9,7 @@
   background-color: rgba(0,0,0);
 }
 
-#addTransButton{
+#addTransButton2{
   position: relative;
   padding: 15px 66px;
   border-radius: 10px;
@@ -19,7 +19,7 @@
   
 }
 
-#viewTransButton{
+#viewTransButton2{
   position: relative;
   padding: 15px 64px;
   border-radius: 10px;
