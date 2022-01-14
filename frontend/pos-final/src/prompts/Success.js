@@ -11,11 +11,10 @@ class Success extends React.Component{
     }
 
     componentDidMount=()=>{
-        fetch(`${host}prompt`) //i-trigger mo yung find-all
+        fetch(`${host}prompt`)
         .then(response=>response.json()) //app.get('/find-all', controller.findAll) 
         .then(body=>{
             this.setState({display: body.status})
-            console.log(body.status)
         })
     }
     render(){
