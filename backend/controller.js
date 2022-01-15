@@ -69,7 +69,7 @@ exports.login = async (req, res) => { //login for the app
     let date = ("0" + dateObj.getDate()).slice(-2);
     let month = ("0" + (dateObj.getMonth() + 1)).slice(-2);
     let year = dateObj.getFullYear();
-    let hours = dateObj.getHours();
+    let hours = (dateObj.getHours())+8; //UTC + 8 for Philippine Standard Time
     let minutes = ("0" + dateObj.getMinutes()).slice(-2);
     let seconds = dateObj.getSeconds();
     let login = `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`
@@ -100,7 +100,7 @@ exports.logout = async (req,res) =>{
     let date = ("0" + dateObj.getDate()).slice(-2);
     let month = ("0" + (dateObj.getMonth() + 1)).slice(-2);
     let year = dateObj.getFullYear();
-    let hours = dateObj.getHours();
+    let hours = (dateObj.getHours())+8; //UTC + 8 for Philippine Standard Time
     let minutes = ("0" + dateObj.getMinutes()).slice(-2);
     let seconds = dateObj.getSeconds();
     let logout = `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`
