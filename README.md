@@ -84,10 +84,10 @@ Feel free to test the website for inconsistencies
 Pull requests are no longer welcome.
 
 ## Authors and Acknowledgements
-EARL SAMUEL R. CAPUCHINO
-JULIAN C. FUERTES
-REDEEMYRRH YSRAEL S. MANALO
-ADRYAN PHYLLIP A. RAMOS
+EARL SAMUEL R. CAPUCHINO (ercapu)
+JULIAN C. FUERTES (jcfuertes41)
+REDEEMYRRH YSRAEL S. MANALO (ShiroeTalonLord)
+ADRYAN PHYLLIP A. RAMOS (Aimer350)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
