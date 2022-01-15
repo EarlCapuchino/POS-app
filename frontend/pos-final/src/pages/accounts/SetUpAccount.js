@@ -71,7 +71,7 @@ class SetUpAccount extends React.Component {
     }
 
     pageSetUp(){
-        window.location.href = "/set-up-account"
+        window.location.href = "/set-up-initial-account"
     }
     pageLogin(){
         console.log("login")
@@ -84,7 +84,6 @@ class SetUpAccount extends React.Component {
         .then(response=>response.json()) //app.get('/find-all', controller.findAll) 
         .then(body=>{
             if (body.status == "existent"){this.pageLogin()}//if accounts are present, proceed to login page
-            else{this.pageSetUp()}//else, proceed to set-up-account page
         })
     }
 

@@ -1,2 +1,2 @@
-export const host = "https://4000-imer350-app-e7a87lj2448.ws-us27.gitpod.io/"; //always changing get the backend url
+export const host = "https://4000-arlapuchino-app-4zumigu886h.ws-us27.gitpod.io/"; //always changing get the backend url
 
