@@ -79,6 +79,29 @@ Feel free to test the website for inconsistencies
 
 {9} An admin or staff cannot delete products which have existing transactions already
 
+## Features
+
+### Add User
+- add a user in the app
+- include email, password, amd role
+### Edit User
+- edit user's role
+### Change Password
+- change your own password
+### Add Product
+- add product in inventory
+- include name, stock, and price
+### Edit Product
+- edit product name, stock, and price
+### View Inventory
+- view all products inside inventory
+### Add Transaction
+- add product to cart and include quantity
+- compute the total price
+- click pay button
+- to be included on list of transactions
+### View Transactions
+- view all transactions done in the App
 
 ## Contributing
 Pull requests are no longer welcome.
