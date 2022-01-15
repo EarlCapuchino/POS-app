@@ -63,7 +63,7 @@ Feel free to test the website for inconsistencies
 
 {1} In the setup account page, if there are no users within the databse, the new user may not be able to login or access any other pages.
 
-{2} The very first user to be setup an account with will be the Admin
+{2} The very first user to be setup an account with will be the Admin. An admin can elect another admin or delete the admin status from themselves, but there should always be one admin.
 
 {3} If not Logged in, and there is a recorded user in the database, the user cannot access the setup account anymore since only admins can manage and register accounts
 
@@ -75,7 +75,10 @@ Feel free to test the website for inconsistencies
 
 {7} Logout button is functioning and will lead the user to the login page
 
-{8} All users can change their passwords on their accounts alone
+{8} All users can change their passwords on their accounts alone. The password should be atleast 8 characters.
+
+{9} An admin or staff cannot delete products which have existing transactions already
+
 
 ## Contributing
 Pull requests are no longer welcome.

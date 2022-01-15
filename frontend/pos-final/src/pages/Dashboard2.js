@@ -35,11 +35,11 @@ class Dashboard2 extends React.Component{
 
 
                 <form action="/add-transaction" >
-                    <input type="submit" value="Add Transaction" id="addTransButton2"/>
+                    <input type="submit" value="Add Transaction" id="addTransButton"/>
                 </form>
 
                 <form action="/view-transactions" >
-                    <input type="submit" value="View Transaction" id="viewTransButton2"/>
+                    <input type="submit" value="View Transaction" id="viewTransButton"/>
                 </form>
 
 
